@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-    paths: ["content/**", ".github/workflows/hugo_publish.yml", "config.yaml", "layouts/**", "static/**", "themes/**"]
+    paths: ["content/**", ".github/workflows/hugo.yaml", "config.yaml", "layouts/**", "static/**", "themes/**"]
 
 jobs:
   deploy:
