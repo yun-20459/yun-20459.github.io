@@ -3,3 +3,10 @@ languageCode: zh-tw
 title: 隨寫日誌
 paginate: 5
 theme: cactus
+
+menu:
+  main:
+    - identifier: Archive
+      name: "About"
+      url: "/about"
+      weight: 1
