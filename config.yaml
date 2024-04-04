@@ -1,0 +1,5 @@
+baseURL: "https://snow-ham1949.github.io/"
+languageCode: zh-tw
+title: 隨寫日誌
+paginate: 5
+theme: cactus
