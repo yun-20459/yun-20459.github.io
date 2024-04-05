@@ -1,0 +1,289 @@
+<!doctype html><html lang=zh-tw><head><link rel=preload href=/lib/font-awesome/webfonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/lib/font-awesome/webfonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/lib/font-awesome/webfonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2 as=font type=font/woff2 crossorigin=anonymous><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>Atcoder Beginner Contest 312 題解 | 隨寫日誌</title>
+<link rel=canonical href=https://snow-ham1949.github.io/posts/atcoder-beginner-contest-312-%E9%A1%8C%E8%A7%A3/><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="all,follow"><meta name=googlebot content="index,follow,snippet,archive"><meta property="og:title" content="Atcoder Beginner Contest 312 題解"><meta property="og:description" content='A - Chord 判斷一下就好了。 #include <bits/stdc++.h> using namespace std; typedef long long ll; typedef pair<int, int> pii; typedef pair<ll, ll> pll; #define SZ(a) (int)(a).size() #define ALL(v) (v).begin(), (v).end() #define X first #define Y second #define dbg(x) cerr << #x << " = " << x << endl; string ss[7] = {"ACE", "BDF", "CEG", "DFA", "EGB", "FAC", "GBD"}; void solve() { string s; cin'><meta property="og:type" content="article"><meta property="og:url" content="https://snow-ham1949.github.io/posts/atcoder-beginner-contest-312-%E9%A1%8C%E8%A7%A3/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-08-17T21:57:46+00:00"><meta property="article:modified_time" content="2023-08-17T21:57:46+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Atcoder Beginner Contest 312 題解"><meta name=twitter:description content='A - Chord 判斷一下就好了。 #include <bits/stdc++.h> using namespace std; typedef long long ll; typedef pair<int, int> pii; typedef pair<ll, ll> pll; #define SZ(a) (int)(a).size() #define ALL(v) (v).begin(), (v).end() #define X first #define Y second #define dbg(x) cerr << #x << " = " << x << endl; string ss[7] = {"ACE", "BDF", "CEG", "DFA", "EGB", "FAC", "GBD"}; void solve() { string s; cin'><link rel=stylesheet href=https://snow-ham1949.github.io/css/styles.c05d68261bf086a9d7713c4f8a6215a3601608e267a816a7ee58f139b3d1aae51222aae2081c8e0c6bd35e1334773b7a16283022f31f92afd93bb37e5e822e66.css integrity="sha512-wF1oJhvwhqnXcTxPimIVo2AWCOJnqBan7ljxObPRquUSIqriCByODGvTXhM0dzt6FigwIvMfkq/ZO7N+XoIuZg=="><!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script><script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]--><link rel=icon type=image/png href=https://snow-ham1949.github.io/images/favicon.ico></head><body class="max-width mx-auto px3 ltr"><div class="content index py4"><div id=header-post><a id=menu-icon href=#><i class="fas fa-bars fa-lg"></i></a>
+<a id=menu-icon-tablet href=#><i class="fas fa-bars fa-lg"></i></a>
+<a id=top-icon-tablet href=# onclick='$("html, body").animate({scrollTop:0},"fast")' style=display:none aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+<span id=menu><span id=nav><ul><li><a href=/>Home</a></li><li><a href=/posts>Writings</a></li><li><a href=/tags>Tags</a></li><li><a href=/about>About</a></li></ul></span><br><span id=actions><ul><li><a class=icon href=https://snow-ham1949.github.io/posts/atcoder-beginner-contest-313-%E9%A1%8C%E8%A7%A3/ aria-label=Previous><i class="fas fa-chevron-left" aria-hidden=true onmouseover='$("#i-prev").toggle()' onmouseout='$("#i-prev").toggle()'></i></a></li><li><a class=icon href=https://snow-ham1949.github.io/posts/atcoder-beginner-contest-315-%E9%A1%8C%E8%A7%A3/ aria-label=Next><i class="fas fa-chevron-right" aria-hidden=true onmouseover='$("#i-next").toggle()' onmouseout='$("#i-next").toggle()'></i></a></li><li><a class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page"><i class="fas fa-chevron-up" aria-hidden=true onmouseover='$("#i-top").toggle()' onmouseout='$("#i-top").toggle()'></i></a></li><li><a class=icon href=# aria-label=Share><i class="fas fa-share-alt" aria-hidden=true onmouseover='$("#i-share").toggle()' onmouseout='$("#i-share").toggle()' onclick='return $("#share").toggle(),!1'></i></a></li></ul><span id=i-prev class=info style=display:none>Previous post</span>
+<span id=i-next class=info style=display:none>Next post</span>
+<span id=i-top class=info style=display:none>Back to top</span>
+<span id=i-share class=info style=display:none>Share post</span></span><br><div id=share style=display:none><ul><li><a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fatcoder-beginner-contest-312-%25E9%25A1%258C%25E8%25A7%25A3%2f" aria-label=Facebook><i class="fab fa-facebook" aria-hidden=true></i></a></li><li><a class=icon href="https://twitter.com/share?url=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fatcoder-beginner-contest-312-%25E9%25A1%258C%25E8%25A7%25A3%2f&text=Atcoder%20Beginner%20Contest%20312%20%e9%a1%8c%e8%a7%a3" aria-label=Twitter><i class="fab fa-twitter" aria-hidden=true></i></a></li><li><a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fatcoder-beginner-contest-312-%25E9%25A1%258C%25E8%25A7%25A3%2f&title=Atcoder%20Beginner%20Contest%20312%20%e9%a1%8c%e8%a7%a3" aria-label=Linkedin><i class="fab fa-linkedin" aria-hidden=true></i></a></li><li><a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fatcoder-beginner-contest-312-%25E9%25A1%258C%25E8%25A7%25A3%2f&is_video=false&description=Atcoder%20Beginner%20Contest%20312%20%e9%a1%8c%e8%a7%a3" aria-label=Pinterest><i class="fab fa-pinterest" aria-hidden=true></i></a></li><li><a class=icon href="mailto:?subject=Atcoder%20Beginner%20Contest%20312%20%e9%a1%8c%e8%a7%a3&body=Check out this article: https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fatcoder-beginner-contest-312-%25E9%25A1%258C%25E8%25A7%25A3%2f" aria-label=Email><i class="fas fa-envelope" aria-hidden=true></i></a></li><li><a class=icon href="https://getpocket.com/save?url=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fatcoder-beginner-contest-312-%25E9%25A1%258C%25E8%25A7%25A3%2f&title=Atcoder%20Beginner%20Contest%20312%20%e9%a1%8c%e8%a7%a3" aria-label=Pocket><i class="fab fa-get-pocket" aria-hidden=true></i></a></li><li><a class=icon href="http://reddit.com/submit?url=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fatcoder-beginner-contest-312-%25E9%25A1%258C%25E8%25A7%25A3%2f&title=Atcoder%20Beginner%20Contest%20312%20%e9%a1%8c%e8%a7%a3" aria-label=reddit><i class="fab fa-reddit" aria-hidden=true></i></a></li><li><a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fatcoder-beginner-contest-312-%25E9%25A1%258C%25E8%25A7%25A3%2f&name=Atcoder%20Beginner%20Contest%20312%20%e9%a1%8c%e8%a7%a3&description=A%20-%20Chord%20%e5%88%a4%e6%96%b7%e4%b8%80%e4%b8%8b%e5%b0%b1%e5%a5%bd%e4%ba%86%e3%80%82%20%23include%20%26lt%3bbits%2fstdc%2b%2b.h%26gt%3b%20using%20namespace%20std%3b%20typedef%20long%20long%20ll%3b%20typedef%20pair%26lt%3bint%2c%20int%26gt%3b%20pii%3b%20typedef%20pair%26lt%3bll%2c%20ll%26gt%3b%20pll%3b%20%23define%20SZ%28a%29%20%28int%29%28a%29.size%28%29%20%23define%20ALL%28v%29%20%28v%29.begin%28%29%2c%20%28v%29.end%28%29%20%23define%20X%20first%20%23define%20Y%20second%20%23define%20dbg%28x%29%20cerr%20%26lt%3b%26lt%3b%20%23x%20%26lt%3b%26lt%3b%20%26%2334%3b%20%3d%20%26%2334%3b%20%26lt%3b%26lt%3b%20x%20%26lt%3b%26lt%3b%20endl%3b%20string%20ss%5b7%5d%20%3d%20%7b%26%2334%3bACE%26%2334%3b%2c%20%26%2334%3bBDF%26%2334%3b%2c%20%26%2334%3bCEG%26%2334%3b%2c%20%26%2334%3bDFA%26%2334%3b%2c%20%26%2334%3bEGB%26%2334%3b%2c%20%26%2334%3bFAC%26%2334%3b%2c%20%26%2334%3bGBD%26%2334%3b%7d%3b%20void%20solve%28%29%20%7b%20string%20s%3b%20cin" aria-label=Tumblr><i class="fab fa-tumblr" aria-hidden=true></i></a></li><li><a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fatcoder-beginner-contest-312-%25E9%25A1%258C%25E8%25A7%25A3%2f&t=Atcoder%20Beginner%20Contest%20312%20%e9%a1%8c%e8%a7%a3" aria-label="Hacker News"><i class="fab fa-hacker-news" aria-hidden=true></i></a></li></ul></div><div id=toc><nav id=TableOfContents><ul><li><a href=#a---chord>A - Chord</a></li><li><a href=#b---tak-code>B - TaK Code</a></li><li><a href=#c---invisible-hand>C - Invisible Hand</a></li><li><a href=#d---count-bracket-sequences>D - Count Bracket Sequences</a></li><li><a href=#e---tangency-of-cuboids>E - Tangency of Cuboids</a></li><li><a href=#f---cans-and-openers>F - Cans and Openers</a></li><li><a href=#g---avoid-straight-line>G - Avoid Straight Line</a></li></ul></nav></div></span></div><article class=post itemscope itemtype=http://schema.org/BlogPosting><header><h1 class=posttitle itemprop="name headline">Atcoder Beginner Contest 312 題解</h1><div class=meta><div class=postdate><time datetime="2023-08-17 21:57:46 +0000 UTC" itemprop=datePublished>2023-08-17</time></div><div class=article-tag><i class="fas fa-tag"></i>
+<a class=tag-link href=/tags/atcoder rel=tag>Atcoder</a></div></div></header><div class=content itemprop=articleBody><h2 id=a---chord>A - Chord</h2><p>判斷一下就好了。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;bits/stdc++.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>typedef</span> <span style=color:#66d9ef>long</span> <span style=color:#66d9ef>long</span> ll;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>typedef</span> pair<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span>, <span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> pii;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>typedef</span> pair<span style=color:#f92672>&lt;</span>ll, ll<span style=color:#f92672>&gt;</span> pll;
+</span></span><span style=display:flex><span><span style=color:#75715e>#define SZ(a) (int)(a).size()
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define ALL(v) (v).begin(), (v).end()
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define X first
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define Y second
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#define dbg(x) cerr &lt;&lt; #x &lt;&lt; &#34; = &#34; &lt;&lt; x &lt;&lt; endl;
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>string ss[<span style=color:#ae81ff>7</span>] <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;ACE&#34;</span>, <span style=color:#e6db74>&#34;BDF&#34;</span>, <span style=color:#e6db74>&#34;CEG&#34;</span>, <span style=color:#e6db74>&#34;DFA&#34;</span>, <span style=color:#e6db74>&#34;EGB&#34;</span>, <span style=color:#e6db74>&#34;FAC&#34;</span>, <span style=color:#e6db74>&#34;GBD&#34;</span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>solve</span>() {
+</span></span><span style=display:flex><span>  string s; cin <span style=color:#f92672>&gt;&gt;</span> s;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; i <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>7</span>; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (s <span style=color:#f92672>==</span> ss[i]) {
+</span></span><span style=display:flex><span>      cout <span style=color:#f92672>&lt;&lt;</span> <span style=color:#e6db74>&#34;Yes</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>;
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>return</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  cout <span style=color:#f92672>&lt;&lt;</span> <span style=color:#e6db74>&#34;No</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*
+</span></span></span><span style=display:flex><span><span style=color:#75715e>CheckList:
+</span></span></span><span style=display:flex><span><span style=color:#75715e>1. long long
+</span></span></span><span style=display:flex><span><span style=color:#75715e>2. mod
+</span></span></span><span style=display:flex><span><span style=color:#75715e>3. template
+</span></span></span><span style=display:flex><span><span style=color:#75715e>4. input/output format/content
+</span></span></span><span style=display:flex><span><span style=color:#75715e>5. test sample input/output
+</span></span></span><span style=display:flex><span><span style=color:#75715e>*/</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>  ios<span style=color:#f92672>::</span>sync_with_stdio(<span style=color:#ae81ff>0</span>);cin.tie(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>int</span> T <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// cin &gt;&gt; T;
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>while</span> (T<span style=color:#f92672>--</span>) solve();
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=b---tak-code>B - TaK Code</h2><p>可以直接手打出那個 pattern 然後比對一下就 ok</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;bits/stdc++.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>typedef</span> <span style=color:#66d9ef>long</span> <span style=color:#66d9ef>long</span> ll;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>typedef</span> pair<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span>, <span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> pii;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>typedef</span> pair<span style=color:#f92672>&lt;</span>ll, ll<span style=color:#f92672>&gt;</span> pll;
+</span></span><span style=display:flex><span><span style=color:#75715e>#define SZ(a) (int)(a).size()
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define ALL(v) (v).begin(), (v).end()
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define X first
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define Y second
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#define dbg(x) cerr &lt;&lt; #x &lt;&lt; &#34; = &#34; &lt;&lt; x &lt;&lt; endl;
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>string pat[<span style=color:#ae81ff>9</span>] <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>  <span style=color:#e6db74>&#34;###.?????&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#e6db74>&#34;###.?????&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#e6db74>&#34;###.?????&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#e6db74>&#34;....?????&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#e6db74>&#34;?????????&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#e6db74>&#34;?????....&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#e6db74>&#34;?????.###&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#e6db74>&#34;?????.###&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#e6db74>&#34;?????.###&#34;</span> };
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>solve</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>int</span> n, m; cin <span style=color:#f92672>&gt;&gt;</span> n <span style=color:#f92672>&gt;&gt;</span> m;
+</span></span><span style=display:flex><span>  vector<span style=color:#f92672>&lt;</span>string<span style=color:#f92672>&gt;</span> g(n);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>auto</span> <span style=color:#f92672>&amp;</span>s : g) cin <span style=color:#f92672>&gt;&gt;</span> s;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; i <span style=color:#f92672>&lt;=</span> n <span style=color:#f92672>-</span> <span style=color:#ae81ff>9</span>; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> j <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; j <span style=color:#f92672>&lt;=</span> m <span style=color:#f92672>-</span> <span style=color:#ae81ff>9</span>; j<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>bool</span> ok <span style=color:#f92672>=</span> true;
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> dx <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; dx <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>9</span> <span style=color:#f92672>&amp;&amp;</span> ok; dx<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> dy <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; dy <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>9</span> <span style=color:#f92672>&amp;&amp;</span> ok; dy<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>          <span style=color:#66d9ef>if</span> (pat[dx][dy] <span style=color:#f92672>!=</span> <span style=color:#e6db74>&#39;?&#39;</span> <span style=color:#f92672>&amp;&amp;</span> g[i <span style=color:#f92672>+</span> dx][j <span style=color:#f92672>+</span> dy] <span style=color:#f92672>!=</span> pat[dx][dy]) {
+</span></span><span style=display:flex><span>            ok <span style=color:#f92672>=</span> false;
+</span></span><span style=display:flex><span>          }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span> (ok) cout <span style=color:#f92672>&lt;&lt;</span> i <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>&lt;&lt;</span> <span style=color:#e6db74>&#34; &#34;</span> <span style=color:#f92672>&lt;&lt;</span> j <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>&lt;&lt;</span> <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*
+</span></span></span><span style=display:flex><span><span style=color:#75715e>CheckList:
+</span></span></span><span style=display:flex><span><span style=color:#75715e>1. long long
+</span></span></span><span style=display:flex><span><span style=color:#75715e>2. mod
+</span></span></span><span style=display:flex><span><span style=color:#75715e>3. template
+</span></span></span><span style=display:flex><span><span style=color:#75715e>4. input/output format/content
+</span></span></span><span style=display:flex><span><span style=color:#75715e>5. test sample input/output
+</span></span></span><span style=display:flex><span><span style=color:#75715e>*/</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>  ios<span style=color:#f92672>::</span>sync_with_stdio(<span style=color:#ae81ff>0</span>);cin.tie(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>int</span> T <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// cin &gt;&gt; T;
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>while</span> (T<span style=color:#f92672>--</span>) solve();
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=c---invisible-hand>C - Invisible Hand</h2><p>首先對 seller 跟 buyer 的錢 sort 不虧，然後可以發現這個錢是有單調性的，如果 x 元可以滿足的話那 x + 1 元一定可以，因為 seller 只會等於會變多，buyer 只會等於或變少，這樣 seller 一定 >= buyer。所以二分搜一下就好了。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;bits/stdc++.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>typedef</span> <span style=color:#66d9ef>long</span> <span style=color:#66d9ef>long</span> ll;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>typedef</span> pair<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span>, <span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> pii;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>typedef</span> pair<span style=color:#f92672>&lt;</span>ll, ll<span style=color:#f92672>&gt;</span> pll;
+</span></span><span style=display:flex><span><span style=color:#75715e>#define SZ(a) (int)(a).size()
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define ALL(v) (v).begin(), (v).end()
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define X first
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define Y second
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#define dbg(x) cerr &lt;&lt; #x &lt;&lt; &#34; = &#34; &lt;&lt; x &lt;&lt; endl;
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>solve</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>int</span> n, m; cin <span style=color:#f92672>&gt;&gt;</span> n <span style=color:#f92672>&gt;&gt;</span> m;
+</span></span><span style=display:flex><span>  vector<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> seller(n), buyer(m);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> <span style=color:#f92672>&amp;</span>x : seller) cin <span style=color:#f92672>&gt;&gt;</span> x;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> <span style=color:#f92672>&amp;</span>x : buyer) cin <span style=color:#f92672>&gt;&gt;</span> x;
+</span></span><span style=display:flex><span>  sort(ALL(seller));
+</span></span><span style=display:flex><span>  sort(ALL(buyer));
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>int</span> l <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, r <span style=color:#f92672>=</span> <span style=color:#ae81ff>1e9</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>auto</span> chk <span style=color:#f92672>=</span> [<span style=color:#f92672>&amp;</span>](<span style=color:#66d9ef>int</span> x) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> ind1 <span style=color:#f92672>=</span> upper_bound(ALL(seller), x) <span style=color:#f92672>-</span> seller.begin();
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> ind2 <span style=color:#f92672>=</span> buyer.end() <span style=color:#f92672>-</span> lower_bound(ALL(buyer), x);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> ind1 <span style=color:#f92672>&gt;=</span> ind2;
+</span></span><span style=display:flex><span>  };
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>while</span> (r <span style=color:#f92672>-</span> l <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> m <span style=color:#f92672>=</span> (l <span style=color:#f92672>+</span> r) <span style=color:#f92672>&gt;&gt;</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (chk(m)) r <span style=color:#f92672>=</span> m;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>else</span> l <span style=color:#f92672>=</span> m;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  cout <span style=color:#f92672>&lt;&lt;</span> r <span style=color:#f92672>&lt;&lt;</span> <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*
+</span></span></span><span style=display:flex><span><span style=color:#75715e>CheckList:
+</span></span></span><span style=display:flex><span><span style=color:#75715e>1. long long
+</span></span></span><span style=display:flex><span><span style=color:#75715e>2. mod
+</span></span></span><span style=display:flex><span><span style=color:#75715e>3. template
+</span></span></span><span style=display:flex><span><span style=color:#75715e>4. input/output format/content
+</span></span></span><span style=display:flex><span><span style=color:#75715e>5. test sample input/output
+</span></span></span><span style=display:flex><span><span style=color:#75715e>*/</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>  ios<span style=color:#f92672>::</span>sync_with_stdio(<span style=color:#ae81ff>0</span>);cin.tie(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>int</span> T <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// cin &gt;&gt; T;
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>while</span> (T<span style=color:#f92672>--</span>) solve();
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=d---count-bracket-sequences>D - Count Bracket Sequences</h2><p>看到 $2^x$ 又要 mod 998244353 就會先想到應該要 dp，然後合法匹配括號的話需要兩個條件</p><ol><li>左括號數量 = 右括號數量</li><li>任何前綴的左括號數量 >= 右括號數量</li></ol><p>所以努力想一下就會有下面的 dp 式，$dp_{i, j} = $ 前 $i$ 個字元裡，左括號 - 右括號的數量 = $j$</p><p>遞推式就像下面這樣</p><p>$$
+dp_{i, j} =
+\begin{cases}
+dp_{i - 1, j - 1} & \quad \text{if } s[i] = ( \\
+dp_{i - 1, j + 1} & \quad \text{if } s[i] = ) \\
+dp_{i - 1, j - 1} + dp_{i - 1, j + 1} & \quad \text{if } s[i] = ?
+\end{cases}
+$$</p><p>base case: $dp_{0, 0} = 1$，求 $dp_{n, 0}$</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;bits/stdc++.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>typedef</span> <span style=color:#66d9ef>long</span> <span style=color:#66d9ef>long</span> ll;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>typedef</span> pair<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span>, <span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> pii;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>typedef</span> pair<span style=color:#f92672>&lt;</span>ll, ll<span style=color:#f92672>&gt;</span> pll;
+</span></span><span style=display:flex><span><span style=color:#75715e>#define SZ(a) (int)(a).size()
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define ALL(v) (v).begin(), (v).end()
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define X first
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define Y second
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#define dbg(x) cerr &lt;&lt; #x &lt;&lt; &#34; = &#34; &lt;&lt; x &lt;&lt; endl;
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> N <span style=color:#f92672>=</span> <span style=color:#ae81ff>3e3</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>5</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> M <span style=color:#f92672>=</span> <span style=color:#ae81ff>998244353</span>;
+</span></span><span style=display:flex><span>ll dp[N][N];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ll <span style=color:#a6e22e>add</span>(ll a, ll b) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> (a <span style=color:#f92672>+</span> b) <span style=color:#f92672>%</span> M;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>solve</span>() {
+</span></span><span style=display:flex><span>  string s; cin <span style=color:#f92672>&gt;&gt;</span> s;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>int</span> n <span style=color:#f92672>=</span> SZ(s);
+</span></span><span style=display:flex><span>  s <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;@&#34;</span> <span style=color:#f92672>+</span> s;
+</span></span><span style=display:flex><span>  dp[<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>0</span>] <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>; i <span style=color:#f92672>&lt;=</span> n; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> j <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; j <span style=color:#f92672>&lt;=</span> i; j<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span> (j <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (s[i] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;(&#39;</span>) <span style=color:#66d9ef>continue</span>;
+</span></span><span style=display:flex><span>        dp[i][j] <span style=color:#f92672>=</span> add(dp[i][j], dp[i <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>][j <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>]);
+</span></span><span style=display:flex><span>      } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (s[i] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;(&#39;</span>) dp[i][j] <span style=color:#f92672>=</span> add(dp[i][j], dp[i <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>][j <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>]);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (s[i] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;)&#39;</span>) dp[i][j] <span style=color:#f92672>=</span> add(dp[i][j], dp[i <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>][j <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>]);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span> dp[i][j] <span style=color:#f92672>=</span> add(dp[i][j], add(dp[i <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>][j <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>], dp[i <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>][j <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>]));
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  cout <span style=color:#f92672>&lt;&lt;</span> dp[n][<span style=color:#ae81ff>0</span>] <span style=color:#f92672>&lt;&lt;</span> <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*
+</span></span></span><span style=display:flex><span><span style=color:#75715e>CheckList:
+</span></span></span><span style=display:flex><span><span style=color:#75715e>1. long long
+</span></span></span><span style=display:flex><span><span style=color:#75715e>2. mod
+</span></span></span><span style=display:flex><span><span style=color:#75715e>3. template
+</span></span></span><span style=display:flex><span><span style=color:#75715e>4. input/output format/content
+</span></span></span><span style=display:flex><span><span style=color:#75715e>5. test sample input/output
+</span></span></span><span style=display:flex><span><span style=color:#75715e>*/</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>  ios<span style=color:#f92672>::</span>sync_with_stdio(<span style=color:#ae81ff>0</span>);cin.tie(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>int</span> T <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// cin &gt;&gt; T;
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>while</span> (T<span style=color:#f92672>--</span>) solve();
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=e---tangency-of-cuboids>E - Tangency of Cuboids</h2><p>待補。</p><h2 id=f---cans-and-openers>F - Cans and Openers</h2><p>首先對於所有的東西都 sort 一下不虧，畢竟都是要收益最大。再來可以再把三個東西歸成兩類，第一類是自己就可以開，第二類是互相依賴的關係，那最後我希望找到所有組合第一類取 $i$ 個，第二類取 $m - i$ 個，這樣我就可以 $O(m)$ 找出最大的那種組合。</p><p>第一類因為可以自己開，所以 sort 之後前綴和就好。</p><p>第二類的話可以用雙指針去慢慢爬，如果開罐器沒了就拿，如果開罐器還有就繼續開。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;bits/stdc++.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>typedef</span> <span style=color:#66d9ef>long</span> <span style=color:#66d9ef>long</span> ll;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>typedef</span> pair<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span>, <span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> pii;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>typedef</span> pair<span style=color:#f92672>&lt;</span>ll, ll<span style=color:#f92672>&gt;</span> pll;
+</span></span><span style=display:flex><span><span style=color:#75715e>#define SZ(a) (int)(a).size()
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define ALL(v) (v).begin(), (v).end()
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define X first
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define Y second
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#define dbg(x) cerr &lt;&lt; #x &lt;&lt; &#34; = &#34; &lt;&lt; x &lt;&lt; endl;
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>solve</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>int</span> n, m; cin <span style=color:#f92672>&gt;&gt;</span> n <span style=color:#f92672>&gt;&gt;</span> m;
+</span></span><span style=display:flex><span>  vector<span style=color:#f92672>&lt;</span>ll<span style=color:#f92672>&gt;</span> a, b, c; 
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; i <span style=color:#f92672>&lt;</span> n; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> t; ll x; cin <span style=color:#f92672>&gt;&gt;</span> t <span style=color:#f92672>&gt;&gt;</span> x;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (t <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>) a.push_back(x);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (t <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span>) b.push_back(x);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>else</span> c.push_back(x);
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  sort(ALL(a), greater<span style=color:#f92672>&lt;&gt;</span>());
+</span></span><span style=display:flex><span>  sort(ALL(b), greater<span style=color:#f92672>&lt;&gt;</span>());
+</span></span><span style=display:flex><span>  sort(ALL(c), greater<span style=color:#f92672>&lt;&gt;</span>());
+</span></span><span style=display:flex><span>  vector<span style=color:#f92672>&lt;</span>ll<span style=color:#f92672>&gt;</span> x(m <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>0</span>), y(m <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>; i <span style=color:#f92672>&lt;=</span> m; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (i <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>&lt;</span> SZ(a)) x[i] <span style=color:#f92672>=</span> x[i <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>] <span style=color:#f92672>+</span> a[i <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>];
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>else</span> x[i] <span style=color:#f92672>=</span> x[i <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>];
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>int</span> j <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, use <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, k <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>; i <span style=color:#f92672>&lt;=</span> m; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span>use) {
+</span></span><span style=display:flex><span>      y[i] <span style=color:#f92672>=</span> y[i <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>];
+</span></span><span style=display:flex><span>      use <span style=color:#f92672>=</span> (j <span style=color:#f92672>==</span> SZ(c) <span style=color:#f92672>?</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>:</span> c[j<span style=color:#f92672>++</span>]);
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>      y[i] <span style=color:#f92672>=</span> y[i <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>] <span style=color:#f92672>+</span> (k <span style=color:#f92672>==</span> SZ(b) <span style=color:#f92672>?</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>:</span> b[k<span style=color:#f92672>++</span>]);
+</span></span><span style=display:flex><span>      use<span style=color:#f92672>--</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  ll res <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; i <span style=color:#f92672>&lt;=</span> m; i<span style=color:#f92672>++</span>) res <span style=color:#f92672>=</span> max(res, x[i] <span style=color:#f92672>+</span> y[m <span style=color:#f92672>-</span> i]);
+</span></span><span style=display:flex><span>  cout <span style=color:#f92672>&lt;&lt;</span> res <span style=color:#f92672>&lt;&lt;</span> <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*
+</span></span></span><span style=display:flex><span><span style=color:#75715e>CheckList:
+</span></span></span><span style=display:flex><span><span style=color:#75715e>1. long long
+</span></span></span><span style=display:flex><span><span style=color:#75715e>2. mod
+</span></span></span><span style=display:flex><span><span style=color:#75715e>3. template
+</span></span></span><span style=display:flex><span><span style=color:#75715e>4. input/output format/content
+</span></span></span><span style=display:flex><span><span style=color:#75715e>5. test sample input/output
+</span></span></span><span style=display:flex><span><span style=color:#75715e>*/</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>  ios<span style=color:#f92672>::</span>sync_with_stdio(<span style=color:#ae81ff>0</span>);cin.tie(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>int</span> T <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// cin &gt;&gt; T;
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>while</span> (T<span style=color:#f92672>--</span>) solve();
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=g---avoid-straight-line>G - Avoid Straight Line</h2><p>待補。</p></div></article><div id=footer-post-container><div id=footer-post><div id=nav-footer style=display:none><ul><li><a href=/>Home</a></li><li><a href=/posts>Writings</a></li><li><a href=/tags>Tags</a></li><li><a href=/about>About</a></li></ul></div><div id=toc-footer style=display:none><nav id=TableOfContents><ul><li><a href=#a---chord>A - Chord</a></li><li><a href=#b---tak-code>B - TaK Code</a></li><li><a href=#c---invisible-hand>C - Invisible Hand</a></li><li><a href=#d---count-bracket-sequences>D - Count Bracket Sequences</a></li><li><a href=#e---tangency-of-cuboids>E - Tangency of Cuboids</a></li><li><a href=#f---cans-and-openers>F - Cans and Openers</a></li><li><a href=#g---avoid-straight-line>G - Avoid Straight Line</a></li></ul></nav></div><div id=share-footer style=display:none><ul><li><a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fatcoder-beginner-contest-312-%25E9%25A1%258C%25E8%25A7%25A3%2f" aria-label=Facebook><i class="fab fa-facebook fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://twitter.com/share?url=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fatcoder-beginner-contest-312-%25E9%25A1%258C%25E8%25A7%25A3%2f&text=Atcoder%20Beginner%20Contest%20312%20%e9%a1%8c%e8%a7%a3" aria-label=Twitter><i class="fab fa-twitter fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fatcoder-beginner-contest-312-%25E9%25A1%258C%25E8%25A7%25A3%2f&title=Atcoder%20Beginner%20Contest%20312%20%e9%a1%8c%e8%a7%a3" aria-label=Linkedin><i class="fab fa-linkedin fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fatcoder-beginner-contest-312-%25E9%25A1%258C%25E8%25A7%25A3%2f&is_video=false&description=Atcoder%20Beginner%20Contest%20312%20%e9%a1%8c%e8%a7%a3" aria-label=Pinterest><i class="fab fa-pinterest fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="mailto:?subject=Atcoder%20Beginner%20Contest%20312%20%e9%a1%8c%e8%a7%a3&body=Check out this article: https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fatcoder-beginner-contest-312-%25E9%25A1%258C%25E8%25A7%25A3%2f" aria-label=Email><i class="fas fa-envelope fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://getpocket.com/save?url=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fatcoder-beginner-contest-312-%25E9%25A1%258C%25E8%25A7%25A3%2f&title=Atcoder%20Beginner%20Contest%20312%20%e9%a1%8c%e8%a7%a3" aria-label=Pocket><i class="fab fa-get-pocket fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://reddit.com/submit?url=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fatcoder-beginner-contest-312-%25E9%25A1%258C%25E8%25A7%25A3%2f&title=Atcoder%20Beginner%20Contest%20312%20%e9%a1%8c%e8%a7%a3" aria-label=reddit><i class="fab fa-reddit fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fatcoder-beginner-contest-312-%25E9%25A1%258C%25E8%25A7%25A3%2f&name=Atcoder%20Beginner%20Contest%20312%20%e9%a1%8c%e8%a7%a3&description=A%20-%20Chord%20%e5%88%a4%e6%96%b7%e4%b8%80%e4%b8%8b%e5%b0%b1%e5%a5%bd%e4%ba%86%e3%80%82%20%23include%20%26lt%3bbits%2fstdc%2b%2b.h%26gt%3b%20using%20namespace%20std%3b%20typedef%20long%20long%20ll%3b%20typedef%20pair%26lt%3bint%2c%20int%26gt%3b%20pii%3b%20typedef%20pair%26lt%3bll%2c%20ll%26gt%3b%20pll%3b%20%23define%20SZ%28a%29%20%28int%29%28a%29.size%28%29%20%23define%20ALL%28v%29%20%28v%29.begin%28%29%2c%20%28v%29.end%28%29%20%23define%20X%20first%20%23define%20Y%20second%20%23define%20dbg%28x%29%20cerr%20%26lt%3b%26lt%3b%20%23x%20%26lt%3b%26lt%3b%20%26%2334%3b%20%3d%20%26%2334%3b%20%26lt%3b%26lt%3b%20x%20%26lt%3b%26lt%3b%20endl%3b%20string%20ss%5b7%5d%20%3d%20%7b%26%2334%3bACE%26%2334%3b%2c%20%26%2334%3bBDF%26%2334%3b%2c%20%26%2334%3bCEG%26%2334%3b%2c%20%26%2334%3bDFA%26%2334%3b%2c%20%26%2334%3bEGB%26%2334%3b%2c%20%26%2334%3bFAC%26%2334%3b%2c%20%26%2334%3bGBD%26%2334%3b%7d%3b%20void%20solve%28%29%20%7b%20string%20s%3b%20cin" aria-label=Tumblr><i class="fab fa-tumblr fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fatcoder-beginner-contest-312-%25E9%25A1%258C%25E8%25A7%25A3%2f&t=Atcoder%20Beginner%20Contest%20312%20%e9%a1%8c%e8%a7%a3" aria-label="Hacker News"><i class="fab fa-hacker-news fa-lg" aria-hidden=true></i></a></li></ul></div><div id=actions-footer><a id=menu-toggle class=icon href=# onclick='return $("#nav-footer").toggle(),!1' aria-label=Menu><i class="fas fa-bars fa-lg" aria-hidden=true></i> Menu</a>
+<a id=toc-toggle class=icon href=# onclick='return $("#toc-footer").toggle(),!1' aria-label=TOC><i class="fas fa-list fa-lg" aria-hidden=true></i> TOC</a>
+<a id=share-toggle class=icon href=# onclick='return $("#share-footer").toggle(),!1' aria-label=Share><i class="fas fa-share-alt fa-lg" aria-hidden=true></i> share</a>
+<a id=top style=display:none class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg" aria-hidden=true></i> Top</a></div></div></div><footer id=footer><div class=footer-left>Copyright &copy; 2024 Erin Li</div><div class=footer-right><nav><ul><li><a href=/>Home</a></li><li><a href=/posts>Writings</a></li><li><a href=/tags>Tags</a></li><li><a href=/about>About</a></li></ul></nav></div></footer></div></body><link rel=stylesheet href=/lib/font-awesome/css/all.min.css><script src=/lib/jquery/jquery.min.js></script><script src=/js/main.js></script><script src=/js/code-copy.js></script><script>MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]]},svg:{fontCache:"global"}}</script><script type=text/javascript id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script></html>
