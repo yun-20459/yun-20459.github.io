@@ -42,6 +42,8 @@ markup:
     noClasses: true
     tabWidth: 4
 
+pygmentsStyle: "pygments"
+pygmentsUseClasses: true
 
 params:
   colortheme: dark
@@ -59,6 +61,10 @@ params:
       link: "https://www.linkedin.com/in/erinli0405"
     - name: "email"
       link: "b08502041@csie.ntu.edu.tw"
+  css:
+    - "css/highlight.css"
+    - "css/style-dark.css"
+    - "css/search.css"
 
 copyright: "Erin Li"
 
