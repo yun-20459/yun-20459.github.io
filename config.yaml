@@ -17,6 +17,9 @@ menu:
     - name: "About"
       url: "/about"
       weight: 2
+    - name: "Resources"
+      url: "/resources"
+      weight: 5
 
 params:
   colortheme: dark
