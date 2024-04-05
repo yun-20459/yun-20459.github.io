@@ -1,1 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tree on 隨寫日誌</title><link>https://snow-ham1949.github.io/tags/tree/</link><description>Recent content in Tree on 隨寫日誌</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>Erin Li</copyright><lastBuildDate>Mon, 19 Sep 2022 21:51:48 +0000</lastBuildDate><atom:link href="https://snow-ham1949.github.io/tags/tree/index.xml" rel="self" type="application/rss+xml"/><item><title>CSES Tree Matching</title><link>https://snow-ham1949.github.io/posts/cses-tree-matching/</link><pubDate>Mon, 19 Sep 2022 21:51:48 +0000</pubDate><guid>https://snow-ham1949.github.io/posts/cses-tree-matching/</guid><description>第一次接觸樹 dp OuO 題目 給一棵樹，找到最大的邊集合使得任兩邊不共享一個點，輸出集合大小。 作法 定義 如果是 array 版本的話（i.e. 給一個序列不能選相鄰的</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tree on 隨寫日誌</title><link>https://snow-ham1949.github.io/tags/tree/</link><description>Recent content in Tree on 隨寫日誌</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>Erin Li</copyright><lastBuildDate>Mon, 19 Sep 2022 21:51:48 +0000</lastBuildDate><atom:link href="https://snow-ham1949.github.io/tags/tree/index.xml" rel="self" type="application/rss+xml"/><item><title>CSES Tree Matching</title><link>https://snow-ham1949.github.io/posts/cses-tree-matching/</link><pubDate>Mon, 19 Sep 2022 21:51:48 +0000</pubDate><guid>https://snow-ham1949.github.io/posts/cses-tree-matching/</guid><description>第一次接觸樹 dp OuO
+題目 給一棵樹，找到最大的邊集合使得任兩邊不共享一個點，輸出集合大小。
+作法 定義 如果是 array 版本的話（i.e. 給一個序列不能選相鄰的，最大化價值），比較容易可以想到轉移式 $dp(i) = max(v_i + dp(i - 2), dp(i - 1))$
+轉成樹的版本的話，就需要在樹上面做 dp，對於一個節點 $u$ 有下面兩種情況
+取一條跟 $v \in child(u)$ 有連接的邊，答案定義為 $dp_0(u)$ 不取任何跟 $v \in child(u)$ 有連接的邊，答案定義為 $dp_1(u)$ 為什麼沒有取兩條以上的 case 呢？因為如果取兩條以上的話 $u$ 就會變成那個共享的點。
+所以從上面的定義可以知道答案是 $max(dp_0(1), dp_1(1))$
+轉移式 $dp_1(u)$
+因為不取任何跟 $v \in child(u)$ 有連接的邊，所以不管「跟 $v$ 的小孩有連接的邊」取不取都可以，所以答案就是
+$dp_1(u) = \sum_{v \in child(u)} max(dp_0(v), dp_1(v))$
+$dp_0(u)$
+可以先處理取一條的部分，因為取了 $u \rightarrow v$ 這一條，所以「不取任何跟 $w \in child(v)$ 有連接的邊」是 $dp_1(v)$，再加上 $u \rightarrow v$ 這一條，就是 $dp_1(v) + 1$。 接下來要加上 $w \in child(u), w \neq v$ 的部分，畫一下圖就會發現就是</description></item></channel></rss>

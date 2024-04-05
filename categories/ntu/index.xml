@@ -1,1 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NTU on 隨寫日誌</title><link>https://snow-ham1949.github.io/categories/ntu/</link><description>Recent content in NTU on 隨寫日誌</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>Erin Li</copyright><lastBuildDate>Tue, 07 Jun 2022 16:34:38 +0000</lastBuildDate><atom:link href="https://snow-ham1949.github.io/categories/ntu/index.xml" rel="self" type="application/rss+xml"/><item><title>110-2 修課心得</title><link>https://snow-ham1949.github.io/posts/110-2-%E4%BF%AE%E8%AA%B2%E5%BF%83%E5%BE%97/</link><pubDate>Tue, 07 Jun 2022 16:34:38 +0000</pubDate><guid>https://snow-ham1949.github.io/posts/110-2-%E4%BF%AE%E8%AA%B2%E5%BF%83%E5%BE%97/</guid><description>修的課程 資訊系必修：作業系統、資料結構與演算法 資訊系選修：多媒體安全、離散數學 通識：醫學與生活 已經爆掉的一般選修：機器學習 作業系統 開課教授：</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NTU on 隨寫日誌</title><link>https://snow-ham1949.github.io/categories/ntu/</link><description>Recent content in NTU on 隨寫日誌</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>Erin Li</copyright><lastBuildDate>Tue, 07 Jun 2022 16:34:38 +0000</lastBuildDate><atom:link href="https://snow-ham1949.github.io/categories/ntu/index.xml" rel="self" type="application/rss+xml"/><item><title>110-2 修課心得</title><link>https://snow-ham1949.github.io/posts/110-2-%E4%BF%AE%E8%AA%B2%E5%BF%83%E5%BE%97/</link><pubDate>Tue, 07 Jun 2022 16:34:38 +0000</pubDate><guid>https://snow-ham1949.github.io/posts/110-2-%E4%BF%AE%E8%AA%B2%E5%BF%83%E5%BE%97/</guid><description>修的課程 資訊系必修：作業系統、資料結構與演算法
+資訊系選修：多媒體安全、離散數學
+通識：醫學與生活
+已經爆掉的一般選修：機器學習
+作業系統 開課教授：施吉昇、林忠緯
+涼度：-$\infty$/5
+甜度：3/5 （作業好好做沒意外應該可以保底 A- 之類的）
+又硬又硬的必修系統課 QQ，code 跟作業 pdf 在這裡。
+有人說林上的比較好不過因為我是施班就乾脆聽施的（兩個老師的都可以聽），老師講得很不錯，就算我停修 sp 也是能夠大致聽懂，而且在影片下留言問問題老師也回蠻快的，小缺點就是音質不是很好，身為耳機黨的我常常直接去世（Ｘ，然後老師給的是 .pdf 不是 .key 所以有些精美的動畫會沒辦法抄筆記QQ
+來分享（？）一下我 mp2 發生的蠢事，一開始因為一個 level 忘記 +1 就整個格式爆掉直接 0 分&amp;hellip; 但助教很好心的讓我 regrade，結果 regrade 完 6 分 ==? 結果是我在根本不用輸出東西的地方輸出氣死，還忘記上一個 flag，70 分就這樣說掰掰 QQ，提醒有看到這裡的人記得用 diff 檢查作業，不要跟我一樣因為助教輸出格式很機車就偷懶 QQ 而且這門課作業成績很重，真的不要跟我一樣智障：）
+資料結構與演算法 開課教授：林軒田、蔡欣穆
+涼度：3/5
+甜度：2/5 (2 顆星是給快不及格的人的，請見下面鬼切·等第線)
+aka DSA，code 跟 pdf 一樣在這裡。
+這門課我只有後半學期有在上課（Ｘ）因為欣穆老師會直播互動，所以要跟課回答題目，然後會有大地遊戲，蠻好玩的。軒田老師是直播課會有錄影，欣穆老師是翻轉課堂然後會有 with-video quiz 要做，都是上課教過的東西所以不會太難。
+就是跟 ADA 一樣難的是作業不是上課的課（Ｏ），難的點應該是只能用 C 寫不能用 C++ 的 STL 所以要手刻一些資料結構很痛苦 QQ，至於算法的部分 hw3 hw4 都分別有一題難題，我都是被老師們教會的 &amp;gt;&amp;lt; 不過 DSA 出現 treap + 吉如一 是不是搞錯了什麼 QQ (btw 我 hw4 p3 根本毒瘤，可以離線做結果我在線用持久化並查集www)</description></item></channel></rss>
