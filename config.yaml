@@ -62,6 +62,9 @@ params:
 
 copyright: "Erin Li"
 
+permalinks:
+  - posts: ":year/:month/:day/:filename/"
+
 outputs:
   home:
     - HTML
