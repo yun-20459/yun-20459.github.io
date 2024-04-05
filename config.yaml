@@ -8,18 +8,40 @@ menu:
     - name: "Home"
       url: "/"
       weight: 1
-    - name: "Archives"
-      url: "/posts"
-      weight: 4
-    - name: "Tags"
-      url: "/tags"
-      weight: 3
     - name: "About"
       url: "/about"
       weight: 2
+    - name: "Posts"
+      url: "/posts"
+      weight: 3
     - name: "Resources"
       url: "/resources"
+      weight: 4
+    - name: "Search"
+      url: "/search"
       weight: 5
+    - name: "Tags"
+      url: "/tags"
+      weight: 6
+
+markup:
+  goldmark:
+    renderer:
+      hardWraps: true
+  tableOfContents:
+    endLevel: 4
+    ordered: false
+    startLevel: 2
+  highlight:
+    codeFences: true
+    guessSyntax: false
+    hl_Lines: ""
+    lineNoStart: 1
+    lineNos: true
+    lineNumbersInTable: true
+    noClasses: true
+    tabWidth: 4
+
 
 params:
   colortheme: dark
@@ -40,14 +62,10 @@ params:
 
 copyright: "Erin Li"
 
-markup:
-  highlight:
-    codeFences: true
-    guessSyntax: false
-    hl_Lines: ""
-    lineNoStart: 1
-    lineNos: false
-    lineNumbersInTable: true
-    noClasses: true
-    style: "monokai"
-    tabWidth: 4
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+

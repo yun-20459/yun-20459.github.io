@@ -1,0 +1,23 @@
+{{ define "main" }}
+<section class="search">
+  <form action="{{ "search" | absURL }}">
+    <input class="search-input" id="search-input" name="s" placeholder="Search..."/>
+  </form>
+  <div id="search-results">
+   <h2>Search Results</h2>
+  </div>
+</section>
+<!-- this template is sucked in by search.js and appended to the search-results div above. So editing here will adjust style -->
+<script id="search-result-template" type="text/x-js-template">
+    <div id="summary-${key}">
+      <h3><a href="${link}">${title}</a></h3>
+      <p>${snippet}</p>
+      ${ isset tags }<p>Tags: ${tags}</p>${ end }
+      ${ isset categories }<p>Categories: ${categories}</p>${ end }
+    </div>
+</script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.3/fuse.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script>
+
+<script src="{{ "/js/search.js" | relURL }}"></script>
+{{ end }}
