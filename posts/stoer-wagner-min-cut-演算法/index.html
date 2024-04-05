@@ -5,7 +5,7 @@ Stoer Wagner 演算法 我不會證明，所以直接講求最小割的演算法
 1 2 3 4 5 全局最小值為 INT_MAX 做 n - 1 次「合併」下面的 3 點直到整個圖變成整個連通 1. 固定點 s 用 prim 做最大生成樹，並記錄最後擴展的兩個點（也可以想成是最後的點+最後的邊） 2. 如果跟最後擴展的點連接的所有邊權和 < 全局最小值就更新 3. 合併最後擴展的那兩個頂點為一個點（我的做法是直接合併邊） 模板 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 struct SW_Min_Cut { static const int maxn = 500 + 5; int edge[maxn][maxn]; int n; int vis[maxn], del[maxn], weight[maxn]; void Init(int _n) { memset(edge, 0, sizeof(edge)); memset(del, 0, sizeof(del)); n = _n; } void AddEdge(int u, int v, int w) { edge[u][v] += w; edge[v][u] += w; } void Search(int &amp;s, int &amp;t) { memset(vis, 0, sizeof(vis)); memset(weight, 0, sizeof(weight)); s = t = -1; while (true) { int mx = -1, cur = 0; for (int i = 0; i < n; i++) { if (!"><meta property="og:type" content="article"><meta property="og:url" content="https://snow-ham1949.github.io/posts/stoer-wagner-min-cut-%E6%BC%94%E7%AE%97%E6%B3%95/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-10-07T22:24:23+00:00"><meta property="article:modified_time" content="2022-10-07T22:24:23+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Stoer Wagner Min Cut 演算法"><meta name=twitter:description content="定義 給一個無向連通圖，去掉一個邊集合之後可以使得圖變成兩個連通分量，這個邊集合就叫做割集。
 最小割的意思就是找到一個權重和最小的割集。
 Stoer Wagner 演算法 我不會證明，所以直接講求最小割的演算法。（ps. 如果有人會的話可以教我 ><）
-1 2 3 4 5 全局最小值為 INT_MAX 做 n - 1 次「合併」下面的 3 點直到整個圖變成整個連通 1. 固定點 s 用 prim 做最大生成樹，並記錄最後擴展的兩個點（也可以想成是最後的點+最後的邊） 2. 如果跟最後擴展的點連接的所有邊權和 < 全局最小值就更新 3. 合併最後擴展的那兩個頂點為一個點（我的做法是直接合併邊） 模板 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 struct SW_Min_Cut { static const int maxn = 500 + 5; int edge[maxn][maxn]; int n; int vis[maxn], del[maxn], weight[maxn]; void Init(int _n) { memset(edge, 0, sizeof(edge)); memset(del, 0, sizeof(del)); n = _n; } void AddEdge(int u, int v, int w) { edge[u][v] += w; edge[v][u] += w; } void Search(int &amp;s, int &amp;t) { memset(vis, 0, sizeof(vis)); memset(weight, 0, sizeof(weight)); s = t = -1; while (true) { int mx = -1, cur = 0; for (int i = 0; i < n; i++) { if (!"><link rel=stylesheet href=https://snow-ham1949.github.io/css/styles.36c12a99052778131d28078b3171237fd0184ad9b87c778208912a8d08e2d0194867a030c64d9b02d6077de53a8a9979249331f971fb47c471a2d59676520a3a.css integrity="sha512-NsEqmQUneBMdKAeLMXEjf9AYStm4fHeCCJEqjQji0BlIZ6Awxk2bAtYHfeU6ipl5JJMx+XH7R8RxotWWdlIKOg=="><!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script><script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]--><link rel=icon type=image/png href=https://snow-ham1949.github.io/images/favicon.ico></head><body class="max-width mx-auto px3 ltr"><div class="content index py4"><div id=header-post><a id=menu-icon href=#><i class="fas fa-bars fa-lg"></i></a>
+1 2 3 4 5 全局最小值為 INT_MAX 做 n - 1 次「合併」下面的 3 點直到整個圖變成整個連通 1. 固定點 s 用 prim 做最大生成樹，並記錄最後擴展的兩個點（也可以想成是最後的點+最後的邊） 2. 如果跟最後擴展的點連接的所有邊權和 < 全局最小值就更新 3. 合併最後擴展的那兩個頂點為一個點（我的做法是直接合併邊） 模板 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 struct SW_Min_Cut { static const int maxn = 500 + 5; int edge[maxn][maxn]; int n; int vis[maxn], del[maxn], weight[maxn]; void Init(int _n) { memset(edge, 0, sizeof(edge)); memset(del, 0, sizeof(del)); n = _n; } void AddEdge(int u, int v, int w) { edge[u][v] += w; edge[v][u] += w; } void Search(int &amp;s, int &amp;t) { memset(vis, 0, sizeof(vis)); memset(weight, 0, sizeof(weight)); s = t = -1; while (true) { int mx = -1, cur = 0; for (int i = 0; i < n; i++) { if (!"><link rel=stylesheet href=https://snow-ham1949.github.io/css/styles.36c12a99052778131d28078b3171237fd0184ad9b87c778208912a8d08e2d0194867a030c64d9b02d6077de53a8a9979249331f971fb47c471a2d59676520a3a.css integrity="sha512-NsEqmQUneBMdKAeLMXEjf9AYStm4fHeCCJEqjQji0BlIZ6Awxk2bAtYHfeU6ipl5JJMx+XH7R8RxotWWdlIKOg=="><link rel=stylesheet href=https://snow-ham1949.github.io/css/highlight.css><link rel=stylesheet href=https://snow-ham1949.github.io/css/style-dark.css><link rel=stylesheet href=https://snow-ham1949.github.io/css/search.css><!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script><script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]--><link rel=icon type=image/png href=https://snow-ham1949.github.io/images/favicon.ico></head><body class="max-width mx-auto px3 ltr"><div class="content index py4"><div id=header-post><a id=menu-icon href=#><i class="fas fa-bars fa-lg"></i></a>
 <a id=menu-icon-tablet href=#><i class="fas fa-bars fa-lg"></i></a>
 <a id=top-icon-tablet href=# onclick='$("html, body").animate({scrollTop:0},"fast")' style=display:none aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
 <span id=menu><span id=nav><ul><li><a href=/>Home</a></li><li><a href=/about>About</a></li><li><a href=/posts>Posts</a></li><li><a href=/resources>Resources</a></li><li><a href=/search>Search</a></li><li><a href=/tags>Tags</a></li></ul></span><br><span id=actions><ul><li><a class=icon href=https://snow-ham1949.github.io/posts/neoj-513-%E8%B6%85%E5%A4%A7%E8%9E%A2%E5%B9%95%E8%A8%AD%E7%BD%AE/ aria-label=Previous><i class="fas fa-chevron-left" aria-hidden=true onmouseover='$("#i-prev").toggle()' onmouseout='$("#i-prev").toggle()'></i></a></li><li><a class=icon href=https://snow-ham1949.github.io/posts/codeforces-1635d-infinite-set/ aria-label=Next><i class="fas fa-chevron-right" aria-hidden=true onmouseover='$("#i-next").toggle()' onmouseout='$("#i-next").toggle()'></i></a></li><li><a class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page"><i class="fas fa-chevron-up" aria-hidden=true onmouseover='$("#i-top").toggle()' onmouseout='$("#i-top").toggle()'></i></a></li><li><a class=icon href=# aria-label=Share><i class="fas fa-share-alt" aria-hidden=true onmouseover='$("#i-share").toggle()' onmouseout='$("#i-share").toggle()' onclick='return $("#share").toggle(),!1'></i></a></li></ul><span id=i-prev class=info style=display:none>Previous post</span>
@@ -13,136 +13,136 @@ Stoer Wagner 演算法 我不會證明，所以直接講求最小割的演算法
 <span id=i-top class=info style=display:none>Back to top</span>
 <span id=i-share class=info style=display:none>Share post</span></span><br><div id=share style=display:none><ul><li><a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fstoer-wagner-min-cut-%25E6%25BC%2594%25E7%25AE%2597%25E6%25B3%2595%2f" aria-label=Facebook><i class="fab fa-facebook" aria-hidden=true></i></a></li><li><a class=icon href="https://twitter.com/share?url=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fstoer-wagner-min-cut-%25E6%25BC%2594%25E7%25AE%2597%25E6%25B3%2595%2f&text=Stoer%20Wagner%20Min%20Cut%20%e6%bc%94%e7%ae%97%e6%b3%95" aria-label=Twitter><i class="fab fa-twitter" aria-hidden=true></i></a></li><li><a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fstoer-wagner-min-cut-%25E6%25BC%2594%25E7%25AE%2597%25E6%25B3%2595%2f&title=Stoer%20Wagner%20Min%20Cut%20%e6%bc%94%e7%ae%97%e6%b3%95" aria-label=Linkedin><i class="fab fa-linkedin" aria-hidden=true></i></a></li><li><a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fstoer-wagner-min-cut-%25E6%25BC%2594%25E7%25AE%2597%25E6%25B3%2595%2f&is_video=false&description=Stoer%20Wagner%20Min%20Cut%20%e6%bc%94%e7%ae%97%e6%b3%95" aria-label=Pinterest><i class="fab fa-pinterest" aria-hidden=true></i></a></li><li><a class=icon href="mailto:?subject=Stoer%20Wagner%20Min%20Cut%20%e6%bc%94%e7%ae%97%e6%b3%95&body=Check out this article: https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fstoer-wagner-min-cut-%25E6%25BC%2594%25E7%25AE%2597%25E6%25B3%2595%2f" aria-label=Email><i class="fas fa-envelope" aria-hidden=true></i></a></li><li><a class=icon href="https://getpocket.com/save?url=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fstoer-wagner-min-cut-%25E6%25BC%2594%25E7%25AE%2597%25E6%25B3%2595%2f&title=Stoer%20Wagner%20Min%20Cut%20%e6%bc%94%e7%ae%97%e6%b3%95" aria-label=Pocket><i class="fab fa-get-pocket" aria-hidden=true></i></a></li><li><a class=icon href="http://reddit.com/submit?url=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fstoer-wagner-min-cut-%25E6%25BC%2594%25E7%25AE%2597%25E6%25B3%2595%2f&title=Stoer%20Wagner%20Min%20Cut%20%e6%bc%94%e7%ae%97%e6%b3%95" aria-label=reddit><i class="fab fa-reddit" aria-hidden=true></i></a></li><li><a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fstoer-wagner-min-cut-%25E6%25BC%2594%25E7%25AE%2597%25E6%25B3%2595%2f&name=Stoer%20Wagner%20Min%20Cut%20%e6%bc%94%e7%ae%97%e6%b3%95&description=%e5%ae%9a%e7%be%a9%20%e7%b5%a6%e4%b8%80%e5%80%8b%e7%84%a1%e5%90%91%e9%80%a3%e9%80%9a%e5%9c%96%ef%bc%8c%e5%8e%bb%e6%8e%89%e4%b8%80%e5%80%8b%e9%82%8a%e9%9b%86%e5%90%88%e4%b9%8b%e5%be%8c%e5%8f%af%e4%bb%a5%e4%bd%bf%e5%be%97%e5%9c%96%e8%ae%8a%e6%88%90%e5%85%a9%e5%80%8b%e9%80%a3%e9%80%9a%e5%88%86%e9%87%8f%ef%bc%8c%e9%80%99%e5%80%8b%e9%82%8a%e9%9b%86%e5%90%88%e5%b0%b1%e5%8f%ab%e5%81%9a%e5%89%b2%e9%9b%86%e3%80%82%0a%e6%9c%80%e5%b0%8f%e5%89%b2%e7%9a%84%e6%84%8f%e6%80%9d%e5%b0%b1%e6%98%af%e6%89%be%e5%88%b0%e4%b8%80%e5%80%8b%e6%ac%8a%e9%87%8d%e5%92%8c%e6%9c%80%e5%b0%8f%e7%9a%84%e5%89%b2%e9%9b%86%e3%80%82%0aStoer%20Wagner%20%e6%bc%94%e7%ae%97%e6%b3%95%20%e6%88%91%e4%b8%8d%e6%9c%83%e8%ad%89%e6%98%8e%ef%bc%8c%e6%89%80%e4%bb%a5%e7%9b%b4%e6%8e%a5%e8%ac%9b%e6%b1%82%e6%9c%80%e5%b0%8f%e5%89%b2%e7%9a%84%e6%bc%94%e7%ae%97%e6%b3%95%e3%80%82%ef%bc%88ps.%20%e5%a6%82%e6%9e%9c%e6%9c%89%e4%ba%ba%e6%9c%83%e7%9a%84%e8%a9%b1%e5%8f%af%e4%bb%a5%e6%95%99%e6%88%91%20%26gt%3b%26lt%3b%ef%bc%89%0a1%202%203%204%205%20%e5%85%a8%e5%b1%80%e6%9c%80%e5%b0%8f%e5%80%bc%e7%82%ba%20INT_MAX%20%e5%81%9a%20n%20-%201%20%e6%ac%a1%e3%80%8c%e5%90%88%e4%bd%b5%e3%80%8d%e4%b8%8b%e9%9d%a2%e7%9a%84%203%20%e9%bb%9e%e7%9b%b4%e5%88%b0%e6%95%b4%e5%80%8b%e5%9c%96%e8%ae%8a%e6%88%90%e6%95%b4%e5%80%8b%e9%80%a3%e9%80%9a%201.%20%e5%9b%ba%e5%ae%9a%e9%bb%9e%20s%20%e7%94%a8%20prim%20%e5%81%9a%e6%9c%80%e5%a4%a7%e7%94%9f%e6%88%90%e6%a8%b9%ef%bc%8c%e4%b8%a6%e8%a8%98%e9%8c%84%e6%9c%80%e5%be%8c%e6%93%b4%e5%b1%95%e7%9a%84%e5%85%a9%e5%80%8b%e9%bb%9e%ef%bc%88%e4%b9%9f%e5%8f%af%e4%bb%a5%e6%83%b3%e6%88%90%e6%98%af%e6%9c%80%e5%be%8c%e7%9a%84%e9%bb%9e%2b%e6%9c%80%e5%be%8c%e7%9a%84%e9%82%8a%ef%bc%89%202.%20%e5%a6%82%e6%9e%9c%e8%b7%9f%e6%9c%80%e5%be%8c%e6%93%b4%e5%b1%95%e7%9a%84%e9%bb%9e%e9%80%a3%e6%8e%a5%e7%9a%84%e6%89%80%e6%9c%89%e9%82%8a%e6%ac%8a%e5%92%8c%20%26lt%3b%20%e5%85%a8%e5%b1%80%e6%9c%80%e5%b0%8f%e5%80%bc%e5%b0%b1%e6%9b%b4%e6%96%b0%203.%20%e5%90%88%e4%bd%b5%e6%9c%80%e5%be%8c%e6%93%b4%e5%b1%95%e7%9a%84%e9%82%a3%e5%85%a9%e5%80%8b%e9%a0%82%e9%bb%9e%e7%82%ba%e4%b8%80%e5%80%8b%e9%bb%9e%ef%bc%88%e6%88%91%e7%9a%84%e5%81%9a%e6%b3%95%e6%98%af%e7%9b%b4%e6%8e%a5%e5%90%88%e4%bd%b5%e9%82%8a%ef%bc%89%20%e6%a8%a1%e6%9d%bf%201%202%203%204%205%206%207%208%209%2010%2011%2012%2013%2014%2015%2016%2017%2018%2019%2020%2021%2022%2023%2024%2025%2026%2027%2028%2029%2030%2031%2032%2033%2034%2035%2036%2037%2038%2039%2040%2041%2042%2043%2044%2045%2046%2047%2048%2049%2050%2051%2052%2053%2054%2055%2056%2057%2058%2059%2060%20struct%20SW_Min_Cut%20%7b%20static%20const%20int%20maxn%20%3d%20500%20%2b%205%3b%20int%20edge%5bmaxn%5d%5bmaxn%5d%3b%20int%20n%3b%20int%20vis%5bmaxn%5d%2c%20del%5bmaxn%5d%2c%20weight%5bmaxn%5d%3b%20void%20Init%28int%20_n%29%20%7b%20memset%28edge%2c%200%2c%20sizeof%28edge%29%29%3b%20memset%28del%2c%200%2c%20sizeof%28del%29%29%3b%20n%20%3d%20_n%3b%20%7d%20void%20AddEdge%28int%20u%2c%20int%20v%2c%20int%20w%29%20%7b%20edge%5bu%5d%5bv%5d%20%2b%3d%20w%3b%20edge%5bv%5d%5bu%5d%20%2b%3d%20w%3b%20%7d%20void%20Search%28int%20%26amp%3bs%2c%20int%20%26amp%3bt%29%20%7b%20memset%28vis%2c%200%2c%20sizeof%28vis%29%29%3b%20memset%28weight%2c%200%2c%20sizeof%28weight%29%29%3b%20s%20%3d%20t%20%3d%20-1%3b%20while%20%28true%29%20%7b%20int%20mx%20%3d%20-1%2c%20cur%20%3d%200%3b%20for%20%28int%20i%20%3d%200%3b%20i%20%26lt%3b%20n%3b%20i%2b%2b%29%20%7b%20if%20%28%21" aria-label=Tumblr><i class="fab fa-tumblr" aria-hidden=true></i></a></li><li><a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fstoer-wagner-min-cut-%25E6%25BC%2594%25E7%25AE%2597%25E6%25B3%2595%2f&t=Stoer%20Wagner%20Min%20Cut%20%e6%bc%94%e7%ae%97%e6%b3%95" aria-label="Hacker News"><i class="fab fa-hacker-news" aria-hidden=true></i></a></li></ul></div><div id=toc><nav id=TableOfContents><ul><li><a href=#定義>定義</a></li><li><a href=#stoer-wagner-演算法>Stoer Wagner 演算法</a></li><li><a href=#模板>模板</a></li></ul></nav></div></span></div><article class=post itemscope itemtype=http://schema.org/BlogPosting><header><h1 class=posttitle itemprop="name headline">Stoer Wagner Min Cut 演算法</h1><div class=meta><span class=author itemprop=author itemscope itemtype=http://schema.org/Person><span itemprop=name></span></span><div class=postdate><time datetime="2022-10-07 22:24:23 +0000 UTC" itemprop=datePublished>2022-10-07</time></div><div class=article-read-time><i class="far fa-clock"></i>
 2 minute read</div><div class=article-tag><i class="fas fa-tag"></i>
-<a class=tag-link href=/tags/flow rel=tag>flow</a></div></div></header><div class=content itemprop=articleBody><h2 id=定義>定義</h2><p>給一個無向連通圖，去掉一個邊集合之後可以使得圖變成兩個連通分量，這個邊集合就叫做割集。</p><p>最小割的意思就是找到一個權重和最小的割集。</p><h2 id=stoer-wagner-演算法>Stoer Wagner 演算法</h2><p>我不會證明，所以直接講求最小割的演算法。（ps. 如果有人會的話可以教我 >&lt;）</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-md data-lang=md><span style=display:flex><span>全局最小值為 INT_MAX
-</span></span><span style=display:flex><span>做 n - 1 次「合併」下面的 3 點直到整個圖變成整個連通
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>1.</span> 固定點 s 用 prim 做最大生成樹，並記錄最後擴展的兩個點（也可以想成是最後的點+最後的邊）
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>2.</span> 如果跟最後擴展的點連接的所有邊權和 &lt; <span style=color:#f92672>全局最小值就更新</span>
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>3.</span> <span style=color:#a6e22e>合併最後擴展的那兩個頂點為一個點</span><span style=color:#960050;background-color:#1e0010>（</span><span style=color:#a6e22e>我的做法是直接合併邊</span><span style=color:#960050;background-color:#1e0010>）</span>
-</span></span></code></pre></td></tr></table></div></div><h2 id=模板>模板</h2><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">39
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">40
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">41
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">42
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">43
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">44
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">45
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">46
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">47
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">48
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">49
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">50
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">51
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">52
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">53
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">54
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">55
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">56
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">57
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">58
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">59
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">60
-</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>SW_Min_Cut</span> {  
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn <span style=color:#f92672>=</span> <span style=color:#ae81ff>500</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>5</span>;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> edge[maxn][maxn];
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> n;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> vis[maxn], del[maxn], weight[maxn];
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>Init</span>(<span style=color:#66d9ef>int</span> _n)
-</span></span><span style=display:flex><span>    {   
-</span></span><span style=display:flex><span>        memset(edge, <span style=color:#ae81ff>0</span>, <span style=color:#66d9ef>sizeof</span>(edge));
-</span></span><span style=display:flex><span>        memset(del, <span style=color:#ae81ff>0</span>, <span style=color:#66d9ef>sizeof</span>(del));
-</span></span><span style=display:flex><span>        n <span style=color:#f92672>=</span> _n;
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>AddEdge</span>(<span style=color:#66d9ef>int</span> u, <span style=color:#66d9ef>int</span> v, <span style=color:#66d9ef>int</span> w)
-</span></span><span style=display:flex><span>    {   
-</span></span><span style=display:flex><span>        edge[u][v] <span style=color:#f92672>+=</span> w;
-</span></span><span style=display:flex><span>        edge[v][u] <span style=color:#f92672>+=</span> w;
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>Search</span>(<span style=color:#66d9ef>int</span> <span style=color:#f92672>&amp;</span>s, <span style=color:#66d9ef>int</span> <span style=color:#f92672>&amp;</span>t)
-</span></span><span style=display:flex><span>    {   
-</span></span><span style=display:flex><span>        memset(vis, <span style=color:#ae81ff>0</span>, <span style=color:#66d9ef>sizeof</span>(vis));
-</span></span><span style=display:flex><span>        memset(weight, <span style=color:#ae81ff>0</span>, <span style=color:#66d9ef>sizeof</span>(weight));
-</span></span><span style=display:flex><span>        s <span style=color:#f92672>=</span> t <span style=color:#f92672>=</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>while</span> (true)
-</span></span><span style=display:flex><span>        {   
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>int</span> mx <span style=color:#f92672>=</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, cur <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; i <span style=color:#f92672>&lt;</span> n; i<span style=color:#f92672>++</span>)
-</span></span><span style=display:flex><span>            {   
-</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span>del[i] <span style=color:#f92672>&amp;&amp;</span> <span style=color:#f92672>!</span>vis[i] and mx <span style=color:#f92672>&lt;</span> weight[i])
-</span></span><span style=display:flex><span>                {   
-</span></span><span style=display:flex><span>                    cur <span style=color:#f92672>=</span> i, mx <span style=color:#f92672>=</span> weight[i];
-</span></span><span style=display:flex><span>                }
-</span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (mx <span style=color:#f92672>==</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>) <span style=color:#66d9ef>break</span>;
-</span></span><span style=display:flex><span>            vis[cur] <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
-</span></span><span style=display:flex><span>            s <span style=color:#f92672>=</span> t, t <span style=color:#f92672>=</span> cur;
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; i <span style=color:#f92672>&lt;</span> n; i<span style=color:#f92672>++</span>)
-</span></span><span style=display:flex><span>            {   
-</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span>vis[i] <span style=color:#f92672>&amp;&amp;</span> <span style=color:#f92672>!</span>del[i]) weight[i] <span style=color:#f92672>+=</span> edge[cur][i];
-</span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> <span style=color:#a6e22e>Solve</span>()
-</span></span><span style=display:flex><span>    {   
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> res <span style=color:#f92672>=</span> INT_MAX;
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, x, y; i <span style=color:#f92672>&lt;</span> n <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>; i<span style=color:#f92672>++</span>)
-</span></span><span style=display:flex><span>        {   
-</span></span><span style=display:flex><span>            Search(x, y);
-</span></span><span style=display:flex><span>            res <span style=color:#f92672>=</span> min(res, weight[y]);
-</span></span><span style=display:flex><span>            del[y] <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> j <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; j <span style=color:#f92672>&lt;</span> n; j<span style=color:#f92672>++</span>)
-</span></span><span style=display:flex><span>            {   
-</span></span><span style=display:flex><span>                edge[x][j] <span style=color:#f92672>=</span> (edge[j][x] <span style=color:#f92672>+=</span> edge[y][j]);
-</span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> res;
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>} graph;
+<a class=tag-link href=/tags/flow rel=tag>flow</a></div></div></header><div class=content itemprop=articleBody><h2 id=定義>定義</h2><p>給一個無向連通圖，去掉一個邊集合之後可以使得圖變成兩個連通分量，這個邊集合就叫做割集。</p><p>最小割的意思就是找到一個權重和最小的割集。</p><h2 id=stoer-wagner-演算法>Stoer Wagner 演算法</h2><p>我不會證明，所以直接講求最小割的演算法。（ps. 如果有人會的話可以教我 >&lt;）</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-md data-lang=md><span class=line><span class=cl>全局最小值為 INT_MAX
+</span></span><span class=line><span class=cl>做 n - 1 次「合併」下面的 3 點直到整個圖變成整個連通
+</span></span><span class=line><span class=cl>  <span class=k>1.</span> 固定點 s 用 prim 做最大生成樹，並記錄最後擴展的兩個點（也可以想成是最後的點+最後的邊）
+</span></span><span class=line><span class=cl>  <span class=k>2.</span> 如果跟最後擴展的點連接的所有邊權和 <span class=p>&lt;</span> <span class=nt>全局最小值就更新</span>
+</span></span><span class=line><span class=cl>  <span class=k>3.</span> <span class=na>合併最後擴展的那兩個頂點為一個點</span><span class=err>（</span><span class=na>我的做法是直接合併邊</span><span class=err>）</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=模板>模板</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=k>struct</span> <span class=nc>SW_Min_Cut</span> <span class=p>{</span>  
+</span></span><span class=line><span class=cl>    <span class=k>static</span> <span class=k>const</span> <span class=kt>int</span> <span class=n>maxn</span> <span class=o>=</span> <span class=mi>500</span> <span class=o>+</span> <span class=mi>5</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>edge</span><span class=p>[</span><span class=n>maxn</span><span class=p>][</span><span class=n>maxn</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>n</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>vis</span><span class=p>[</span><span class=n>maxn</span><span class=p>],</span> <span class=n>del</span><span class=p>[</span><span class=n>maxn</span><span class=p>],</span> <span class=n>weight</span><span class=p>[</span><span class=n>maxn</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kt>void</span> <span class=nf>Init</span><span class=p>(</span><span class=kt>int</span> <span class=n>_n</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>   
+</span></span><span class=line><span class=cl>        <span class=n>memset</span><span class=p>(</span><span class=n>edge</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>edge</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>        <span class=n>memset</span><span class=p>(</span><span class=n>del</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>del</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>        <span class=n>n</span> <span class=o>=</span> <span class=n>_n</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=kt>void</span> <span class=nf>AddEdge</span><span class=p>(</span><span class=kt>int</span> <span class=n>u</span><span class=p>,</span> <span class=kt>int</span> <span class=n>v</span><span class=p>,</span> <span class=kt>int</span> <span class=n>w</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>   
+</span></span><span class=line><span class=cl>        <span class=n>edge</span><span class=p>[</span><span class=n>u</span><span class=p>][</span><span class=n>v</span><span class=p>]</span> <span class=o>+=</span> <span class=n>w</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=n>edge</span><span class=p>[</span><span class=n>v</span><span class=p>][</span><span class=n>u</span><span class=p>]</span> <span class=o>+=</span> <span class=n>w</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kt>void</span> <span class=nf>Search</span><span class=p>(</span><span class=kt>int</span> <span class=o>&amp;</span><span class=n>s</span><span class=p>,</span> <span class=kt>int</span> <span class=o>&amp;</span><span class=n>t</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>   
+</span></span><span class=line><span class=cl>        <span class=n>memset</span><span class=p>(</span><span class=n>vis</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>vis</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>        <span class=n>memset</span><span class=p>(</span><span class=n>weight</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>weight</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>        <span class=n>s</span> <span class=o>=</span> <span class=n>t</span> <span class=o>=</span> <span class=o>-</span><span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>while</span> <span class=p>(</span><span class=nb>true</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>   
+</span></span><span class=line><span class=cl>            <span class=kt>int</span> <span class=n>mx</span> <span class=o>=</span> <span class=o>-</span><span class=mi>1</span><span class=p>,</span> <span class=n>cur</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>n</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span>   
+</span></span><span class=line><span class=cl>                <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=n>del</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>&amp;&amp;</span> <span class=o>!</span><span class=n>vis</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=n>and</span> <span class=n>mx</span> <span class=o>&lt;</span> <span class=n>weight</span><span class=p>[</span><span class=n>i</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>                <span class=p>{</span>   
+</span></span><span class=line><span class=cl>                    <span class=n>cur</span> <span class=o>=</span> <span class=n>i</span><span class=p>,</span> <span class=n>mx</span> <span class=o>=</span> <span class=n>weight</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>                <span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=p>(</span><span class=n>mx</span> <span class=o>==</span> <span class=o>-</span><span class=mi>1</span><span class=p>)</span> <span class=k>break</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=n>vis</span><span class=p>[</span><span class=n>cur</span><span class=p>]</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=n>s</span> <span class=o>=</span> <span class=n>t</span><span class=p>,</span> <span class=n>t</span> <span class=o>=</span> <span class=n>cur</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>n</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span>   
+</span></span><span class=line><span class=cl>                <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=n>vis</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>&amp;&amp;</span> <span class=o>!</span><span class=n>del</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=n>weight</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>+=</span> <span class=n>edge</span><span class=p>[</span><span class=n>cur</span><span class=p>][</span><span class=n>i</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=nf>Solve</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>   
+</span></span><span class=line><span class=cl>        <span class=kt>int</span> <span class=n>res</span> <span class=o>=</span> <span class=n>INT_MAX</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>n</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>   
+</span></span><span class=line><span class=cl>            <span class=n>Search</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>            <span class=n>res</span> <span class=o>=</span> <span class=n>min</span><span class=p>(</span><span class=n>res</span><span class=p>,</span> <span class=n>weight</span><span class=p>[</span><span class=n>y</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>            <span class=n>del</span><span class=p>[</span><span class=n>y</span><span class=p>]</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>j</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>j</span> <span class=o>&lt;</span> <span class=n>n</span><span class=p>;</span> <span class=n>j</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span>   
+</span></span><span class=line><span class=cl>                <span class=n>edge</span><span class=p>[</span><span class=n>x</span><span class=p>][</span><span class=n>j</span><span class=p>]</span> <span class=o>=</span> <span class=p>(</span><span class=n>edge</span><span class=p>[</span><span class=n>j</span><span class=p>][</span><span class=n>x</span><span class=p>]</span> <span class=o>+=</span> <span class=n>edge</span><span class=p>[</span><span class=n>y</span><span class=p>][</span><span class=n>j</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>res</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span> <span class=n>graph</span><span class=p>;</span>
 </span></span></code></pre></td></tr></table></div></div></div></article><div id=footer-post-container><div id=footer-post><div id=nav-footer style=display:none><ul><li><a href=/>Home</a></li><li><a href=/about>About</a></li><li><a href=/posts>Posts</a></li><li><a href=/resources>Resources</a></li><li><a href=/search>Search</a></li><li><a href=/tags>Tags</a></li></ul></div><div id=toc-footer style=display:none><nav id=TableOfContents><ul><li><a href=#定義>定義</a></li><li><a href=#stoer-wagner-演算法>Stoer Wagner 演算法</a></li><li><a href=#模板>模板</a></li></ul></nav></div><div id=share-footer style=display:none><ul><li><a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fstoer-wagner-min-cut-%25E6%25BC%2594%25E7%25AE%2597%25E6%25B3%2595%2f" aria-label=Facebook><i class="fab fa-facebook fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://twitter.com/share?url=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fstoer-wagner-min-cut-%25E6%25BC%2594%25E7%25AE%2597%25E6%25B3%2595%2f&text=Stoer%20Wagner%20Min%20Cut%20%e6%bc%94%e7%ae%97%e6%b3%95" aria-label=Twitter><i class="fab fa-twitter fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fstoer-wagner-min-cut-%25E6%25BC%2594%25E7%25AE%2597%25E6%25B3%2595%2f&title=Stoer%20Wagner%20Min%20Cut%20%e6%bc%94%e7%ae%97%e6%b3%95" aria-label=Linkedin><i class="fab fa-linkedin fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fstoer-wagner-min-cut-%25E6%25BC%2594%25E7%25AE%2597%25E6%25B3%2595%2f&is_video=false&description=Stoer%20Wagner%20Min%20Cut%20%e6%bc%94%e7%ae%97%e6%b3%95" aria-label=Pinterest><i class="fab fa-pinterest fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="mailto:?subject=Stoer%20Wagner%20Min%20Cut%20%e6%bc%94%e7%ae%97%e6%b3%95&body=Check out this article: https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fstoer-wagner-min-cut-%25E6%25BC%2594%25E7%25AE%2597%25E6%25B3%2595%2f" aria-label=Email><i class="fas fa-envelope fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://getpocket.com/save?url=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fstoer-wagner-min-cut-%25E6%25BC%2594%25E7%25AE%2597%25E6%25B3%2595%2f&title=Stoer%20Wagner%20Min%20Cut%20%e6%bc%94%e7%ae%97%e6%b3%95" aria-label=Pocket><i class="fab fa-get-pocket fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://reddit.com/submit?url=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fstoer-wagner-min-cut-%25E6%25BC%2594%25E7%25AE%2597%25E6%25B3%2595%2f&title=Stoer%20Wagner%20Min%20Cut%20%e6%bc%94%e7%ae%97%e6%b3%95" aria-label=reddit><i class="fab fa-reddit fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fstoer-wagner-min-cut-%25E6%25BC%2594%25E7%25AE%2597%25E6%25B3%2595%2f&name=Stoer%20Wagner%20Min%20Cut%20%e6%bc%94%e7%ae%97%e6%b3%95&description=%e5%ae%9a%e7%be%a9%20%e7%b5%a6%e4%b8%80%e5%80%8b%e7%84%a1%e5%90%91%e9%80%a3%e9%80%9a%e5%9c%96%ef%bc%8c%e5%8e%bb%e6%8e%89%e4%b8%80%e5%80%8b%e9%82%8a%e9%9b%86%e5%90%88%e4%b9%8b%e5%be%8c%e5%8f%af%e4%bb%a5%e4%bd%bf%e5%be%97%e5%9c%96%e8%ae%8a%e6%88%90%e5%85%a9%e5%80%8b%e9%80%a3%e9%80%9a%e5%88%86%e9%87%8f%ef%bc%8c%e9%80%99%e5%80%8b%e9%82%8a%e9%9b%86%e5%90%88%e5%b0%b1%e5%8f%ab%e5%81%9a%e5%89%b2%e9%9b%86%e3%80%82%0a%e6%9c%80%e5%b0%8f%e5%89%b2%e7%9a%84%e6%84%8f%e6%80%9d%e5%b0%b1%e6%98%af%e6%89%be%e5%88%b0%e4%b8%80%e5%80%8b%e6%ac%8a%e9%87%8d%e5%92%8c%e6%9c%80%e5%b0%8f%e7%9a%84%e5%89%b2%e9%9b%86%e3%80%82%0aStoer%20Wagner%20%e6%bc%94%e7%ae%97%e6%b3%95%20%e6%88%91%e4%b8%8d%e6%9c%83%e8%ad%89%e6%98%8e%ef%bc%8c%e6%89%80%e4%bb%a5%e7%9b%b4%e6%8e%a5%e8%ac%9b%e6%b1%82%e6%9c%80%e5%b0%8f%e5%89%b2%e7%9a%84%e6%bc%94%e7%ae%97%e6%b3%95%e3%80%82%ef%bc%88ps.%20%e5%a6%82%e6%9e%9c%e6%9c%89%e4%ba%ba%e6%9c%83%e7%9a%84%e8%a9%b1%e5%8f%af%e4%bb%a5%e6%95%99%e6%88%91%20%26gt%3b%26lt%3b%ef%bc%89%0a1%202%203%204%205%20%e5%85%a8%e5%b1%80%e6%9c%80%e5%b0%8f%e5%80%bc%e7%82%ba%20INT_MAX%20%e5%81%9a%20n%20-%201%20%e6%ac%a1%e3%80%8c%e5%90%88%e4%bd%b5%e3%80%8d%e4%b8%8b%e9%9d%a2%e7%9a%84%203%20%e9%bb%9e%e7%9b%b4%e5%88%b0%e6%95%b4%e5%80%8b%e5%9c%96%e8%ae%8a%e6%88%90%e6%95%b4%e5%80%8b%e9%80%a3%e9%80%9a%201.%20%e5%9b%ba%e5%ae%9a%e9%bb%9e%20s%20%e7%94%a8%20prim%20%e5%81%9a%e6%9c%80%e5%a4%a7%e7%94%9f%e6%88%90%e6%a8%b9%ef%bc%8c%e4%b8%a6%e8%a8%98%e9%8c%84%e6%9c%80%e5%be%8c%e6%93%b4%e5%b1%95%e7%9a%84%e5%85%a9%e5%80%8b%e9%bb%9e%ef%bc%88%e4%b9%9f%e5%8f%af%e4%bb%a5%e6%83%b3%e6%88%90%e6%98%af%e6%9c%80%e5%be%8c%e7%9a%84%e9%bb%9e%2b%e6%9c%80%e5%be%8c%e7%9a%84%e9%82%8a%ef%bc%89%202.%20%e5%a6%82%e6%9e%9c%e8%b7%9f%e6%9c%80%e5%be%8c%e6%93%b4%e5%b1%95%e7%9a%84%e9%bb%9e%e9%80%a3%e6%8e%a5%e7%9a%84%e6%89%80%e6%9c%89%e9%82%8a%e6%ac%8a%e5%92%8c%20%26lt%3b%20%e5%85%a8%e5%b1%80%e6%9c%80%e5%b0%8f%e5%80%bc%e5%b0%b1%e6%9b%b4%e6%96%b0%203.%20%e5%90%88%e4%bd%b5%e6%9c%80%e5%be%8c%e6%93%b4%e5%b1%95%e7%9a%84%e9%82%a3%e5%85%a9%e5%80%8b%e9%a0%82%e9%bb%9e%e7%82%ba%e4%b8%80%e5%80%8b%e9%bb%9e%ef%bc%88%e6%88%91%e7%9a%84%e5%81%9a%e6%b3%95%e6%98%af%e7%9b%b4%e6%8e%a5%e5%90%88%e4%bd%b5%e9%82%8a%ef%bc%89%20%e6%a8%a1%e6%9d%bf%201%202%203%204%205%206%207%208%209%2010%2011%2012%2013%2014%2015%2016%2017%2018%2019%2020%2021%2022%2023%2024%2025%2026%2027%2028%2029%2030%2031%2032%2033%2034%2035%2036%2037%2038%2039%2040%2041%2042%2043%2044%2045%2046%2047%2048%2049%2050%2051%2052%2053%2054%2055%2056%2057%2058%2059%2060%20struct%20SW_Min_Cut%20%7b%20static%20const%20int%20maxn%20%3d%20500%20%2b%205%3b%20int%20edge%5bmaxn%5d%5bmaxn%5d%3b%20int%20n%3b%20int%20vis%5bmaxn%5d%2c%20del%5bmaxn%5d%2c%20weight%5bmaxn%5d%3b%20void%20Init%28int%20_n%29%20%7b%20memset%28edge%2c%200%2c%20sizeof%28edge%29%29%3b%20memset%28del%2c%200%2c%20sizeof%28del%29%29%3b%20n%20%3d%20_n%3b%20%7d%20void%20AddEdge%28int%20u%2c%20int%20v%2c%20int%20w%29%20%7b%20edge%5bu%5d%5bv%5d%20%2b%3d%20w%3b%20edge%5bv%5d%5bu%5d%20%2b%3d%20w%3b%20%7d%20void%20Search%28int%20%26amp%3bs%2c%20int%20%26amp%3bt%29%20%7b%20memset%28vis%2c%200%2c%20sizeof%28vis%29%29%3b%20memset%28weight%2c%200%2c%20sizeof%28weight%29%29%3b%20s%20%3d%20t%20%3d%20-1%3b%20while%20%28true%29%20%7b%20int%20mx%20%3d%20-1%2c%20cur%20%3d%200%3b%20for%20%28int%20i%20%3d%200%3b%20i%20%26lt%3b%20n%3b%20i%2b%2b%29%20%7b%20if%20%28%21" aria-label=Tumblr><i class="fab fa-tumblr fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fsnow-ham1949.github.io%2fposts%2fstoer-wagner-min-cut-%25E6%25BC%2594%25E7%25AE%2597%25E6%25B3%2595%2f&t=Stoer%20Wagner%20Min%20Cut%20%e6%bc%94%e7%ae%97%e6%b3%95" aria-label="Hacker News"><i class="fab fa-hacker-news fa-lg" aria-hidden=true></i></a></li></ul></div><div id=actions-footer><a id=menu-toggle class=icon href=# onclick='return $("#nav-footer").toggle(),!1' aria-label=Menu><i class="fas fa-bars fa-lg" aria-hidden=true></i> Menu</a>
 <a id=toc-toggle class=icon href=# onclick='return $("#toc-footer").toggle(),!1' aria-label=TOC><i class="fas fa-list fa-lg" aria-hidden=true></i> TOC</a>
 <a id=share-toggle class=icon href=# onclick='return $("#share-footer").toggle(),!1' aria-label=Share><i class="fas fa-share-alt fa-lg" aria-hidden=true></i> share</a>
