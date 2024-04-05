@@ -15,8 +15,7 @@ html &amp;lt;title&amp;gt; &amp;lt;/title&amp;gt; : 網頁標題
 &amp;lt;!-- comment --&amp;gt;
 list
 unordered list
-&amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;Item 1&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;Item 2&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;Item 3&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; ordered list
-&amp;lt;ol&amp;gt; &amp;lt;li&amp;gt;Item 1&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;Item 2&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;Item 3&amp;lt;/li&amp;gt; &amp;lt;/ol&amp;gt; &amp;lt;a href=&amp;quot;url&amp;quot;&amp;gt; &amp;lt;/a&amp;gt;: 超連結
+1 2 3 4 5 &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;Item 1&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;Item 2&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;Item 3&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; ordered list
+1 2 3 4 5 &amp;lt;ol&amp;gt; &amp;lt;li&amp;gt;Item 1&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;Item 2&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;Item 3&amp;lt;/li&amp;gt; &amp;lt;/ol&amp;gt; &amp;lt;a href=&amp;quot;url&amp;quot;&amp;gt; &amp;lt;/a&amp;gt;: 超連結
 url 可以是絕對連結（ex. 外部）or 相對連結（ex. 內部連結）
-&amp;lt;body&amp;gt; &amp;lt;h1&amp;gt;Homepage&amp;lt;/h1&amp;gt; &amp;lt;a href=&amp;#34;https://www.theodinproject.com/about&amp;#34;&amp;gt;click me&amp;lt;/a&amp;gt; &amp;lt;a href=&amp;#34;./about.html&amp;#34;&amp;gt;About&amp;lt;/a&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;img&amp;gt;: 圖片，一樣可以用絕對連結或相對連結
-&amp;lt;body&amp;gt; &amp;lt;h1&amp;gt;Homepage&amp;lt;/h1&amp;gt; &amp;lt;img src=&amp;#34;https://www.theodinproject.com/mstile-310x310.png&amp;#34;&amp;gt; &amp;lt;img src=&amp;#34;images/dog.jpg&amp;#34; alt=&amp;#34;alternative text&amp;#34;&amp;gt; &amp;lt;/body&amp;gt; others open .</description></item></channel></rss>
+1 2 3 4 5 6 &amp;lt;body&amp;gt; &amp;lt;h1&amp;gt;Homepage&amp;lt;/h1&amp;gt; &amp;lt;a href=&amp;#34;https://www.</description></item></channel></rss>

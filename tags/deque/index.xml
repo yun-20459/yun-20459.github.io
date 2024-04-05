@@ -2,4 +2,4 @@
 作法 令 dp[i] 為以 $i$ 為起點到終點能獲得的最大分數。如果枚舉可以走的範圍內最大的話複雜度會是 $O(nk)$ 會 TLE，所以可以用 deque 或是 priority_queue 來優化，維護一個可以走的範圍內的單調隊列或者 heap，就可以在 $O(1)$ 或是 $O(logk)$ 內拿到最大值了。
 下面兩種 code 分別用 deque 和 priority_queue 寫， deque 版本是從起點開始做，priority_queue 版本是從終點開始做
 deque 版本
-class Solution { public: int maxResult(vector&amp;lt;int&amp;gt;&amp;amp; nums, int k) { int n = nums.size(); vector&amp;lt;int&amp;gt; dp(n, 0); deque&amp;lt;int&amp;gt; dq; dp[0] = nums[0]; dq.push_back(0); for (int i = 1; i &amp;lt; n; i++) { if (dq.front() &amp;lt; i - k) dq.</description></item></channel></rss>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 class Solution { public: int maxResult(vector&amp;lt;int&amp;gt;&amp;amp; nums, int k) { int n = nums.size(); vector&amp;lt;int&amp;gt; dp(n, 0); deque&amp;lt;int&amp;gt; dq; dp[0] = nums[0]; dq.</description></item></channel></rss>

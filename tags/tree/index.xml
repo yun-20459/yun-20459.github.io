@@ -8,4 +8,4 @@
 因為不取任何跟 $v \in child(u)$ 有連接的邊，所以不管「跟 $v$ 的小孩有連接的邊」取不取都可以，所以答案就是
 $dp_1(u) = \sum_{v \in child(u)} max(dp_0(v), dp_1(v))$
 $dp_0(u)$
-可以先處理取一條的部分，因為取了 $u \rightarrow v$ 這一條，所以「不取任何跟 $w \in child(v)$ 有連接的邊」是 $dp_1(v)$，再加上 $u \rightarrow v$ 這一條，就是 $dp_1(v) + 1$。 接下來要加上 $w \in child(u), w \neq v$ 的部分，畫一下圖就會發現就是</description></item></channel></rss>
+可以先處理取一條的部分，因為取了 $u \rightarrow v$ 這一條，所以「不取任何跟 $w \in child(v)$ 有連接的邊」是 $dp_1(v)$，再加上 $u \rightarrow v$ 這一條，就是 $dp_1(v) + 1$。</description></item></channel></rss>

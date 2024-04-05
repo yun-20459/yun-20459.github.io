@@ -3,4 +3,4 @@
 轉移式的話可以觀察，如果我現在已經放好 1~3 然後我要把 4 放進去這個序列裡面，我可以有下面這幾種放法
 放法 造成的逆序數對 4xxx 3 x4xx 2 xx4x 1 xxx4 0 所以就可以發現這樣的轉移式
 $dp[i][j] = dp[i - 1][j - k]$, $\forall k \in [0, i - 1]$
-class Solution { public: int kInversePairs(int n, int k) { const int mod = 1e9 + 7; vector&amp;lt;vector&amp;lt;int&amp;gt; &amp;gt; dp(n + 1, vector&amp;lt;int&amp;gt;(k + 1, 1)); for (int i = 1; i &amp;lt;= n; i++) { for (int j = 0; j &amp;lt;= k; j++) { for (int k = 0; k &amp;lt;= min(K, N - 1); k++) { dp[i][j] = (dp[i][j] + dp[i - 1][j - k]) % mod; } } } return dp[n][k]; } }; $O(nk)$ 同樣的概念，只是剛剛的轉移式可以再優化</description></item></channel></rss>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 class Solution { public: int kInversePairs(int n, int k) { const int mod = 1e9 + 7; vector&amp;lt;vector&amp;lt;int&amp;gt; &amp;gt; dp(n + 1, vector&amp;lt;int&amp;gt;(k + 1, 1)); for (int i = 1; i &amp;lt;= n; i++) { for (int j = 0; j &amp;lt;= k; j++) { for (int k = 0; k &amp;lt;= min(K, N - 1); k++) { dp[i][j] = (dp[i][j] + dp[i - 1][j - k]) % mod; } } } return dp[n][k]; } }; $O(nk)$ 同樣的概念，只是剛剛的轉移式可以再優化</description></item></channel></rss>

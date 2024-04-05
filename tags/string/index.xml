@@ -9,6 +9,6 @@ $x = a[i]$ $x = 2 * y + 1$ and $y \in S$ $x = 4 * y$ and $y \in S$ 問在集合 
 作法 一開始看到 tag 以為真的要寫 trie，後來才發現不用（用 trie 我也不會寫），用二分搜就可以了。
 概念是先去紀錄 s 每個字母有出現在哪裡，然後去遍歷每個 word，對於 word 裡的每一個字母，我都要能在 s 裡面找到比前一個字母在 s 裡面的位置更後面的位置（好拗口），這樣才符合 subsequence of string。
 舉例來說
-s = &amp;#34;abcd&amp;#34; words = [&amp;#34;ab&amp;#34;, &amp;#34;cb&amp;#34;] 顯然對於 &amp;quot;ab&amp;quot; 來說，我可以在 s 裡面找到 1 跟 2 這兩個位置，所以他是對的，但對於 &amp;quot;cb&amp;quot; 來說，c 的第一個位置就是 3 了，而 3 後面沒有 b 所以他是錯的。
+1 2 s = &amp;#34;abcd&amp;#34; words = [&amp;#34;ab&amp;#34;, &amp;#34;cb&amp;#34;] 顯然對於 &amp;quot;ab&amp;quot; 來說，我可以在 s 裡面找到 1 跟 2 這兩個位置，所以他是對的，但對於 &amp;quot;cb&amp;quot; 來說，c 的第一個位置就是 3 了，而 3 後面沒有 b 所以他是錯的。
 假設 s 長度是 $L$，$words$ 陣列長度是 $N$，每個 word 長度是 $l$，複雜度會是 $O(LNlog(l))$。
-class Solution { public: int numMatchingSubseq(string s, vector&amp;lt;string&amp;gt;&amp;amp; words) { vector&amp;lt;vector&amp;lt;int&amp;gt; &amp;gt; ch(26); int n = s.</description></item></channel></rss>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 class Solution { public: int numMatchingSubseq(string s, vector&amp;lt;string&amp;gt;&amp;amp; words) { vector&amp;lt;vector&amp;lt;int&amp;gt; &amp;gt; ch(26); int n = s.</description></item></channel></rss>
