@@ -1,7 +1,6 @@
 ---
-title: 'About'
-date: 2024-04-04T23:06:04+08:00
-draft: false
+menus: main
+title: About
 ---
 
 NTUCS b09

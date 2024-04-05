@@ -6,7 +6,49 @@ theme: cactus
 
 menu:
   main:
-    - identifier: Archive
-      name: "About"
-      url: "/about"
+    - name: "Home"
+      url: "/"
       weight: 1
+    - name: "Writings"
+      url: "/posts"
+      weight: 2
+    - name: "Tags"
+      url: "/tags"
+      weight: 3
+    - name: "About"
+      url: "/about"
+      weight: 4
+
+hasCJKLanguage: true
+
+taxonomies:
+    category: categories
+    tag: tags
+    series: series
+
+params:
+  colortheme: dark
+  mathjax: true
+  showAllPostsArchive: true
+  showAllPostsOnHomePage: true
+  social:
+    - name: "github"
+      link: "https://github.com/snow-ham1949"
+    - name: "linkedin"
+      link: "https://www.linkedin.com/in/erinli0405"
+    - name: "email"
+      link: "b08502041@csie.ntu.edu.tw"
+
+copyright: "Erin Li"
+
+markup:
+  highlight:
+    codeFences: true
+    guessSyntax: false
+    hl_Lines: ""
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: true
+    style: "monokai"
+    tabWidth: 4
