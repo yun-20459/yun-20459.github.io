@@ -8,4 +8,4 @@ tags: []
 
 ## 朋友的連結 > <
 
-![UJ's blog](https://blog.ujoj.cc/)
+[UJ's blog](https://blog.ujoj.cc/)
