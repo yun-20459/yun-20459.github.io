@@ -328,7 +328,7 @@ int main() {
 
 可以參考題解的這張圖
 
-![tree](images/../../images/abc314tree.png)
+![tree](/images/abc314tree.png)
 
 我們可以用一個 dsu 來紀錄誰跟誰一組，那你會注意到 dsu 需要多開 $n - 1$ 個點來當比賽結果，然後把這些都弄成一棵樹，接下來從根開始 dfs，每次都把邊權下推，推到 [1, n] 的節點就是答案。
 

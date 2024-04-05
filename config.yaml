@@ -1,7 +1,6 @@
 baseURL: 'https://snow-ham1949.github.io'
 languageCode: zh-tw
 title: 隨寫日誌
-paginate: 5
 theme: cactus
 
 menu:
@@ -9,28 +8,25 @@ menu:
     - name: "Home"
       url: "/"
       weight: 1
-    - name: "Writings"
+    - name: "Archives"
       url: "/posts"
-      weight: 2
+      weight: 4
     - name: "Tags"
       url: "/tags"
       weight: 3
     - name: "About"
       url: "/about"
-      weight: 4
-
-hasCJKLanguage: true
-
-taxonomies:
-    category: categories
-    tag: tags
-    series: series
+      weight: 2
 
 params:
   colortheme: dark
   mathjax: true
-  showAllPostsArchive: true
-  showAllPostsOnHomePage: true
+  showAllPostsOnHomePage: false
+  showAllPostsArchive: false
+  tagsOverview: false
+  postsOnHomePage: 10
+  show_updated: true
+  showReadTime: true
   social:
     - name: "github"
       link: "https://github.com/snow-ham1949"
