@@ -1,12 +1,4 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-baseURL: 'https://snow-ham1949.github.io'
-=======
 baseURL: 'https://yun-20459.github.io'
->>>>>>> Stashed changes
-=======
-baseURL: 'https://yun-20459.github.io'
->>>>>>> Stashed changes
 languageCode: zh-tw
 title: 隨寫日誌
 theme: cactus
@@ -64,15 +56,7 @@ params:
   showReadTime: true
   social:
     - name: "github"
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-      link: "https://github.com/snow-ham1949"
-=======
       link: "https://github.com/yun-20459"
->>>>>>> Stashed changes
-=======
-      link: "https://github.com/yun-20459"
->>>>>>> Stashed changes
     - name: "linkedin"
       link: "https://www.linkedin.com/in/erinli0405"
     - name: "email"
