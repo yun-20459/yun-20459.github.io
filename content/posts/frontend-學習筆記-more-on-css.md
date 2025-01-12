@@ -124,7 +124,15 @@ pseudo class 就是讓特定的 html tag 不用寫 class 來加上 css，為什�
 常用的 pseudo class 有
 
 - `:root`
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 - `:first-child`、`:last-child`、`:only-child`、`:empty`（沒小孩）、`:nth-child`[用法](https://codepen.io/snow-ham1949/pen/YzayJgr)
+=======
+- `:first-child`、`:last-child`、`:only-child`、`:empty`（沒小孩）、`:nth-child`[用法](https://codepen.io/yun-20459/pen/YzayJgr)
+>>>>>>> Stashed changes
+=======
+- `:first-child`、`:last-child`、`:only-child`、`:empty`（沒小孩）、`:nth-child`[用法](https://codepen.io/yun-20459/pen/YzayJgr)
+>>>>>>> Stashed changes
 - `:invalid`
 - `:hover`、`:visited`、`:focus`、`:link`
 

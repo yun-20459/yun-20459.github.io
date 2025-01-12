@@ -6,7 +6,15 @@ tags: [html]
 
 ## 建立 form
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [範例 code](https://codepen.io/snow-ham1949/pen/abYNBrz)
+=======
+[範例 code](https://codepen.io/yun-20459/pen/abYNBrz)
+>>>>>>> Stashed changes
+=======
+[範例 code](https://codepen.io/yun-20459/pen/abYNBrz)
+>>>>>>> Stashed changes
 
 - `<form>`
   - `action`: 後面要放的是 url，代筆要送資料去處理的地方
