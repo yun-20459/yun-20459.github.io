@@ -21,9 +21,6 @@ jobs:
           hugo-version: '0.124.0'
           extended: true
 
-      - name: Check Hugo Version
-        run: hugo version
-
       - name: Build
         run: hugo --cleanDestinationDir
 
