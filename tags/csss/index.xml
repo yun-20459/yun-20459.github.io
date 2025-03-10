@@ -1,20 +1,38 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Csss on 隨寫日誌</title>
-    <link>https://yun-20459.github.io/tags/csss/</link>
-    <description>Recent content in Csss on 隨寫日誌</description>
-    <generator>Hugo</generator>
-    <language>zh-tw</language>
-    <copyright>Erin Li</copyright>
-    <lastBuildDate>Sun, 10 Jul 2022 15:03:48 +0000</lastBuildDate>
-    <atom:link href="https://yun-20459.github.io/tags/csss/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>frontend 學習筆記 - grid</title>
-      <link>https://yun-20459.github.io/posts/frontend-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-grid/</link>
-      <pubDate>Sun, 10 Jul 2022 15:03:48 +0000</pubDate>
-      <guid>https://yun-20459.github.io/posts/frontend-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-grid/</guid>
-      <description>&lt;h2 id=&#34;grid-是什麼&#34;&gt;grid 是什麼&lt;/h2&gt;&#xA;&lt;p&gt;一種 display 的方法，可以 display grid （廢話）&lt;/p&gt;&#xA;&lt;h2 id=&#34;常用-property--function&#34;&gt;常用 property &amp;amp; function&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;grid-template-columns&lt;/code&gt;、&lt;code&gt;grid-template-rows&lt;/code&gt;: 設定有幾行/列，並給訂每一行/列的寬度&#xA;&lt;ul&gt;&#xA;&lt;li&gt;給的時候可以用 &lt;code&gt;repeat(次數, 寬度)&lt;/code&gt; 來給，其中寬度的單位可以是 &lt;code&gt;px&lt;/code&gt; 或 &lt;code&gt;fr&lt;/code&gt; (fraction unit)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;grid-auto-rows&lt;/code&gt;、&lt;code&gt;grid-auto-columns&lt;/code&gt;: 設定 template 以外的行/列&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;grid-auto-flow&lt;/code&gt;: 指定多出來的 grid 要往哪裡長&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;gap&lt;/code&gt;: 可以同時設定 &lt;code&gt;row-gap&lt;/code&gt;、&lt;code&gt;column-gap&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;resize: both&lt;/code&gt;: 可以讓 user 調整 grid container 的大小&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;overflow: auto&lt;/code&gt;: 如果 container 變太小就可以自動調整成滾動式內容&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;minmax()&lt;/code&gt;: 只能用在 &lt;code&gt;grid-template-columns&lt;/code&gt;、&lt;code&gt;grid-template-rows&lt;/code&gt;、&lt;code&gt;grid-auto-rows&lt;/code&gt;、&lt;code&gt;grid-auto-columns&lt;/code&gt;，給 container shrink and grow 最小和最大值&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;auto-fit&lt;/code&gt;、&lt;code&gt;auto-fill&lt;/code&gt;: 會自動依據 container 的大小調整個數，兩個的差別在如果 grid 大到可以容納其他 item 但沒有其他 item 的時候， &lt;code&gt;auto-fit&lt;/code&gt; 會用 max， &lt;code&gt;auto-fill&lt;/code&gt; 會用 min&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;auto-fit&lt;/code&gt; &lt;a href=&#34;https://codepen.io/TheOdinProjectExamples/pen/mdByJyJ&#34;&gt;例子&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;auto-fill&lt;/code&gt; &lt;a href=&#34;https://codepen.io/TheOdinProjectExamples/pen/KKXwpwX&#34;&gt;例子&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;positioning&#34;&gt;positioning&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;grid-column-start&lt;/code&gt;、&lt;code&gt;grid-column-end&lt;/code&gt;、&lt;code&gt;grid-row-start&lt;/code&gt;、&lt;code&gt;grid-row-end&lt;/code&gt;: 可以固定透過 line 固定 grid cell 的位置&#xA;&lt;ul&gt;&#xA;&lt;li&gt;可以直接用 &lt;code&gt;grid-area&lt;/code&gt; 來表示 &lt;code&gt;grid-row-start / grid-column-start / grid-row-end / grid-column-end&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;grid-area&lt;/code&gt; 也可以直接給 value，然後再用 &lt;code&gt;grid-template-area&lt;/code&gt; 排，空的地方就用 &lt;code&gt;.&lt;/code&gt; 代表&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://codepen.io/TheOdinProjectExamples/pen/ZEXYbpg&#34;&gt;例子&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;span&lt;/code&gt;: 這個 keyword 可以直接指定 number of track to span &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Line-based_Placement_with_CSS_Grid#using_the_span_keyword&#34;&gt;詳細解說&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://css-tricks.com/snippets/css/complete-guide-grid/#grid-properties&#34;&gt;other css tricks&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://cssgridgarden.com&#34;&gt;相關練習&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Csss on 隨寫日誌</title><link>https://yun-20459.github.io/tags/csss/</link><description>Recent content in Csss on 隨寫日誌</description><generator>Hugo</generator><language>zh-tw</language><copyright>Erin Li</copyright><lastBuildDate>Sun, 10 Jul 2022 15:03:48 +0000</lastBuildDate><atom:link href="https://yun-20459.github.io/tags/csss/index.xml" rel="self" type="application/rss+xml"/><item><title>frontend 學習筆記 - grid</title><link>https://yun-20459.github.io/posts/frontend-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-grid/</link><pubDate>Sun, 10 Jul 2022 15:03:48 +0000</pubDate><guid>https://yun-20459.github.io/posts/frontend-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-grid/</guid><description>&lt;h2 id="grid-是什麼">grid 是什麼&lt;/h2>
+&lt;p>一種 display 的方法，可以 display grid （廢話）&lt;/p>
+&lt;h2 id="常用-property--function">常用 property &amp;amp; function&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>grid-template-columns&lt;/code>、&lt;code>grid-template-rows&lt;/code>: 設定有幾行/列，並給訂每一行/列的寬度
+&lt;ul>
+&lt;li>給的時候可以用 &lt;code>repeat(次數, 寬度)&lt;/code> 來給，其中寬度的單位可以是 &lt;code>px&lt;/code> 或 &lt;code>fr&lt;/code> (fraction unit)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>grid-auto-rows&lt;/code>、&lt;code>grid-auto-columns&lt;/code>: 設定 template 以外的行/列&lt;/li>
+&lt;li>&lt;code>grid-auto-flow&lt;/code>: 指定多出來的 grid 要往哪裡長&lt;/li>
+&lt;li>&lt;code>gap&lt;/code>: 可以同時設定 &lt;code>row-gap&lt;/code>、&lt;code>column-gap&lt;/code>&lt;/li>
+&lt;li>&lt;code>resize: both&lt;/code>: 可以讓 user 調整 grid container 的大小&lt;/li>
+&lt;li>&lt;code>overflow: auto&lt;/code>: 如果 container 變太小就可以自動調整成滾動式內容&lt;/li>
+&lt;li>&lt;code>minmax()&lt;/code>: 只能用在 &lt;code>grid-template-columns&lt;/code>、&lt;code>grid-template-rows&lt;/code>、&lt;code>grid-auto-rows&lt;/code>、&lt;code>grid-auto-columns&lt;/code>，給 container shrink and grow 最小和最大值&lt;/li>
+&lt;li>&lt;code>auto-fit&lt;/code>、&lt;code>auto-fill&lt;/code>: 會自動依據 container 的大小調整個數，兩個的差別在如果 grid 大到可以容納其他 item 但沒有其他 item 的時候， &lt;code>auto-fit&lt;/code> 會用 max， &lt;code>auto-fill&lt;/code> 會用 min
+&lt;ul>
+&lt;li>&lt;code>auto-fit&lt;/code> &lt;a href="https://codepen.io/TheOdinProjectExamples/pen/mdByJyJ">例子&lt;/a>&lt;/li>
+&lt;li>&lt;code>auto-fill&lt;/code> &lt;a href="https://codepen.io/TheOdinProjectExamples/pen/KKXwpwX">例子&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="positioning">positioning&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>grid-column-start&lt;/code>、&lt;code>grid-column-end&lt;/code>、&lt;code>grid-row-start&lt;/code>、&lt;code>grid-row-end&lt;/code>: 可以固定透過 line 固定 grid cell 的位置
+&lt;ul>
+&lt;li>可以直接用 &lt;code>grid-area&lt;/code> 來表示 &lt;code>grid-row-start / grid-column-start / grid-row-end / grid-column-end&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>grid-area&lt;/code> 也可以直接給 value，然後再用 &lt;code>grid-template-area&lt;/code> 排，空的地方就用 &lt;code>.&lt;/code> 代表
+&lt;ul>
+&lt;li>&lt;a href="https://codepen.io/TheOdinProjectExamples/pen/ZEXYbpg">例子&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>span&lt;/code>: 這個 keyword 可以直接指定 number of track to span &lt;a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Line-based_Placement_with_CSS_Grid#using_the_span_keyword">詳細解說&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://css-tricks.com/snippets/css/complete-guide-grid/#grid-properties">other css tricks&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cssgridgarden.com">相關練習&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

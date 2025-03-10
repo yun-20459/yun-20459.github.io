@@ -1,20 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Tree on 隨寫日誌</title>
-    <link>https://yun-20459.github.io/tags/tree/</link>
-    <description>Recent content in Tree on 隨寫日誌</description>
-    <generator>Hugo</generator>
-    <language>zh-tw</language>
-    <copyright>Erin Li</copyright>
-    <lastBuildDate>Mon, 19 Sep 2022 21:51:48 +0000</lastBuildDate>
-    <atom:link href="https://yun-20459.github.io/tags/tree/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>CSES Tree Matching</title>
-      <link>https://yun-20459.github.io/posts/cses-tree-matching/</link>
-      <pubDate>Mon, 19 Sep 2022 21:51:48 +0000</pubDate>
-      <guid>https://yun-20459.github.io/posts/cses-tree-matching/</guid>
-      <description>&lt;p&gt;第一次接觸樹 dp OuO&lt;/p&gt;&#xA;&lt;h2 id=&#34;題目&#34;&gt;題目&lt;/h2&gt;&#xA;&lt;p&gt;給一棵樹，找到最大的邊集合使得任兩邊不共享一個點，輸出集合大小。&lt;/p&gt;&#xA;&lt;h2 id=&#34;作法&#34;&gt;作法&lt;/h2&gt;&#xA;&lt;h3 id=&#34;定義&#34;&gt;定義&lt;/h3&gt;&#xA;&lt;p&gt;如果是 array 版本的話（i.e. 給一個序列不能選相鄰的，最大化價值），比較容易可以想到轉移式 $dp(i) = max(v_i + dp(i - 2), dp(i - 1))$&lt;/p&gt;&#xA;&lt;p&gt;轉成樹的版本的話，就需要在樹上面做 dp，對於一個節點 $u$ 有下面兩種情況&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;取一條跟 $v \in child(u)$ 有連接的邊，答案定義為 $dp_0(u)$&lt;/li&gt;&#xA;&lt;li&gt;不取任何跟 $v \in child(u)$ 有連接的邊，答案定義為 $dp_1(u)$&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;為什麼沒有取兩條以上的 case 呢？因為如果取兩條以上的話 $u$ 就會變成那個共享的點。&lt;/p&gt;&#xA;&lt;p&gt;所以從上面的定義可以知道答案是 $max(dp_0(1), dp_1(1))$&lt;/p&gt;&#xA;&lt;h3 id=&#34;轉移式&#34;&gt;轉移式&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;$dp_1(u)$&lt;/p&gt;&#xA;&lt;p&gt;因為不取任何跟 $v \in child(u)$ 有連接的邊，所以不管「跟 $v$ 的小孩有連接的邊」取不取都可以，所以答案就是&lt;/p&gt;&#xA;&lt;p&gt;$dp_1(u) = \sum_{v \in child(u)} max(dp_0(v), dp_1(v))$&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;$dp_0(u)$&lt;/p&gt;&#xA;&lt;p&gt;可以先處理取一條的部分，因為取了 $u \rightarrow v$ 這一條，所以「不取任何跟 $w \in child(v)$ 有連接的邊」是 $dp_1(v)$，再加上 $u \rightarrow v$ 這一條，就是 $dp_1(v) + 1$。&lt;br&gt;&#xA;接下來要加上 $w \in child(u), w \neq v$ 的部分，畫一下圖就會發現就是&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tree on 隨寫日誌</title><link>https://yun-20459.github.io/tags/tree/</link><description>Recent content in Tree on 隨寫日誌</description><generator>Hugo</generator><language>zh-tw</language><copyright>Erin Li</copyright><lastBuildDate>Mon, 19 Sep 2022 21:51:48 +0000</lastBuildDate><atom:link href="https://yun-20459.github.io/tags/tree/index.xml" rel="self" type="application/rss+xml"/><item><title>CSES Tree Matching</title><link>https://yun-20459.github.io/posts/cses-tree-matching/</link><pubDate>Mon, 19 Sep 2022 21:51:48 +0000</pubDate><guid>https://yun-20459.github.io/posts/cses-tree-matching/</guid><description>&lt;p>第一次接觸樹 dp OuO&lt;/p>
+&lt;h2 id="題目">題目&lt;/h2>
+&lt;p>給一棵樹，找到最大的邊集合使得任兩邊不共享一個點，輸出集合大小。&lt;/p>
+&lt;h2 id="作法">作法&lt;/h2>
+&lt;h3 id="定義">定義&lt;/h3>
+&lt;p>如果是 array 版本的話（i.e. 給一個序列不能選相鄰的，最大化價值），比較容易可以想到轉移式 $dp(i) = max(v_i + dp(i - 2), dp(i - 1))$&lt;/p>
+&lt;p>轉成樹的版本的話，就需要在樹上面做 dp，對於一個節點 $u$ 有下面兩種情況&lt;/p>
+&lt;ol>
+&lt;li>取一條跟 $v \in child(u)$ 有連接的邊，答案定義為 $dp_0(u)$&lt;/li>
+&lt;li>不取任何跟 $v \in child(u)$ 有連接的邊，答案定義為 $dp_1(u)$&lt;/li>
+&lt;/ol>
+&lt;p>為什麼沒有取兩條以上的 case 呢？因為如果取兩條以上的話 $u$ 就會變成那個共享的點。&lt;/p>
+&lt;p>所以從上面的定義可以知道答案是 $max(dp_0(1), dp_1(1))$&lt;/p>
+&lt;h3 id="轉移式">轉移式&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>$dp_1(u)$&lt;/p>
+&lt;p>因為不取任何跟 $v \in child(u)$ 有連接的邊，所以不管「跟 $v$ 的小孩有連接的邊」取不取都可以，所以答案就是&lt;/p>
+&lt;p>$dp_1(u) = \sum_{v \in child(u)} max(dp_0(v), dp_1(v))$&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>$dp_0(u)$&lt;/p>
+&lt;p>可以先處理取一條的部分，因為取了 $u \rightarrow v$ 這一條，所以「不取任何跟 $w \in child(v)$ 有連接的邊」是 $dp_1(v)$，再加上 $u \rightarrow v$ 這一條，就是 $dp_1(v) + 1$。&lt;br>
+接下來要加上 $w \in child(u), w \neq v$ 的部分，畫一下圖就會發現就是&lt;/p></description></item></channel></rss>

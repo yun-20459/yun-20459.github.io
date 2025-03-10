@@ -1,48 +1,110 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Class on 隨寫日誌</title>
-    <link>https://yun-20459.github.io/tags/class/</link>
-    <description>Recent content in Class on 隨寫日誌</description>
-    <generator>Hugo</generator>
-    <language>zh-tw</language>
-    <copyright>Erin Li</copyright>
-    <lastBuildDate>Thu, 04 Apr 2024 16:19:49 +0000</lastBuildDate>
-    <atom:link href="https://yun-20459.github.io/tags/class/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>112-1 修課心得</title>
-      <link>https://yun-20459.github.io/posts/112-1-%E4%BF%AE%E8%AA%B2%E5%BF%83%E5%BE%97/</link>
-      <pubDate>Thu, 04 Apr 2024 16:19:49 +0000</pubDate>
-      <guid>https://yun-20459.github.io/posts/112-1-%E4%BF%AE%E8%AA%B2%E5%BF%83%E5%BE%97/</guid>
-      <description>&lt;h2 id=&#34;修的課程&#34;&gt;修的課程&lt;/h2&gt;&#xA;&lt;p&gt;資訊系必修：&lt;a href=&#34;#%E8%87%AA%E5%8B%95%E6%A9%9F%E8%88%87%E5%BD%A2%E5%BC%8F%E8%AA%9E%E8%A8%80&#34;&gt;自動機與形式語言&lt;/a&gt;、&lt;a href=&#34;#%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B5%90%E6%A7%8B&#34;&gt;計算機結構&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;資訊系選修：&lt;a href=&#34;#%E4%B8%89%E7%B6%AD%E9%9B%BB%E8%85%A6%E8%A6%96%E8%A6%BA%E8%88%87%E6%B7%B1%E5%BA%A6%E5%AD%B8%E7%BF%92%E6%87%89%E7%94%A8&#34;&gt;三維電腦視覺與深度學習應用&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;自動機與形式語言&#34;&gt;自動機與形式語言&lt;/h3&gt;&#xA;&lt;p&gt;開課教授：林忠緯&lt;/p&gt;&#xA;&lt;p&gt;涼度：2/5&lt;/p&gt;&#xA;&lt;p&gt;甜度：4/5&lt;/p&gt;&#xA;&lt;p&gt;我去年修另一個班，上課都聽得懂結果考試完全不會寫，今年就換成忠緯試試看。這科感覺真的要大量刷題才會比較有感覺，不然我覺得上課老師教的都還算清楚，應該不太會有聽不懂的問題，問題應該都會是出在題目不會寫。我覺得沒有很涼，但可能是因為我數學沒有很好，甜度的話因為有調一點分所以給 4 分 &amp;gt; &amp;lt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;計算機結構&#34;&gt;計算機結構&lt;/h3&gt;&#xA;&lt;p&gt;開課教授：楊佳玲&lt;/p&gt;&#xA;&lt;p&gt;涼度：1/5&lt;/p&gt;&#xA;&lt;p&gt;甜度：5/5&lt;/p&gt;&#xA;&lt;p&gt;一樣去年今年都修的課，我就爛。我覺得做考古題是沒有用的，有真的去讀一些額外的東西可能比較有用。涼度的話每週都有討論課，討論題目＋小考，要實體出席有點麻煩，然後是翻轉教學，回家要先聽，上課還是 3 小時。甜度的話因為老師把我調了應該不少分所以給滿分。&lt;/p&gt;&#xA;&lt;h3 id=&#34;三維電腦視覺與深度學習應用&#34;&gt;三維電腦視覺與深度學習應用&lt;/h3&gt;&#xA;&lt;p&gt;開課教授：陳祝嵩&lt;/p&gt;&#xA;&lt;p&gt;涼度：1/5&lt;/p&gt;&#xA;&lt;p&gt;甜度：3/5&lt;/p&gt;&#xA;&lt;p&gt;簡稱 3DCV，對於想了解 2D -&amp;gt; 3D 的 CV 的人推推，講解很詳細，作業也有一些挑戰性，同時也可以學到很多東西，期中考超級難，分數因為沒有調分所以給 3 分 &amp;gt; &amp;lt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;感想區&#34;&gt;感想區&lt;/h3&gt;&#xA;&lt;p&gt;一直忘記發 :p&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>111-2 修課心得</title>
-      <link>https://yun-20459.github.io/posts/111-2-%E4%BF%AE%E8%AA%B2%E5%BF%83%E5%BE%97/</link>
-      <pubDate>Wed, 12 Jul 2023 23:09:37 +0000</pubDate>
-      <guid>https://yun-20459.github.io/posts/111-2-%E4%BF%AE%E8%AA%B2%E5%BF%83%E5%BE%97/</guid>
-      <description>&lt;h2 id=&#34;修的課程&#34;&gt;修的課程&lt;/h2&gt;&#xA;&lt;p&gt;資訊系必修：&lt;a href=&#34;#%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E5%B0%8E%E8%AB%96&#34;&gt;人工智慧導論&lt;/a&gt;、&lt;a href=&#34;#%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B6%B2%E8%B7%AF%E5%AF%A6%E9%A9%97&#34;&gt;計算機網路實驗&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;資訊系選修：&lt;a href=&#34;#%E6%95%B8%E4%BD%8D%E8%A6%96%E8%A6%BA%E6%95%88%E6%9E%9C&#34;&gt;數位視覺效果&lt;/a&gt;、&lt;a href=&#34;#%E5%B7%A8%E9%87%8F%E8%B3%87%E6%96%99%E7%B3%BB%E7%B5%B1%E4%B9%8B%E6%87%89%E7%94%A8&#34;&gt;巨量資料系統之應用&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;通識：&lt;a href=&#34;#%E6%A3%AE%E6%9E%97%E9%86%AB%E5%AD%B8%E9%BB%9E%E7%B7%9A%E9%9D%A2&#34;&gt;森林醫學點線面&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;人工智慧導論&#34;&gt;人工智慧導論&lt;/h3&gt;&#xA;&lt;p&gt;開課教授：陳尚澤、陳縕儂&lt;/p&gt;&#xA;&lt;p&gt;涼度：4.5/5 (扣在期末 project 上)&lt;/p&gt;&#xA;&lt;p&gt;甜度：5/5&lt;/p&gt;&#xA;&lt;p&gt;前半學期是 UC Berkeley 的 CS188，後半學期是軒田 ML style + 縕儂擅長的 DL。整體來說作業都可以做得很快，應該三個小時可以做完，期中考的話可以多做 &lt;a href=&#34;https://inst.eecs.berkeley.edu/~cs188/sp22/final-prep/&#34;&gt;CS188 的考古題&lt;/a&gt;，今年的幾乎全部都是從這裡出的，沒有期末考只有機率大賽的期末 project 德州撲克AI，助教會給閹割版的 pypokerengine 然後說我們不能抄= = ?，真的會氣死，不過也有可能是我很爛，還是有同學拿到滿分，真的很厲害&lt;/p&gt;&#xA;&lt;h3 id=&#34;計算機網路實驗&#34;&gt;計算機網路實驗&lt;/h3&gt;&#xA;&lt;p&gt;開課教授：張傑帆&lt;/p&gt;&#xA;&lt;p&gt;涼度：4/5&lt;/p&gt;&#xA;&lt;p&gt;甜度：5/5&lt;/p&gt;&#xA;&lt;p&gt;基本上跟隔壁班上課內容是一模一樣的，不過不知道期末 project 規範一不一樣。這班的投影片錯誤百出，不可能按照投影片做出來，需要自己花時間 google。報告評分標準是把所有組別排名之後給分，所以就算你寫的不錯只要大家寫的比你好就下去。期末 project 教授跟我們這組說要有網站 + ML，結果最後成果只有我們這組有 ML :D 總之我覺得會修到蠻生氣的，脾氣不好的人不要修這一班，但是教授會調很多分啦。&lt;/p&gt;&#xA;&lt;h3 id=&#34;數位視覺效果&#34;&gt;數位視覺效果&lt;/h3&gt;&#xA;&lt;p&gt;開課教授：莊永裕&lt;/p&gt;&#xA;&lt;p&gt;涼度：2/5&lt;/p&gt;&#xA;&lt;p&gt;甜度：4/5&lt;/p&gt;&#xA;&lt;p&gt;做多少事拿多少分，不過要做的事蠻多的，第一個作業主要會是在實作論文的演算法，第二個的話會是寫抓取 feature 的演算法上比較困難，想要多拿分數的就要多實作這樣，每一個作業也都有投票，前五名有加分（賺，謝謝我的攝影大腿隊友），要注意的是助教送出去的不是最後成績，老師會再自己評分 Final project + 調分（有可能是往下調&amp;hellip;）不過整體而言推這門課，學到蠻多基礎知識的。&lt;/p&gt;&#xA;&lt;h3 id=&#34;巨量資料系統之應用&#34;&gt;巨量資料系統之應用&lt;/h3&gt;&#xA;&lt;p&gt;開課教授：廖世偉&lt;/p&gt;&#xA;&lt;p&gt;涼度：5/5&lt;/p&gt;&#xA;&lt;p&gt;甜度：5/5&lt;/p&gt;&#xA;&lt;p&gt;傳說中阿公的朋友的兒子的課(X)，主要就是玩 GPT 跟聽演講(?)，期中期末開書考所以看一下就好，Final Project 比較有趣可以多分析 GPT-3.5 跟 GPT-4 的差別&lt;/p&gt;&#xA;&lt;h3 id=&#34;森林醫學點線面&#34;&gt;森林醫學點線面&lt;/h3&gt;&#xA;&lt;p&gt;開課教授：蘇大成&lt;/p&gt;&#xA;&lt;p&gt;涼度：5/5&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>111-1 修課心得</title>
-      <link>https://yun-20459.github.io/posts/111-1-%E4%BF%AE%E8%AA%B2%E5%BF%83%E5%BE%97/</link>
-      <pubDate>Thu, 16 Feb 2023 20:02:41 +0000</pubDate>
-      <guid>https://yun-20459.github.io/posts/111-1-%E4%BF%AE%E8%AA%B2%E5%BF%83%E5%BE%97/</guid>
-      <description>&lt;h3 id=&#34;修的課程&#34;&gt;修的課程&lt;/h3&gt;&#xA;&lt;p&gt;資訊系必修：&lt;a href=&#34;#%E7%B3%BB%E7%B5%B1%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88&#34;&gt;系統程式設計&lt;/a&gt;、&lt;a href=&#34;#%E5%B0%88%E9%A1%8C%E7%A0%94%E7%A9%B6&#34;&gt;專題研究&lt;/a&gt;、&lt;a href=&#34;#%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B6%B2%E8%B7%AF&#34;&gt;計算機網路&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;資訊系選修：&lt;a href=&#34;#%E6%95%B8%E4%BD%8D%E8%81%B2%E9%9F%B3%E8%97%9D%E8%A1%93%E8%88%87%E5%89%B5%E4%BD%9C&#34;&gt;數位聲音藝術與創作&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;通識：&lt;a href=&#34;#%E6%B5%B7%E6%B4%8B%E7%A7%91%E5%AD%B8%E6%A6%82%E8%AB%96&#34;&gt;海洋科學概論&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h4 id=&#34;系統程式設計&#34;&gt;系統程式設計&lt;/h4&gt;&#xA;&lt;p&gt;開課教授：鄭卜壬&lt;/p&gt;&#xA;&lt;p&gt;涼度：5/5&lt;/p&gt;&#xA;&lt;p&gt;甜度：3/5&lt;/p&gt;&#xA;&lt;p&gt;靠著前人的筆記活下來了 &amp;gt;&amp;lt; 主要還是程式作業太雷了，該測的 case 都沒有測好，不然應該算甜（？）這門課主要是要跟上老師的速度蠻困難的，雖然恢復實體之後老師的笑話也變多了，整個上課步調變得輕鬆一點點，只是 16 周要上完 18 周的進度導致變出了很多影片要我們自己看 QQ 建議上課的時候可以錄個音或者像我們這屆有去年的影片可以看，多聽幾遍，魔鬼都在細節中，考試一定考&lt;/p&gt;&#xA;&lt;h4 id=&#34;專題研究&#34;&gt;專題研究&lt;/h4&gt;&#xA;&lt;p&gt;開課教授：陳彥仰&lt;/p&gt;&#xA;&lt;p&gt;涼度：4/5&lt;/p&gt;&#xA;&lt;p&gt;甜度：2/5&lt;/p&gt;&#xA;&lt;p&gt;就是加 lab，我跟到的 project 剛好發了一篇論文就蹭到了第 n 作 &amp;gt;&amp;lt; 人機互動真的不錯玩，雖然 VR 真的好暈好暈，甜度的部分給 2 是因為我覺得我在暑假做了蠻多事的（因為開學就要投論文，所以暑假比較忙，所以涼度給 4 分主要是開學比較沒那麼忙）結果成績慘慘 &amp;gt;&amp;lt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;計算機網路&#34;&gt;計算機網路&lt;/h3&gt;&#xA;&lt;p&gt;開課教授：周承復&lt;/p&gt;&#xA;&lt;p&gt;涼度：5/5&lt;/p&gt;&#xA;&lt;p&gt;甜度：5/5&lt;/p&gt;&#xA;&lt;p&gt;隨便查評價都知道有多甜涼（？）憑心而論老師上的不錯，期末的 project 也很好玩，可以學到很多酷東西，作業的話網路上都有解答不過還是建議自己想一次，畢竟考試就幾乎一樣的東西，然後老師都會給去年的考古題 + 答案，有夠佛心 &amp;gt;&amp;lt;（雖然不會考w&lt;/p&gt;&#xA;&lt;h3 id=&#34;數位聲音藝術與創作&#34;&gt;數位聲音藝術與創作&lt;/h3&gt;&#xA;&lt;p&gt;開課教授：林經堯&lt;/p&gt;&#xA;&lt;p&gt;涼度：3/5&lt;/p&gt;&#xA;&lt;p&gt;甜度：3/5&lt;/p&gt;&#xA;&lt;p&gt;有趣的課程，在 ptt 上看到評價就決定選了，開學老師就有說他等第就是靠感覺給，所以甜度給 3 顆 &amp;gt;&amp;lt; （老師有說會在 A 字頭）教 pure data 跟 p5.js，對生成藝術 + 音樂有興趣的應該會覺得很好玩，偷偷抱怨一下助教很雷所以上課有時候品質不是很好 QQ 但整體來說整學期收穫超級多，有學到很多酷東西，雖然我們的作品不能作成 NFT 有點小可惜，不過真心好玩 &amp;gt;&amp;lt; （我甚至用 p5.js 寫了 FFT &amp;gt;&amp;lt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>110-2 修課心得</title>
-      <link>https://yun-20459.github.io/posts/110-2-%E4%BF%AE%E8%AA%B2%E5%BF%83%E5%BE%97/</link>
-      <pubDate>Tue, 07 Jun 2022 16:34:38 +0000</pubDate>
-      <guid>https://yun-20459.github.io/posts/110-2-%E4%BF%AE%E8%AA%B2%E5%BF%83%E5%BE%97/</guid>
-      <description>&lt;h2 id=&#34;修的課程&#34;&gt;修的課程&lt;/h2&gt;&#xA;&lt;p&gt;資訊系必修：&lt;a href=&#34;#%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1&#34;&gt;作業系統&lt;/a&gt;、&lt;a href=&#34;#%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B%E8%88%87%E6%BC%94%E7%AE%97%E6%B3%95&#34;&gt;資料結構與演算法&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;資訊系選修：&lt;a href=&#34;#%E5%A4%9A%E5%AA%92%E9%AB%94%E5%AE%89%E5%85%A8&#34;&gt;多媒體安全&lt;/a&gt;、&lt;a href=&#34;#%E9%9B%A2%E6%95%A3%E6%95%B8%E5%AD%B8&#34;&gt;離散數學&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;通識：&lt;a href=&#34;#%E9%86%AB%E5%AD%B8%E8%88%87%E7%94%9F%E6%B4%BB&#34;&gt;醫學與生活&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;已經爆掉的一般選修：&lt;a href=&#34;#%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92&#34;&gt;機器學習&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;作業系統&#34;&gt;作業系統&lt;/h3&gt;&#xA;&lt;p&gt;開課教授：施吉昇、林忠緯&lt;/p&gt;&#xA;&lt;p&gt;涼度：-$\infty$/5&lt;/p&gt;&#xA;&lt;p&gt;甜度：3/5 （作業好好做沒意外應該可以保底 A- 之類的）&lt;/p&gt;&#xA;&lt;p&gt;又硬又硬的必修系統課 QQ，code 跟作業 pdf 在&lt;a href=&#34;https://github.com/yun-20459/OS&#34;&gt;這裡&lt;/a&gt;。&lt;/p&gt;&#xA;&lt;p&gt;有人說林上的比較好不過因為我是施班就乾脆聽施的（兩個老師的都可以聽），老師講得很不錯，就算我停修 sp 也是能夠大致聽懂，而且在影片下留言問問題老師也回蠻快的，小缺點就是音質不是很好，身為耳機黨的我常常直接去世（Ｘ，然後老師給的是 .pdf 不是 .key 所以有些精美的動畫會沒辦法抄筆記QQ&lt;/p&gt;&#xA;&lt;p&gt;來分享（？）一下我 mp2 發生的蠢事，一開始因為一個 level 忘記 +1 就整個格式爆掉直接 0 分&amp;hellip; 但助教很好心的讓我 regrade，結果 regrade 完 6 分 ==? 結果是我在根本不用輸出東西的地方輸出氣死，還忘記上一個 flag，70 分就這樣說掰掰 QQ，提醒有看到這裡的人記得用 &lt;code&gt;diff&lt;/code&gt; 檢查作業，不要跟我一樣因為助教輸出格式很機車就偷懶 QQ 而且這門課作業成績很重，真的不要跟我一樣智障：）&lt;/p&gt;&#xA;&lt;h3 id=&#34;資料結構與演算法&#34;&gt;資料結構與演算法&lt;/h3&gt;&#xA;&lt;p&gt;開課教授：林軒田、蔡欣穆&lt;/p&gt;&#xA;&lt;p&gt;涼度：3/5&lt;/p&gt;&#xA;&lt;p&gt;甜度：2/5 (2 顆星是給快不及格的人的，請見下面鬼切·等第線)&lt;/p&gt;&#xA;&lt;p&gt;aka DSA，code 跟 pdf 一樣在&lt;a href=&#34;https://github.com/yun-20459/DSA&#34;&gt;這裡&lt;/a&gt;。&lt;/p&gt;&#xA;&lt;p&gt;這門課我只有後半學期有在上課（Ｘ）因為欣穆老師會直播互動，所以要跟課回答題目，然後會有大地遊戲，蠻好玩的。軒田老師是直播課會有錄影，欣穆老師是翻轉課堂然後會有 with-video quiz 要做，都是上課教過的東西所以不會太難。&lt;/p&gt;&#xA;&lt;p&gt;就是跟 ADA 一樣難的是作業不是上課的課（Ｏ），難的點應該是只能用 C 寫不能用 C++ 的 STL 所以要手刻一些資料結構很痛苦 QQ，至於算法的部分 hw3 hw4 都分別有一題難題，我都是被老師們教會的 &amp;gt;&amp;lt; 不過 DSA 出現 treap + 吉如一 是不是搞錯了什麼 QQ (btw 我 hw4 p3 根本毒瘤，可以離線做結果我在線用持久化並查集www)&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>110-1 修課心得</title>
-      <link>https://yun-20459.github.io/posts/110-1-%E4%BF%AE%E8%AA%B2%E5%BF%83%E5%BE%97/</link>
-      <pubDate>Wed, 26 Jan 2022 21:23:04 +0000</pubDate>
-      <guid>https://yun-20459.github.io/posts/110-1-%E4%BF%AE%E8%AA%B2%E5%BF%83%E5%BE%97/</guid>
-      <description>&lt;h2 id=&#34;修的課程&#34;&gt;修的課程&lt;/h2&gt;&#xA;&lt;p&gt;資訊系必修：&lt;a href=&#34;#%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88&#34;&gt;計算機程式設計&lt;/a&gt;、&lt;a href=&#34;#%E6%BC%94%E7%AE%97%E6%B3%95%E8%A8%AD%E8%A8%88%E8%88%87%E5%88%86%E6%9E%90&#34;&gt;演算法設計與分析&lt;/a&gt;、&lt;a href=&#34;#%E7%B7%9A%E6%80%A7%E4%BB%A3%E6%95%B8&#34;&gt;線性代數&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;資訊系選修：&lt;a href=&#34;#%E8%A8%88%E7%AE%97%E6%A9%9F%E6%A6%82%E8%AB%96&#34;&gt;計算機概論&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;通識：&lt;a href=&#34;#%E7%8F%BE%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%B8%E4%B9%8B%E6%87%89%E7%94%A8&#34;&gt;現代生物學之應用&lt;/a&gt;&lt;br&gt;&#xA;學程必修：&lt;a href=&#34;#%E7%A5%9E%E7%B6%93%E7%94%9F%E7%89%A9%E8%88%87%E8%AA%8D%E7%9F%A5%E7%A7%91%E5%AD%B8%E5%B0%88%E9%A1%8C%E8%A8%8E%E8%AB%96%E4%B8%80&#34;&gt;神經生物與認知科學專題討論一&lt;/a&gt;、&lt;a href=&#34;#%E6%99%AE%E9%80%9A%E5%BF%83%E7%90%86%E5%AD%B8&#34;&gt;普通心理學&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;計算機程式設計&#34;&gt;計算機程式設計&lt;/h3&gt;&#xA;&lt;p&gt;開課教授：張傑帆&lt;/p&gt;&#xA;&lt;p&gt;涼度：5/5&lt;/p&gt;&#xA;&lt;p&gt;甜度：5/5&lt;/p&gt;&#xA;&lt;p&gt;以前都只有 P 教授的課，今年突然多了一班僅限大二以上修習 aka 學長姐重修班，選不到 P 教授的課我就很理所當然地跑去當了真強者，不過這邊真強者的程度應該是沒辦法跟 P 教授那邊比，我這種雜魚都能當= =&lt;/p&gt;&#xA;&lt;p&gt;當真強者雖然不用考試但一個學期要出六題題目，還蠻累但蠻有趣的，可以練習用py生測資，不過小傷心的是我有一題原本被選當期中考，但考前一小時突然被拔掉了 QAQ，不過沒選我的可能比較好，我後來被選到一題小考班平均只有 14 分我快嚇死以為測資有錯，還好沒有。&lt;/p&gt;&#xA;&lt;p&gt;因為當真強者可以直接 A+，所以我不知道是怎麼配分的，學期中好像也調過一兩次，所以就不附了。&lt;/p&gt;&#xA;&lt;h3 id=&#34;演算法設計與分析&#34;&gt;演算法設計與分析&lt;/h3&gt;&#xA;&lt;p&gt;開課教授：陳縕儂、蕭旭君&lt;br&gt;&#xA;涼度：0/5&lt;br&gt;&#xA;甜度：4/5 (今年 84 分以上 A+，殘念 QQ）&lt;/p&gt;&#xA;&lt;p&gt;aka ADA，目前修過最硬的課沒有之一，第一次作業出來我就覺得我完蛋了，我這學期基本上沒有一天是不碰 ADA 的 QQ，要嘛在研究手寫要嘛在想程式，不過後來遇到了很多熱心的老師，所以後面作業就都快樂的滿分了～&lt;/p&gt;&#xA;&lt;p&gt;Vivian 跟旭君的課我覺得都適合直播完放 2 倍速聽，Vivian 的有時可以 4 倍速（Ｘ Vivian 的會容易想睡覺，但是老師講的真的很清楚，旭君的語調比較不容易睡著，也是一樣講得很清楚&lt;/p&gt;&#xA;&lt;p&gt;這學期最值得誇讚的應該是 TAs，除了少數 TA 真的超雷，多數 TA 都超級有耐心和專業，我覺得修這堂課大概就是三種人，一種是狂跑 TA hour，一種是找好大腿（後半學期的我），一種是我就爛（前半學期的我）。尤其這大概是我第一堂正式練習數學證明的課，第一份作業用 latex 沒有很適應，後來就覺得沒有 latex 不行，很多想講清楚的東西還是用 latex 可以畫得更清楚，當然也有強者用 markdown，我真的不行&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;作業跟考試題目答案有的都放在 &lt;a href=&#34;https://github.com/yun-20459/ADA&#34;&gt;這裡&lt;/a&gt;，雖然我開 public 但還是請各位不要隨便張揚&amp;gt;&amp;lt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;線性代數&#34;&gt;線性代數&lt;/h3&gt;&#xA;&lt;p&gt;開課教授：陳文進&lt;/p&gt;&#xA;&lt;p&gt;涼度：4/5&lt;/p&gt;&#xA;&lt;p&gt;甜度：4/5 （因為我只拿 A ㄎㄎ&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Class on 隨寫日誌</title><link>https://yun-20459.github.io/tags/class/</link><description>Recent content in Class on 隨寫日誌</description><generator>Hugo</generator><language>zh-tw</language><copyright>Erin Li</copyright><lastBuildDate>Thu, 04 Apr 2024 16:19:49 +0000</lastBuildDate><atom:link href="https://yun-20459.github.io/tags/class/index.xml" rel="self" type="application/rss+xml"/><item><title>112-1 修課心得</title><link>https://yun-20459.github.io/posts/112-1-%E4%BF%AE%E8%AA%B2%E5%BF%83%E5%BE%97/</link><pubDate>Thu, 04 Apr 2024 16:19:49 +0000</pubDate><guid>https://yun-20459.github.io/posts/112-1-%E4%BF%AE%E8%AA%B2%E5%BF%83%E5%BE%97/</guid><description>&lt;h2 id="修的課程">修的課程&lt;/h2>
+&lt;p>資訊系必修：&lt;a href="#%E8%87%AA%E5%8B%95%E6%A9%9F%E8%88%87%E5%BD%A2%E5%BC%8F%E8%AA%9E%E8%A8%80">自動機與形式語言&lt;/a>、&lt;a href="#%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B5%90%E6%A7%8B">計算機結構&lt;/a>&lt;/p>
+&lt;p>資訊系選修：&lt;a href="#%E4%B8%89%E7%B6%AD%E9%9B%BB%E8%85%A6%E8%A6%96%E8%A6%BA%E8%88%87%E6%B7%B1%E5%BA%A6%E5%AD%B8%E7%BF%92%E6%87%89%E7%94%A8">三維電腦視覺與深度學習應用&lt;/a>&lt;/p>
+&lt;h3 id="自動機與形式語言">自動機與形式語言&lt;/h3>
+&lt;p>開課教授：林忠緯&lt;/p>
+&lt;p>涼度：2/5&lt;/p>
+&lt;p>甜度：4/5&lt;/p>
+&lt;p>我去年修另一個班，上課都聽得懂結果考試完全不會寫，今年就換成忠緯試試看。這科感覺真的要大量刷題才會比較有感覺，不然我覺得上課老師教的都還算清楚，應該不太會有聽不懂的問題，問題應該都會是出在題目不會寫。我覺得沒有很涼，但可能是因為我數學沒有很好，甜度的話因為有調一點分所以給 4 分 &amp;gt; &amp;lt;&lt;/p>
+&lt;h3 id="計算機結構">計算機結構&lt;/h3>
+&lt;p>開課教授：楊佳玲&lt;/p>
+&lt;p>涼度：1/5&lt;/p>
+&lt;p>甜度：5/5&lt;/p>
+&lt;p>一樣去年今年都修的課，我就爛。我覺得做考古題是沒有用的，有真的去讀一些額外的東西可能比較有用。涼度的話每週都有討論課，討論題目＋小考，要實體出席有點麻煩，然後是翻轉教學，回家要先聽，上課還是 3 小時。甜度的話因為老師把我調了應該不少分所以給滿分。&lt;/p>
+&lt;h3 id="三維電腦視覺與深度學習應用">三維電腦視覺與深度學習應用&lt;/h3>
+&lt;p>開課教授：陳祝嵩&lt;/p>
+&lt;p>涼度：1/5&lt;/p>
+&lt;p>甜度：3/5&lt;/p>
+&lt;p>簡稱 3DCV，對於想了解 2D -&amp;gt; 3D 的 CV 的人推推，講解很詳細，作業也有一些挑戰性，同時也可以學到很多東西，期中考超級難，分數因為沒有調分所以給 3 分 &amp;gt; &amp;lt;&lt;/p>
+&lt;h3 id="感想區">感想區&lt;/h3>
+&lt;p>一直忘記發 :p&lt;/p></description></item><item><title>111-2 修課心得</title><link>https://yun-20459.github.io/posts/111-2-%E4%BF%AE%E8%AA%B2%E5%BF%83%E5%BE%97/</link><pubDate>Wed, 12 Jul 2023 23:09:37 +0000</pubDate><guid>https://yun-20459.github.io/posts/111-2-%E4%BF%AE%E8%AA%B2%E5%BF%83%E5%BE%97/</guid><description>&lt;h2 id="修的課程">修的課程&lt;/h2>
+&lt;p>資訊系必修：&lt;a href="#%E4%BA%BA%E5%B7%A5%E6%99%BA%E6%85%A7%E5%B0%8E%E8%AB%96">人工智慧導論&lt;/a>、&lt;a href="#%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B6%B2%E8%B7%AF%E5%AF%A6%E9%A9%97">計算機網路實驗&lt;/a>&lt;/p>
+&lt;p>資訊系選修：&lt;a href="#%E6%95%B8%E4%BD%8D%E8%A6%96%E8%A6%BA%E6%95%88%E6%9E%9C">數位視覺效果&lt;/a>、&lt;a href="#%E5%B7%A8%E9%87%8F%E8%B3%87%E6%96%99%E7%B3%BB%E7%B5%B1%E4%B9%8B%E6%87%89%E7%94%A8">巨量資料系統之應用&lt;/a>&lt;/p>
+&lt;p>通識：&lt;a href="#%E6%A3%AE%E6%9E%97%E9%86%AB%E5%AD%B8%E9%BB%9E%E7%B7%9A%E9%9D%A2">森林醫學點線面&lt;/a>&lt;/p>
+&lt;h3 id="人工智慧導論">人工智慧導論&lt;/h3>
+&lt;p>開課教授：陳尚澤、陳縕儂&lt;/p>
+&lt;p>涼度：4.5/5 (扣在期末 project 上)&lt;/p>
+&lt;p>甜度：5/5&lt;/p>
+&lt;p>前半學期是 UC Berkeley 的 CS188，後半學期是軒田 ML style + 縕儂擅長的 DL。整體來說作業都可以做得很快，應該三個小時可以做完，期中考的話可以多做 &lt;a href="https://inst.eecs.berkeley.edu/~cs188/sp22/final-prep/">CS188 的考古題&lt;/a>，今年的幾乎全部都是從這裡出的，沒有期末考只有機率大賽的期末 project 德州撲克AI，助教會給閹割版的 pypokerengine 然後說我們不能抄= = ?，真的會氣死，不過也有可能是我很爛，還是有同學拿到滿分，真的很厲害&lt;/p>
+&lt;h3 id="計算機網路實驗">計算機網路實驗&lt;/h3>
+&lt;p>開課教授：張傑帆&lt;/p>
+&lt;p>涼度：4/5&lt;/p>
+&lt;p>甜度：5/5&lt;/p>
+&lt;p>基本上跟隔壁班上課內容是一模一樣的，不過不知道期末 project 規範一不一樣。這班的投影片錯誤百出，不可能按照投影片做出來，需要自己花時間 google。報告評分標準是把所有組別排名之後給分，所以就算你寫的不錯只要大家寫的比你好就下去。期末 project 教授跟我們這組說要有網站 + ML，結果最後成果只有我們這組有 ML :D 總之我覺得會修到蠻生氣的，脾氣不好的人不要修這一班，但是教授會調很多分啦。&lt;/p>
+&lt;h3 id="數位視覺效果">數位視覺效果&lt;/h3>
+&lt;p>開課教授：莊永裕&lt;/p>
+&lt;p>涼度：2/5&lt;/p>
+&lt;p>甜度：4/5&lt;/p>
+&lt;p>做多少事拿多少分，不過要做的事蠻多的，第一個作業主要會是在實作論文的演算法，第二個的話會是寫抓取 feature 的演算法上比較困難，想要多拿分數的就要多實作這樣，每一個作業也都有投票，前五名有加分（賺，謝謝我的攝影大腿隊友），要注意的是助教送出去的不是最後成績，老師會再自己評分 Final project + 調分（有可能是往下調&amp;hellip;）不過整體而言推這門課，學到蠻多基礎知識的。&lt;/p>
+&lt;h3 id="巨量資料系統之應用">巨量資料系統之應用&lt;/h3>
+&lt;p>開課教授：廖世偉&lt;/p>
+&lt;p>涼度：5/5&lt;/p>
+&lt;p>甜度：5/5&lt;/p>
+&lt;p>傳說中阿公的朋友的兒子的課(X)，主要就是玩 GPT 跟聽演講(?)，期中期末開書考所以看一下就好，Final Project 比較有趣可以多分析 GPT-3.5 跟 GPT-4 的差別&lt;/p>
+&lt;h3 id="森林醫學點線面">森林醫學點線面&lt;/h3>
+&lt;p>開課教授：蘇大成&lt;/p>
+&lt;p>涼度：5/5&lt;/p></description></item><item><title>111-1 修課心得</title><link>https://yun-20459.github.io/posts/111-1-%E4%BF%AE%E8%AA%B2%E5%BF%83%E5%BE%97/</link><pubDate>Thu, 16 Feb 2023 20:02:41 +0000</pubDate><guid>https://yun-20459.github.io/posts/111-1-%E4%BF%AE%E8%AA%B2%E5%BF%83%E5%BE%97/</guid><description>&lt;h3 id="修的課程">修的課程&lt;/h3>
+&lt;p>資訊系必修：&lt;a href="#%E7%B3%BB%E7%B5%B1%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88">系統程式設計&lt;/a>、&lt;a href="#%E5%B0%88%E9%A1%8C%E7%A0%94%E7%A9%B6">專題研究&lt;/a>、&lt;a href="#%E8%A8%88%E7%AE%97%E6%A9%9F%E7%B6%B2%E8%B7%AF">計算機網路&lt;/a>&lt;/p>
+&lt;p>資訊系選修：&lt;a href="#%E6%95%B8%E4%BD%8D%E8%81%B2%E9%9F%B3%E8%97%9D%E8%A1%93%E8%88%87%E5%89%B5%E4%BD%9C">數位聲音藝術與創作&lt;/a>&lt;/p>
+&lt;p>通識：&lt;a href="#%E6%B5%B7%E6%B4%8B%E7%A7%91%E5%AD%B8%E6%A6%82%E8%AB%96">海洋科學概論&lt;/a>&lt;/p>
+&lt;h4 id="系統程式設計">系統程式設計&lt;/h4>
+&lt;p>開課教授：鄭卜壬&lt;/p>
+&lt;p>涼度：5/5&lt;/p>
+&lt;p>甜度：3/5&lt;/p>
+&lt;p>靠著前人的筆記活下來了 &amp;gt;&amp;lt; 主要還是程式作業太雷了，該測的 case 都沒有測好，不然應該算甜（？）這門課主要是要跟上老師的速度蠻困難的，雖然恢復實體之後老師的笑話也變多了，整個上課步調變得輕鬆一點點，只是 16 周要上完 18 周的進度導致變出了很多影片要我們自己看 QQ 建議上課的時候可以錄個音或者像我們這屆有去年的影片可以看，多聽幾遍，魔鬼都在細節中，考試一定考&lt;/p>
+&lt;h4 id="專題研究">專題研究&lt;/h4>
+&lt;p>開課教授：陳彥仰&lt;/p>
+&lt;p>涼度：4/5&lt;/p>
+&lt;p>甜度：2/5&lt;/p>
+&lt;p>就是加 lab，我跟到的 project 剛好發了一篇論文就蹭到了第 n 作 &amp;gt;&amp;lt; 人機互動真的不錯玩，雖然 VR 真的好暈好暈，甜度的部分給 2 是因為我覺得我在暑假做了蠻多事的（因為開學就要投論文，所以暑假比較忙，所以涼度給 4 分主要是開學比較沒那麼忙）結果成績慘慘 &amp;gt;&amp;lt;&lt;/p>
+&lt;h3 id="計算機網路">計算機網路&lt;/h3>
+&lt;p>開課教授：周承復&lt;/p>
+&lt;p>涼度：5/5&lt;/p>
+&lt;p>甜度：5/5&lt;/p>
+&lt;p>隨便查評價都知道有多甜涼（？）憑心而論老師上的不錯，期末的 project 也很好玩，可以學到很多酷東西，作業的話網路上都有解答不過還是建議自己想一次，畢竟考試就幾乎一樣的東西，然後老師都會給去年的考古題 + 答案，有夠佛心 &amp;gt;&amp;lt;（雖然不會考w&lt;/p>
+&lt;h3 id="數位聲音藝術與創作">數位聲音藝術與創作&lt;/h3>
+&lt;p>開課教授：林經堯&lt;/p>
+&lt;p>涼度：3/5&lt;/p>
+&lt;p>甜度：3/5&lt;/p>
+&lt;p>有趣的課程，在 ptt 上看到評價就決定選了，開學老師就有說他等第就是靠感覺給，所以甜度給 3 顆 &amp;gt;&amp;lt; （老師有說會在 A 字頭）教 pure data 跟 p5.js，對生成藝術 + 音樂有興趣的應該會覺得很好玩，偷偷抱怨一下助教很雷所以上課有時候品質不是很好 QQ 但整體來說整學期收穫超級多，有學到很多酷東西，雖然我們的作品不能作成 NFT 有點小可惜，不過真心好玩 &amp;gt;&amp;lt; （我甚至用 p5.js 寫了 FFT &amp;gt;&amp;lt;&lt;/p></description></item><item><title>110-2 修課心得</title><link>https://yun-20459.github.io/posts/110-2-%E4%BF%AE%E8%AA%B2%E5%BF%83%E5%BE%97/</link><pubDate>Tue, 07 Jun 2022 16:34:38 +0000</pubDate><guid>https://yun-20459.github.io/posts/110-2-%E4%BF%AE%E8%AA%B2%E5%BF%83%E5%BE%97/</guid><description>&lt;h2 id="修的課程">修的課程&lt;/h2>
+&lt;p>資訊系必修：&lt;a href="#%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1">作業系統&lt;/a>、&lt;a href="#%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B%E8%88%87%E6%BC%94%E7%AE%97%E6%B3%95">資料結構與演算法&lt;/a>&lt;/p>
+&lt;p>資訊系選修：&lt;a href="#%E5%A4%9A%E5%AA%92%E9%AB%94%E5%AE%89%E5%85%A8">多媒體安全&lt;/a>、&lt;a href="#%E9%9B%A2%E6%95%A3%E6%95%B8%E5%AD%B8">離散數學&lt;/a>&lt;/p>
+&lt;p>通識：&lt;a href="#%E9%86%AB%E5%AD%B8%E8%88%87%E7%94%9F%E6%B4%BB">醫學與生活&lt;/a>&lt;/p>
+&lt;p>已經爆掉的一般選修：&lt;a href="#%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92">機器學習&lt;/a>&lt;/p>
+&lt;h3 id="作業系統">作業系統&lt;/h3>
+&lt;p>開課教授：施吉昇、林忠緯&lt;/p>
+&lt;p>涼度：-$\infty$/5&lt;/p>
+&lt;p>甜度：3/5 （作業好好做沒意外應該可以保底 A- 之類的）&lt;/p>
+&lt;p>又硬又硬的必修系統課 QQ，code 跟作業 pdf 在&lt;a href="https://github.com/yun-20459/OS">這裡&lt;/a>。&lt;/p>
+&lt;p>有人說林上的比較好不過因為我是施班就乾脆聽施的（兩個老師的都可以聽），老師講得很不錯，就算我停修 sp 也是能夠大致聽懂，而且在影片下留言問問題老師也回蠻快的，小缺點就是音質不是很好，身為耳機黨的我常常直接去世（Ｘ，然後老師給的是 .pdf 不是 .key 所以有些精美的動畫會沒辦法抄筆記QQ&lt;/p>
+&lt;p>來分享（？）一下我 mp2 發生的蠢事，一開始因為一個 level 忘記 +1 就整個格式爆掉直接 0 分&amp;hellip; 但助教很好心的讓我 regrade，結果 regrade 完 6 分 ==? 結果是我在根本不用輸出東西的地方輸出氣死，還忘記上一個 flag，70 分就這樣說掰掰 QQ，提醒有看到這裡的人記得用 &lt;code>diff&lt;/code> 檢查作業，不要跟我一樣因為助教輸出格式很機車就偷懶 QQ 而且這門課作業成績很重，真的不要跟我一樣智障：）&lt;/p>
+&lt;h3 id="資料結構與演算法">資料結構與演算法&lt;/h3>
+&lt;p>開課教授：林軒田、蔡欣穆&lt;/p>
+&lt;p>涼度：3/5&lt;/p>
+&lt;p>甜度：2/5 (2 顆星是給快不及格的人的，請見下面鬼切·等第線)&lt;/p>
+&lt;p>aka DSA，code 跟 pdf 一樣在&lt;a href="https://github.com/yun-20459/DSA">這裡&lt;/a>。&lt;/p>
+&lt;p>這門課我只有後半學期有在上課（Ｘ）因為欣穆老師會直播互動，所以要跟課回答題目，然後會有大地遊戲，蠻好玩的。軒田老師是直播課會有錄影，欣穆老師是翻轉課堂然後會有 with-video quiz 要做，都是上課教過的東西所以不會太難。&lt;/p>
+&lt;p>就是跟 ADA 一樣難的是作業不是上課的課（Ｏ），難的點應該是只能用 C 寫不能用 C++ 的 STL 所以要手刻一些資料結構很痛苦 QQ，至於算法的部分 hw3 hw4 都分別有一題難題，我都是被老師們教會的 &amp;gt;&amp;lt; 不過 DSA 出現 treap + 吉如一 是不是搞錯了什麼 QQ (btw 我 hw4 p3 根本毒瘤，可以離線做結果我在線用持久化並查集www)&lt;/p></description></item><item><title>110-1 修課心得</title><link>https://yun-20459.github.io/posts/110-1-%E4%BF%AE%E8%AA%B2%E5%BF%83%E5%BE%97/</link><pubDate>Wed, 26 Jan 2022 21:23:04 +0000</pubDate><guid>https://yun-20459.github.io/posts/110-1-%E4%BF%AE%E8%AA%B2%E5%BF%83%E5%BE%97/</guid><description>&lt;h2 id="修的課程">修的課程&lt;/h2>
+&lt;p>資訊系必修：&lt;a href="#%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88">計算機程式設計&lt;/a>、&lt;a href="#%E6%BC%94%E7%AE%97%E6%B3%95%E8%A8%AD%E8%A8%88%E8%88%87%E5%88%86%E6%9E%90">演算法設計與分析&lt;/a>、&lt;a href="#%E7%B7%9A%E6%80%A7%E4%BB%A3%E6%95%B8">線性代數&lt;/a>&lt;/p>
+&lt;p>資訊系選修：&lt;a href="#%E8%A8%88%E7%AE%97%E6%A9%9F%E6%A6%82%E8%AB%96">計算機概論&lt;/a>&lt;/p>
+&lt;p>通識：&lt;a href="#%E7%8F%BE%E4%BB%A3%E7%94%9F%E7%89%A9%E5%AD%B8%E4%B9%8B%E6%87%89%E7%94%A8">現代生物學之應用&lt;/a>&lt;br>
+學程必修：&lt;a href="#%E7%A5%9E%E7%B6%93%E7%94%9F%E7%89%A9%E8%88%87%E8%AA%8D%E7%9F%A5%E7%A7%91%E5%AD%B8%E5%B0%88%E9%A1%8C%E8%A8%8E%E8%AB%96%E4%B8%80">神經生物與認知科學專題討論一&lt;/a>、&lt;a href="#%E6%99%AE%E9%80%9A%E5%BF%83%E7%90%86%E5%AD%B8">普通心理學&lt;/a>&lt;/p>
+&lt;h3 id="計算機程式設計">計算機程式設計&lt;/h3>
+&lt;p>開課教授：張傑帆&lt;/p>
+&lt;p>涼度：5/5&lt;/p>
+&lt;p>甜度：5/5&lt;/p>
+&lt;p>以前都只有 P 教授的課，今年突然多了一班僅限大二以上修習 aka 學長姐重修班，選不到 P 教授的課我就很理所當然地跑去當了真強者，不過這邊真強者的程度應該是沒辦法跟 P 教授那邊比，我這種雜魚都能當= =&lt;/p>
+&lt;p>當真強者雖然不用考試但一個學期要出六題題目，還蠻累但蠻有趣的，可以練習用py生測資，不過小傷心的是我有一題原本被選當期中考，但考前一小時突然被拔掉了 QAQ，不過沒選我的可能比較好，我後來被選到一題小考班平均只有 14 分我快嚇死以為測資有錯，還好沒有。&lt;/p>
+&lt;p>因為當真強者可以直接 A+，所以我不知道是怎麼配分的，學期中好像也調過一兩次，所以就不附了。&lt;/p>
+&lt;h3 id="演算法設計與分析">演算法設計與分析&lt;/h3>
+&lt;p>開課教授：陳縕儂、蕭旭君&lt;br>
+涼度：0/5&lt;br>
+甜度：4/5 (今年 84 分以上 A+，殘念 QQ）&lt;/p>
+&lt;p>aka ADA，目前修過最硬的課沒有之一，第一次作業出來我就覺得我完蛋了，我這學期基本上沒有一天是不碰 ADA 的 QQ，要嘛在研究手寫要嘛在想程式，不過後來遇到了很多熱心的老師，所以後面作業就都快樂的滿分了～&lt;/p>
+&lt;p>Vivian 跟旭君的課我覺得都適合直播完放 2 倍速聽，Vivian 的有時可以 4 倍速（Ｘ Vivian 的會容易想睡覺，但是老師講的真的很清楚，旭君的語調比較不容易睡著，也是一樣講得很清楚&lt;/p>
+&lt;p>這學期最值得誇讚的應該是 TAs，除了少數 TA 真的超雷，多數 TA 都超級有耐心和專業，我覺得修這堂課大概就是三種人，一種是狂跑 TA hour，一種是找好大腿（後半學期的我），一種是我就爛（前半學期的我）。尤其這大概是我第一堂正式練習數學證明的課，第一份作業用 latex 沒有很適應，後來就覺得沒有 latex 不行，很多想講清楚的東西還是用 latex 可以畫得更清楚，當然也有強者用 markdown，我真的不行&amp;hellip;&lt;/p>
+&lt;p>作業跟考試題目答案有的都放在 &lt;a href="https://github.com/yun-20459/ADA">這裡&lt;/a>，雖然我開 public 但還是請各位不要隨便張揚&amp;gt;&amp;lt;&lt;/p>
+&lt;h3 id="線性代數">線性代數&lt;/h3>
+&lt;p>開課教授：陳文進&lt;/p>
+&lt;p>涼度：4/5&lt;/p>
+&lt;p>甜度：4/5 （因為我只拿 A ㄎㄎ&lt;/p></description></item></channel></rss>

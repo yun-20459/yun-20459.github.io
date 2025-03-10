@@ -1,902 +1,225 @@
-<!DOCTYPE html>
-<html lang="zh-tw">
-<head>
-  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
-  <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title> frontend 學習筆記 - css | 隨寫日誌</title>
-  <link rel = 'canonical' href = 'https://yun-20459.github.io/posts/frontend-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-css/'>
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="all,follow">
-  <meta name="googlebot" content="index,follow,snippet,archive">
-  <meta property="og:url" content="https://yun-20459.github.io/posts/frontend-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-css/">
-  <meta property="og:site_name" content="隨寫日誌">
-  <meta property="og:title" content="frontend 學習筆記 - css">
-  <meta property="og:description" content="基礎架構 1 2 3 &lt;selector&gt; { &lt;property&gt;: &lt;value&gt;; } selector universal selector
+<!doctype html><html lang=zh-tw><head><link rel=preload href=/lib/font-awesome/webfonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/lib/font-awesome/webfonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/lib/font-awesome/webfonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2 as=font type=font/woff2 crossorigin=anonymous><script type=text/javascript src=https://latest.cactus.chat/cactus.js></script><link rel=stylesheet href=https://latest.cactus.chat/style.css type=text/css><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>frontend 學習筆記 - css | 隨寫日誌</title>
+<link rel=canonical href=https://yun-20459.github.io/posts/frontend-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-css/><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="all,follow"><meta name=googlebot content="index,follow,snippet,archive"><meta property="og:url" content="https://yun-20459.github.io/posts/frontend-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-css/"><meta property="og:site_name" content="隨寫日誌"><meta property="og:title" content="frontend 學習筆記 - css"><meta property="og:description" content='基礎架構 1 2 3 <selector> { <property>: <value>; } selector universal selector
 1 2 3 * { color: purple; } type selector
 1 2 3 div { color: white; } class selector
-1 2 3 &lt;div class=&#34;alert-text severe-alert&#34;&gt; Please agree to our terms of service. &lt;/div&gt; 1 2 3 .alert-text { color: red; } id selector
-1 &lt;div id=&#34;title&#34;&gt;My Awesome 90&#39;s Page&lt;/div&gt; 1 2 3 #title { background-color: red; } difference between class &amp; ID The major difference between classes and IDs is that an element can only have one ID. An ID cannot be repeated on a single page, and the ID attribute should not contain any whitespace at all.">
-  <meta property="og:locale" content="zh_tw">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2022-06-24T13:10:30+00:00">
-    <meta property="article:modified_time" content="2022-06-24T13:10:30+00:00">
-    <meta property="article:tag" content="Css">
-
-  
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="frontend 學習筆記 - css">
-  <meta name="twitter:description" content="基礎架構 1 2 3 &lt;selector&gt; { &lt;property&gt;: &lt;value&gt;; } selector universal selector
+1 2 3 <div class="alert-text severe-alert"> Please agree to our terms of service. </div> 1 2 3 .alert-text { color: red; } id selector
+1 <div id="title">My Awesome 90&#39;s Page</div> 1 2 3 #title { background-color: red; } difference between class & ID The major difference between classes and IDs is that an element can only have one ID. An ID cannot be repeated on a single page, and the ID attribute should not contain any whitespace at all.'><meta property="og:locale" content="zh_tw"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-06-24T13:10:30+00:00"><meta property="article:modified_time" content="2022-06-24T13:10:30+00:00"><meta property="article:tag" content="Css"><meta name=twitter:card content="summary"><meta name=twitter:title content="frontend 學習筆記 - css"><meta name=twitter:description content='基礎架構 1 2 3 <selector> { <property>: <value>; } selector universal selector
 1 2 3 * { color: purple; } type selector
 1 2 3 div { color: white; } class selector
-1 2 3 &lt;div class=&#34;alert-text severe-alert&#34;&gt; Please agree to our terms of service. &lt;/div&gt; 1 2 3 .alert-text { color: red; } id selector
-1 &lt;div id=&#34;title&#34;&gt;My Awesome 90&#39;s Page&lt;/div&gt; 1 2 3 #title { background-color: red; } difference between class &amp; ID The major difference between classes and IDs is that an element can only have one ID. An ID cannot be repeated on a single page, and the ID attribute should not contain any whitespace at all.">
-
-  
-  
-    
-  
-  
-  <link rel="stylesheet" href="https://yun-20459.github.io/css/styles.36c12a99052778131d28078b3171237fd0184ad9b87c778208912a8d08e2d0194867a030c64d9b02d6077de53a8a9979249331f971fb47c471a2d59676520a3a.css" integrity="sha512-NsEqmQUneBMdKAeLMXEjf9AYStm4fHeCCJEqjQji0BlIZ6Awxk2bAtYHfeU6ipl5JJMx&#43;XH7R8RxotWWdlIKOg=="> 
-
-  
-   <link rel="stylesheet" href="https://yun-20459.github.io/css/highlight.css">  <link rel="stylesheet" href="https://yun-20459.github.io/css/style-dark.css">  <link rel="stylesheet" href="https://yun-20459.github.io/css/search.css"> 
-  
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  
-
-  
-<link rel="icon" type="image/png" href="https://yun-20459.github.io/images/favicon.ico" />
-
-
-  
-
-  
-
-  
-
-</head>
-
-<body class="max-width mx-auto px3 ltr">
-  <div class="content index py4">
-
-  <div id="header-post">
-  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-         
-        <li><a href="/">Home</a></li>
-         
-        <li><a href="/about">About</a></li>
-         
-        <li><a href="/posts">Posts</a></li>
-         
-        <li><a href="/resources">Resources</a></li>
-         
-        <li><a href="/search">Search</a></li>
-         
-        <li><a href="/tags">Tags</a></li>
-        
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li>
-          <a class="icon" href=" https://yun-20459.github.io/posts/frontend-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-html/" aria-label="Previous">
-            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
-          </a>
-        </li>
-        
-        
-        <li>
-          <a class="icon" href="https://yun-20459.github.io/posts/leetcode-1354-construct-target-array-with-multiple-sums/" aria-label="Next">
-            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
-          </a>
-        </li>
-        
-        <li>
-          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
-            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
-          </a>
-        </li>
-        <li>
-          <a class="icon" href="#" aria-label="Share">
-            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
-          </a>
-        </li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">Previous post</span>
-      <span id="i-next" class="info" style="display:none;">Next post</span>
-      <span id="i-top" class="info" style="display:none;">Back to top</span>
-      <span id="i-share" class="info" style="display:none;">Share post</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      
-      <ul>
-  
-  
-    
-  
-  
-  <li>
-    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f" aria-label="Facebook">
-      <i class="fab fa-facebook " aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&text=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css" aria-label="Twitter">
-      <i class="fab fa-twitter " aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&title=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css" aria-label="Linkedin">
-      <i class="fab fa-linkedin " aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&is_video=false&description=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css" aria-label="Pinterest">
-      <i class="fab fa-pinterest " aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="mailto:?subject=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css&body=Check out this article: https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f" aria-label="Email">
-      <i class="fas fa-envelope " aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&title=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css" aria-label="Pocket">
-      <i class="fab fa-get-pocket " aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&title=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css" aria-label="reddit">
-      <i class="fab fa-reddit " aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&name=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css&description=%3ch2%20id%3d%22%e5%9f%ba%e7%a4%8e%e6%9e%b6%e6%a7%8b%22%3e%e5%9f%ba%e7%a4%8e%e6%9e%b6%e6%a7%8b%3c%2fh2%3e%0a%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e2%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e3%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-css%22%20data-lang%3d%22css%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22o%22%3e%26lt%3b%3c%2fspan%3e%3cspan%20class%3d%22nt%22%3eselector%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e%26gt%3b%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20%3cspan%20class%3d%22err%22%3e%26lt%3bproperty%26gt%3b%3a%3c%2fspan%3e%20%3cspan%20class%3d%22err%22%3e%26lt%3bvalue%26gt%3b%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3ch2%20id%3d%22selector%22%3eselector%3c%2fh2%3e%0a%3cul%3e%0a%3cli%3e%0a%3cp%3euniversal%20selector%3c%2fp%3e%0a%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e2%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e3%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-css%22%20data-lang%3d%22css%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22o%22%3e%2a%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20%3cspan%20class%3d%22k%22%3ecolor%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3a%3c%2fspan%3e%20%3cspan%20class%3d%22kc%22%3epurple%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3c%2fli%3e%0a%3cli%3e%0a%3cp%3etype%20selector%3c%2fp%3e%0a%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e2%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e3%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-css%22%20data-lang%3d%22css%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22nt%22%3ediv%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20%3cspan%20class%3d%22k%22%3ecolor%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3a%3c%2fspan%3e%20%3cspan%20class%3d%22kc%22%3ewhite%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3c%2fli%3e%0a%3cli%3e%0a%3cp%3eclass%20selector%3c%2fp%3e%0a%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e2%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e3%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-html%22%20data-lang%3d%22html%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%26lt%3b%3c%2fspan%3e%3cspan%20class%3d%22nt%22%3ediv%3c%2fspan%3e%20%3cspan%20class%3d%22na%22%3eclass%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e%3d%3c%2fspan%3e%3cspan%20class%3d%22s%22%3e%26%2334%3balert-text%20severe-alert%26%2334%3b%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%26gt%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20Please%20agree%20to%20our%20terms%20of%20service.%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%26lt%3b%2f%3c%2fspan%3e%3cspan%20class%3d%22nt%22%3ediv%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%26gt%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e2%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e3%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-css%22%20data-lang%3d%22css%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e.%3c%2fspan%3e%3cspan%20class%3d%22nc%22%3ealert-text%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20%3cspan%20class%3d%22k%22%3ecolor%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3a%3c%2fspan%3e%20%3cspan%20class%3d%22kc%22%3ered%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3c%2fli%3e%0a%3cli%3e%0a%3cp%3eid%20selector%3c%2fp%3e%0a%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-html%22%20data-lang%3d%22html%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%26lt%3b%3c%2fspan%3e%3cspan%20class%3d%22nt%22%3ediv%3c%2fspan%3e%20%3cspan%20class%3d%22na%22%3eid%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e%3d%3c%2fspan%3e%3cspan%20class%3d%22s%22%3e%26%2334%3btitle%26%2334%3b%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%26gt%3b%3c%2fspan%3eMy%20Awesome%2090%26%2339%3bs%20Page%3cspan%20class%3d%22p%22%3e%26lt%3b%2f%3c%2fspan%3e%3cspan%20class%3d%22nt%22%3ediv%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%26gt%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e2%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e3%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-css%22%20data-lang%3d%22css%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%23%3c%2fspan%3e%3cspan%20class%3d%22nn%22%3etitle%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20%3cspan%20class%3d%22k%22%3ebackground-color%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3a%3c%2fspan%3e%20%3cspan%20class%3d%22kc%22%3ered%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3cul%3e%0a%3cli%3edifference%20between%20class%20%26amp%3b%20ID%0a%3cblockquote%3e%0a%3cp%3eThe%20major%20difference%20between%20classes%20and%20IDs%20is%20that%20an%20element%20can%20only%20have%20one%20ID.%20An%20ID%20cannot%20be%20repeated%20on%20a%20single%20page%2c%20and%20the%20ID%20attribute%20should%20not%20contain%20any%20whitespace%20at%20all.%3c%2fp%3e" aria-label="Tumblr">
-      <i class="fab fa-tumblr " aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&t=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css" aria-label="Hacker News">
-      <i class="fab fa-hacker-news " aria-hidden="true"></i>
-    </a>
-  </li>
-</ul>
-
-    </div>
-    
-    <div id="toc">
-      <nav id="TableOfContents">
-  <ul>
-    <li><a href="#基礎架構">基礎架構</a></li>
-    <li><a href="#selector">selector</a></li>
-    <li><a href="#properties">properties</a></li>
-    <li><a href="#cascade-of-css">cascade of CSS</a></li>
-    <li><a href="#adding-css-into-html">adding CSS into HTML</a></li>
-    <li><a href="#box-model">box model</a></li>
-    <li><a href="#block-vs-inline">block v.s. inline</a></li>
-  </ul>
-</nav>
-    </div>
-    
-  </span>
-</div>
-
-
-  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-    <header>
-      <h1 class="posttitle" itemprop="name headline">
-        frontend 學習筆記 - css
-      </h1>
-      <div class="meta">
-        <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <span itemprop="name">
-            
-              
-            
-          </span>
-        </span>
-        <div class="postdate">
-          
-          <time datetime="2022-06-24 13:10:30 &#43;0000 UTC" itemprop="datePublished">2022-06-24</time>
-          
-        </div>
-        
-        
-        <div class="article-read-time">
-          <i class="far fa-clock"></i>
-          
-          4 minute read
-        </div>
-        
-        
-        
-        <div class="article-tag">
-            <i class="fas fa-tag"></i>
-            
-            
-            <a class="tag-link" href="/tags/css/" rel="tag">css</a>
-            
-        </div>
-        
-      </div>
-    </header>
-
-  
-    
-    <div class="content" itemprop="articleBody">
-      <h2 id="基礎架構">基礎架構</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nt">selector</span><span class="o">&gt;</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="err">&lt;property&gt;:</span> <span class="err">&lt;value&gt;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="selector">selector</h2>
-<ul>
-<li>
-<p>universal selector</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="o">*</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="kc">purple</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>type selector</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">div</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="kc">white</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>class selector</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;alert-text severe-alert&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    Please agree to our terms of service.
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">alert-text</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>id selector</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;title&#34;</span><span class="p">&gt;</span>My Awesome 90&#39;s Page<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">#</span><span class="nn">title</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">background-color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>difference between class &amp; ID
-<blockquote>
-<p>The major difference between classes and IDs is that an element can only have one ID. An ID cannot be repeated on a single page, and the ID attribute should not contain any whitespace at all.</p></blockquote>
-</li>
-</ul>
-</li>
-<li>
-<p>grouping selector</p>
-<p>如果有部份宣告一樣的話可以 group 起來一起寫</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">read</span><span class="o">,</span>
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">unread</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="kc">white</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">background-color</span><span class="p">:</span> <span class="kc">black</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">read</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c">/* several unique declarations */</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">unread</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c">/* several unique declarations */</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>chaining selector</p>
-<p>如果有兩個以上的 class 或者 class + id 的話可以串起來</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;subsection header&#34;</span><span class="p">&gt;</span>Latest Posts<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;subsection&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;preview&#34;</span><span class="p">&gt;</span>This is where a preview for a post might go.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">subsection</span><span class="p">.</span><span class="nc">header</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">subsection</span><span class="p">#</span><span class="nn">preview</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="kc">blue</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>combinator</p>
-<ul>
-<li>
-<p>descendant combinator</p>
-<p><code>.ancestor .child</code> 就是只會選在 class <code>ancestor</code> 裡 class 是 <code>child</code> 的，例如下面的話就是會選到 B 跟 C</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;ancestor&#34;</span><span class="p">&gt;</span> <span class="c">&lt;!-- A --&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;contents&#34;</span><span class="p">&gt;</span> <span class="c">&lt;!-- B --&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;contents&#34;</span><span class="p">&gt;</span> <span class="c">&lt;!-- C --&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;contents&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span> <span class="c">&lt;!-- D --&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">ancestor</span> <span class="p">.</span><span class="nc">contents</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c">/* some declarations */</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
-</ul>
-</li>
-</ul>
-<h2 id="properties">properties</h2>
-<ul>
-<li>
-<p>color &amp; background-color</p>
-<p>賦值方法可以看<a href="https://www.w3schools.com/cssref/css_colors_legal.asp">這裡</a></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">p</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c">/* hex example: */</span>
-</span></span><span class="line"><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="mh">#1100ff</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="c">/* rgb example: */</span>
-</span></span><span class="line"><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="nb">rgb</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">127</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="c">/* hsl example: */</span>
-</span></span><span class="line"><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="nb">hsl</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">82</span><span class="kt">%</span><span class="p">,</span> <span class="mi">56</span><span class="kt">%</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>font &amp; text</p>
-<ul>
-<li>
-<p>font-family</p>
-<ul>
-<li>font family name ex. &ldquo;Times New Roman&rdquo;</li>
-<li>generic family name ex. sans-serif</li>
-<li>可以給 list 讓瀏覽器從第一個去找可以用的 ex. <code>font-family: &quot;Times New Roman&quot;, sans-serif;</code></li>
-<li>web safe 的字體可以參考<a href="https://www.w3schools.com/cssref/css_websafe_fonts.asp">這裡</a></li>
-<li>想用其他開源字體的話<a href="https://www.bitdegree.org/learn/font-family-css#how-to-use-a-downloaded-font">這裡</a></li>
-</ul>
-</li>
-<li>
-<p>font-size ex. <code>font-size: 22px</code></p>
-</li>
-<li>
-<p>font-weight: 類似粗體的概念，給數值的話可以從 1~1000</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">font-weight</span><span class="o">:</span> <span class="nt">bold</span> <span class="c">/*equivalent of font-weight: 700*/</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>text-align: 各種對齊方法可以看<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-align">這裡</a></p>
-</li>
-</ul>
-</li>
-<li>
-<p>image</p>
-<p>下面的例子是假設原圖是 500(h)x1000(w)，這樣寫的話 height 就會變成 250px</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">img</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">height</span><span class="p">:</span> <span class="kc">auto</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">width</span><span class="p">:</span> <span class="mi">500</span><span class="kt">px</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
-</ul>
-<h2 id="cascade-of-css">cascade of CSS</h2>
-<p>瀏覽器有可能會有 default style 就會導致自己寫了 css 但是出來跟預期的不一樣</p>
-<ul>
-<li>
-<p>specificity<br>
-ID selector &gt; class selector &gt; type selector</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* rule 1 */</span>
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">subsection</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="kc">blue</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c">/* rule 2 */</span>
-</span></span><span class="line"><span class="cl"><span class="c">/* this will be chosen */</span>
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">main</span> <span class="p">.</span><span class="nc">list</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* rule 1 */</span>
-</span></span><span class="line"><span class="cl"><span class="p">#</span><span class="nn">subsection</span> <span class="p">.</span><span class="nc">list</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">background-color</span><span class="p">:</span> <span class="kc">yellow</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="kc">blue</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c">/* rule 2 */</span>
-</span></span><span class="line"><span class="cl"><span class="c">/* this will be chosen */</span>
-</span></span><span class="line"><span class="cl"><span class="c">/* but background will be yellow since there is no conflict declaration for it*/</span>
-</span></span><span class="line"><span class="cl"><span class="p">#</span><span class="nn">subsection</span> <span class="p">.</span><span class="nc">main</span> <span class="p">.</span><span class="nc">list</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>inheritance</p>
-<p>沒講的東西就會繼承，但如果有 selector 單指且跟繼承有衝突的話以 selector 為優先</p>
-</li>
-<li>
-<p>rule order</p>
-<p>如果有好幾個 class 且優先度都一樣，會選在 css 裡面最後 defined 的那個</p>
-</li>
-</ul>
-<h2 id="adding-css-into-html">adding CSS into HTML</h2>
-<ul>
-<li>
-<p>external css: 寫個 <code>style.css</code> link 進 .html</p>
-</li>
-<li>
-<p>internal css: 在 html 的 head 裡寫</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">div</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">color</span><span class="p">:</span> <span class="kc">white</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">background-color</span><span class="p">:</span> <span class="kc">black</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="nt">p</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>...<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
-</ul>
-<h2 id="box-model">box model</h2>
-<p>所有在 webpage 上的東西都是 rectangle box，然後可以透過 css 調整這個 box 的特性例如</p>
-<ul>
-<li>padding
-<ul>
-<li>如果上下一樣 8px ，左右一樣 24px 的話可以寫 <code>padding: 8px 24px;</code></li>
-</ul>
-</li>
-<li>margin
-<ul>
-<li>想要 element 靠右可以寫 <code>margin-left: auto;</code></li>
-<li>想要 element 置中可以寫 <code>margin: 0 auto;</code></li>
-</ul>
-</li>
-<li>border</li>
-</ul>
-<p>
-  <img src="https://i.imgur.com/twaMAWQ.png" alt="示意圖">
-
-</p>
-<h2 id="block-vs-inline">block v.s. inline</h2>
-<ul>
-<li>如果 element 是 block，那就會像一個一個 block 在網頁上按照順序排好，如果是 inline（ex. <code>&lt;a&gt;</code>、<code>&lt;button&gt;</code>），就會直接在放的位置旁邊的 element 的旁邊（繞口令 xD）</li>
-<li>div &amp; span
-<ul>
-<li>div 是 block-level <a href="https://codepen.io/TheOdinProjectExamples/pen/KKXXbwR">例子</a></li>
-<li>span 是 inline-level <a href="https://codepen.io/TheOdinProjectExamples/pen/abLLPor">例子</a></li>
-</ul>
-</li>
-<li><a href="https://www.digitalocean.com/community/tutorials/css-display-inline-vs-inline-block">inline-block</a></li>
-</ul>
-
-    </div>
-  </article>
-
-  
-  
-
-
-
-
-
-
-  <div id="footer-post-container">
-  <div id="footer-post">
-
-    <div id="nav-footer" style="display: none">
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about">About</a></li>
-         
-          <li><a href="/posts">Posts</a></li>
-         
-          <li><a href="/resources">Resources</a></li>
-         
-          <li><a href="/search">Search</a></li>
-         
-          <li><a href="/tags">Tags</a></li>
-        
-      </ul>
-    </div>
-
-    
-    <div id="toc-footer" style="display: none">
-      <nav id="TableOfContents">
-  <ul>
-    <li><a href="#基礎架構">基礎架構</a></li>
-    <li><a href="#selector">selector</a></li>
-    <li><a href="#properties">properties</a></li>
-    <li><a href="#cascade-of-css">cascade of CSS</a></li>
-    <li><a href="#adding-css-into-html">adding CSS into HTML</a></li>
-    <li><a href="#box-model">box model</a></li>
-    <li><a href="#block-vs-inline">block v.s. inline</a></li>
-  </ul>
-</nav>
-    </div>
-    
-
-    <div id="share-footer" style="display: none">
-      
-      <ul>
-  
-  
-    
-  
-  
-  <li>
-    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f" aria-label="Facebook">
-      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&text=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css" aria-label="Twitter">
-      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&title=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css" aria-label="Linkedin">
-      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&is_video=false&description=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css" aria-label="Pinterest">
-      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="mailto:?subject=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css&body=Check out this article: https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f" aria-label="Email">
-      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&title=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css" aria-label="Pocket">
-      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&title=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css" aria-label="reddit">
-      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&name=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css&description=%3ch2%20id%3d%22%e5%9f%ba%e7%a4%8e%e6%9e%b6%e6%a7%8b%22%3e%e5%9f%ba%e7%a4%8e%e6%9e%b6%e6%a7%8b%3c%2fh2%3e%0a%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e2%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e3%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-css%22%20data-lang%3d%22css%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22o%22%3e%26lt%3b%3c%2fspan%3e%3cspan%20class%3d%22nt%22%3eselector%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e%26gt%3b%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20%3cspan%20class%3d%22err%22%3e%26lt%3bproperty%26gt%3b%3a%3c%2fspan%3e%20%3cspan%20class%3d%22err%22%3e%26lt%3bvalue%26gt%3b%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3ch2%20id%3d%22selector%22%3eselector%3c%2fh2%3e%0a%3cul%3e%0a%3cli%3e%0a%3cp%3euniversal%20selector%3c%2fp%3e%0a%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e2%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e3%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-css%22%20data-lang%3d%22css%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22o%22%3e%2a%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20%3cspan%20class%3d%22k%22%3ecolor%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3a%3c%2fspan%3e%20%3cspan%20class%3d%22kc%22%3epurple%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3c%2fli%3e%0a%3cli%3e%0a%3cp%3etype%20selector%3c%2fp%3e%0a%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e2%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e3%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-css%22%20data-lang%3d%22css%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22nt%22%3ediv%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20%3cspan%20class%3d%22k%22%3ecolor%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3a%3c%2fspan%3e%20%3cspan%20class%3d%22kc%22%3ewhite%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3c%2fli%3e%0a%3cli%3e%0a%3cp%3eclass%20selector%3c%2fp%3e%0a%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e2%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e3%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-html%22%20data-lang%3d%22html%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%26lt%3b%3c%2fspan%3e%3cspan%20class%3d%22nt%22%3ediv%3c%2fspan%3e%20%3cspan%20class%3d%22na%22%3eclass%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e%3d%3c%2fspan%3e%3cspan%20class%3d%22s%22%3e%26%2334%3balert-text%20severe-alert%26%2334%3b%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%26gt%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20Please%20agree%20to%20our%20terms%20of%20service.%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%26lt%3b%2f%3c%2fspan%3e%3cspan%20class%3d%22nt%22%3ediv%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%26gt%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e2%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e3%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-css%22%20data-lang%3d%22css%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e.%3c%2fspan%3e%3cspan%20class%3d%22nc%22%3ealert-text%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20%3cspan%20class%3d%22k%22%3ecolor%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3a%3c%2fspan%3e%20%3cspan%20class%3d%22kc%22%3ered%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3c%2fli%3e%0a%3cli%3e%0a%3cp%3eid%20selector%3c%2fp%3e%0a%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-html%22%20data-lang%3d%22html%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%26lt%3b%3c%2fspan%3e%3cspan%20class%3d%22nt%22%3ediv%3c%2fspan%3e%20%3cspan%20class%3d%22na%22%3eid%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e%3d%3c%2fspan%3e%3cspan%20class%3d%22s%22%3e%26%2334%3btitle%26%2334%3b%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%26gt%3b%3c%2fspan%3eMy%20Awesome%2090%26%2339%3bs%20Page%3cspan%20class%3d%22p%22%3e%26lt%3b%2f%3c%2fspan%3e%3cspan%20class%3d%22nt%22%3ediv%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%26gt%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e2%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e3%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-css%22%20data-lang%3d%22css%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%23%3c%2fspan%3e%3cspan%20class%3d%22nn%22%3etitle%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20%3cspan%20class%3d%22k%22%3ebackground-color%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3a%3c%2fspan%3e%20%3cspan%20class%3d%22kc%22%3ered%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3cul%3e%0a%3cli%3edifference%20between%20class%20%26amp%3b%20ID%0a%3cblockquote%3e%0a%3cp%3eThe%20major%20difference%20between%20classes%20and%20IDs%20is%20that%20an%20element%20can%20only%20have%20one%20ID.%20An%20ID%20cannot%20be%20repeated%20on%20a%20single%20page%2c%20and%20the%20ID%20attribute%20should%20not%20contain%20any%20whitespace%20at%20all.%3c%2fp%3e" aria-label="Tumblr">
-      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
-    </a>
-  </li>
-  <li>
-    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&t=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css" aria-label="Hacker News">
-      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
-    </a>
-  </li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-      
-        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
-          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
-        
-        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
-          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
-        
-        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
-          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
-          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
-    </div>
-
-  </div>
-</div>
-
-
-  <footer id="footer">
-  <div class="footer-left">
-    Copyright  &copy; 2025  Erin Li 
-  </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-         
-        <li><a href="/">Home</a></li>
-         
-        <li><a href="/about">About</a></li>
-         
-        <li><a href="/posts">Posts</a></li>
-         
-        <li><a href="/resources">Resources</a></li>
-         
-        <li><a href="/search">Search</a></li>
-         
-        <li><a href="/tags">Tags</a></li>
-        
-      </ul>
-    </nav>
-  </div>
-</footer>
-
-
-  </div>
-
-<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
-<script src=/lib/jquery/jquery.min.js></script>
-<script src=/js/main.js></script>
-
-<script src=/js/code-copy.js></script>
-
-
-
-  
-
-
-<script>
-  MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']]
-    },
-    svg: {
-      fontCache: 'global'
-    }
-  };
-</script>
-<script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
-
-
-<script src=/lib/clipboard/clipboard.min.js></script>
-<script>
-  $(function () {
-    
-    let btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\" style=\"z-index: 9999\">";
-    btn += '<i class="far fa-clone"></i>';
-    btn += '</span>'; 
-    
-    $(".highlight table").before(btn);
-    const clip = new ClipboardJS('.btn-copy', {
-      text: function(trigger) {
-          const selector = 'code[data-lang]:not([data-lang=""]) > span';
-          const elements = Array.from(trigger.nextElementSibling.querySelectorAll(selector));
-          const code = elements.map(e => e.innerText).join('');
-          return code;
-      }
-    });
-    clip.on("success", function(e) {
-      e.trigger.setAttribute('aria-label', "Copied!");
-      e.clearSelection();
-    });
-    clip.on("error", function(e) {
-      console.error("Action:", e.action);
-      console.error("Trigger:", e.trigger);
-    });
-  });
-</script>
-
-<script type="text/javascript" src=/js/canvas-nest.js
-  count=90
-  color="0,200,100"
-  opacity=0.5
->
-</script>
-</body>
-</html>
+1 2 3 <div class="alert-text severe-alert"> Please agree to our terms of service. </div> 1 2 3 .alert-text { color: red; } id selector
+1 <div id="title">My Awesome 90&#39;s Page</div> 1 2 3 #title { background-color: red; } difference between class & ID The major difference between classes and IDs is that an element can only have one ID. An ID cannot be repeated on a single page, and the ID attribute should not contain any whitespace at all.'><link rel=stylesheet href=https://yun-20459.github.io/css/styles.36c12a99052778131d28078b3171237fd0184ad9b87c778208912a8d08e2d0194867a030c64d9b02d6077de53a8a9979249331f971fb47c471a2d59676520a3a.css integrity="sha512-NsEqmQUneBMdKAeLMXEjf9AYStm4fHeCCJEqjQji0BlIZ6Awxk2bAtYHfeU6ipl5JJMx+XH7R8RxotWWdlIKOg=="><link rel=stylesheet href=https://yun-20459.github.io/css/highlight.css><link rel=stylesheet href=https://yun-20459.github.io/css/style-dark.css><link rel=stylesheet href=https://yun-20459.github.io/css/search.css><!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script><script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]--><link rel=icon type=image/png href=https://yun-20459.github.io/images/favicon.ico></head><body class="max-width mx-auto px3 ltr"><div class="content index py4"><div id=header-post><a id=menu-icon href=#><i class="fas fa-bars fa-lg"></i></a>
+<a id=menu-icon-tablet href=#><i class="fas fa-bars fa-lg"></i></a>
+<a id=top-icon-tablet href=# onclick='$("html, body").animate({scrollTop:0},"fast")' style=display:none aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+<span id=menu><span id=nav><ul><li><a href=/>Home</a></li><li><a href=/about>About</a></li><li><a href=/posts>Posts</a></li><li><a href=/resources>Resources</a></li><li><a href=/search>Search</a></li><li><a href=/tags>Tags</a></li></ul></span><br><span id=actions><ul><li><a class=icon href=https://yun-20459.github.io/posts/frontend-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-html/ aria-label=Previous><i class="fas fa-chevron-left" aria-hidden=true onmouseover='$("#i-prev").toggle()' onmouseout='$("#i-prev").toggle()'></i></a></li><li><a class=icon href=https://yun-20459.github.io/posts/leetcode-1354-construct-target-array-with-multiple-sums/ aria-label=Next><i class="fas fa-chevron-right" aria-hidden=true onmouseover='$("#i-next").toggle()' onmouseout='$("#i-next").toggle()'></i></a></li><li><a class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page"><i class="fas fa-chevron-up" aria-hidden=true onmouseover='$("#i-top").toggle()' onmouseout='$("#i-top").toggle()'></i></a></li><li><a class=icon href=# aria-label=Share><i class="fas fa-share-alt" aria-hidden=true onmouseover='$("#i-share").toggle()' onmouseout='$("#i-share").toggle()' onclick='return $("#share").toggle(),!1'></i></a></li></ul><span id=i-prev class=info style=display:none>Previous post</span>
+<span id=i-next class=info style=display:none>Next post</span>
+<span id=i-top class=info style=display:none>Back to top</span>
+<span id=i-share class=info style=display:none>Share post</span></span><br><div id=share style=display:none><ul><li><a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f" aria-label=Facebook><i class="fab fa-facebook" aria-hidden=true></i></a></li><li><a class=icon href="https://twitter.com/share?url=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&text=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css" aria-label=Twitter><i class="fab fa-twitter" aria-hidden=true></i></a></li><li><a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&title=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css" aria-label=Linkedin><i class="fab fa-linkedin" aria-hidden=true></i></a></li><li><a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&is_video=false&description=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css" aria-label=Pinterest><i class="fab fa-pinterest" aria-hidden=true></i></a></li><li><a class=icon href="mailto:?subject=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css&body=Check out this article: https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f" aria-label=Email><i class="fas fa-envelope" aria-hidden=true></i></a></li><li><a class=icon href="https://getpocket.com/save?url=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&title=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css" aria-label=Pocket><i class="fab fa-get-pocket" aria-hidden=true></i></a></li><li><a class=icon href="http://reddit.com/submit?url=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&title=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css" aria-label=reddit><i class="fab fa-reddit" aria-hidden=true></i></a></li><li><a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&name=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css&description=%3ch2%20id%3d%22%e5%9f%ba%e7%a4%8e%e6%9e%b6%e6%a7%8b%22%3e%e5%9f%ba%e7%a4%8e%e6%9e%b6%e6%a7%8b%3c%2fh2%3e%0a%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e2%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e3%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-css%22%20data-lang%3d%22css%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22o%22%3e%26lt%3b%3c%2fspan%3e%3cspan%20class%3d%22nt%22%3eselector%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e%26gt%3b%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20%3cspan%20class%3d%22err%22%3e%26lt%3bproperty%26gt%3b%3a%3c%2fspan%3e%20%3cspan%20class%3d%22err%22%3e%26lt%3bvalue%26gt%3b%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3ch2%20id%3d%22selector%22%3eselector%3c%2fh2%3e%0a%3cul%3e%0a%3cli%3e%0a%3cp%3euniversal%20selector%3c%2fp%3e%0a%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e2%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e3%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-css%22%20data-lang%3d%22css%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22o%22%3e%2a%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20%3cspan%20class%3d%22k%22%3ecolor%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3a%3c%2fspan%3e%20%3cspan%20class%3d%22kc%22%3epurple%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3c%2fli%3e%0a%3cli%3e%0a%3cp%3etype%20selector%3c%2fp%3e%0a%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e2%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e3%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-css%22%20data-lang%3d%22css%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22nt%22%3ediv%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20%3cspan%20class%3d%22k%22%3ecolor%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3a%3c%2fspan%3e%20%3cspan%20class%3d%22kc%22%3ewhite%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3c%2fli%3e%0a%3cli%3e%0a%3cp%3eclass%20selector%3c%2fp%3e%0a%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e2%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e3%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-html%22%20data-lang%3d%22html%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%26lt%3b%3c%2fspan%3e%3cspan%20class%3d%22nt%22%3ediv%3c%2fspan%3e%20%3cspan%20class%3d%22na%22%3eclass%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e%3d%3c%2fspan%3e%3cspan%20class%3d%22s%22%3e%26%2334%3balert-text%20severe-alert%26%2334%3b%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%26gt%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20Please%20agree%20to%20our%20terms%20of%20service.%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%26lt%3b%2f%3c%2fspan%3e%3cspan%20class%3d%22nt%22%3ediv%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%26gt%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e2%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e3%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-css%22%20data-lang%3d%22css%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e.%3c%2fspan%3e%3cspan%20class%3d%22nc%22%3ealert-text%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20%3cspan%20class%3d%22k%22%3ecolor%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3a%3c%2fspan%3e%20%3cspan%20class%3d%22kc%22%3ered%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3c%2fli%3e%0a%3cli%3e%0a%3cp%3eid%20selector%3c%2fp%3e%0a%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-html%22%20data-lang%3d%22html%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%26lt%3b%3c%2fspan%3e%3cspan%20class%3d%22nt%22%3ediv%3c%2fspan%3e%20%3cspan%20class%3d%22na%22%3eid%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e%3d%3c%2fspan%3e%3cspan%20class%3d%22s%22%3e%26%2334%3btitle%26%2334%3b%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%26gt%3b%3c%2fspan%3eMy%20Awesome%2090%26%2339%3bs%20Page%3cspan%20class%3d%22p%22%3e%26lt%3b%2f%3c%2fspan%3e%3cspan%20class%3d%22nt%22%3ediv%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%26gt%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e2%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e3%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-css%22%20data-lang%3d%22css%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%23%3c%2fspan%3e%3cspan%20class%3d%22nn%22%3etitle%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20%3cspan%20class%3d%22k%22%3ebackground-color%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3a%3c%2fspan%3e%20%3cspan%20class%3d%22kc%22%3ered%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3cul%3e%0a%3cli%3edifference%20between%20class%20%26amp%3b%20ID%0a%3cblockquote%3e%0a%3cp%3eThe%20major%20difference%20between%20classes%20and%20IDs%20is%20that%20an%20element%20can%20only%20have%20one%20ID.%20An%20ID%20cannot%20be%20repeated%20on%20a%20single%20page%2c%20and%20the%20ID%20attribute%20should%20not%20contain%20any%20whitespace%20at%20all.%3c%2fp%3e" aria-label=Tumblr><i class="fab fa-tumblr" aria-hidden=true></i></a></li><li><a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&t=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css" aria-label="Hacker News"><i class="fab fa-hacker-news" aria-hidden=true></i></a></li></ul></div><div id=toc><nav id=TableOfContents><ul><li><a href=#基礎架構>基礎架構</a></li><li><a href=#selector>selector</a></li><li><a href=#properties>properties</a></li><li><a href=#cascade-of-css>cascade of CSS</a></li><li><a href=#adding-css-into-html>adding CSS into HTML</a></li><li><a href=#box-model>box model</a></li><li><a href=#block-vs-inline>block v.s. inline</a></li></ul></nav></div></span></div><article class=post itemscope itemtype=http://schema.org/BlogPosting><header><h1 class=posttitle itemprop="name headline">frontend 學習筆記 - css</h1><div class=meta><span class=author itemprop=author itemscope itemtype=http://schema.org/Person><span itemprop=name></span></span><div class=postdate><time datetime="2022-06-24 13:10:30 +0000 UTC" itemprop=datePublished>2022-06-24</time></div><div class=article-read-time><i class="far fa-clock"></i>
+4 minute read</div><div class=article-tag><i class="fas fa-tag"></i>
+<a class=tag-link href=/tags/css/ rel=tag>css</a></div></div></header><div class=content itemprop=articleBody><h2 id=基礎架構>基礎架構</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=o>&lt;</span><span class=nt>selector</span><span class=o>&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=err>&lt;property&gt;:</span> <span class=err>&lt;value&gt;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=selector>selector</h2><ul><li><p>universal selector</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=o>*</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>color</span><span class=p>:</span> <span class=kc>purple</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>type selector</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=nt>div</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>color</span><span class=p>:</span> <span class=kc>white</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>class selector</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;alert-text severe-alert&#34;</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    Please agree to our terms of service.
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=p>.</span><span class=nc>alert-text</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>color</span><span class=p>:</span> <span class=kc>red</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>id selector</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;title&#34;</span><span class=p>&gt;</span>My Awesome 90&#39;s Page<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=p>#</span><span class=nn>title</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>background-color</span><span class=p>:</span> <span class=kc>red</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li>difference between class & ID<blockquote><p>The major difference between classes and IDs is that an element can only have one ID. An ID cannot be repeated on a single page, and the ID attribute should not contain any whitespace at all.</p></blockquote></li></ul></li><li><p>grouping selector</p><p>如果有部份宣告一樣的話可以 group 起來一起寫</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=p>.</span><span class=nc>read</span><span class=o>,</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nc>unread</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>color</span><span class=p>:</span> <span class=kc>white</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>background-color</span><span class=p>:</span> <span class=kc>black</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nc>read</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c>/* several unique declarations */</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nc>unread</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c>/* several unique declarations */</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>chaining selector</p><p>如果有兩個以上的 class 或者 class + id 的話可以串起來</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;subsection header&#34;</span><span class=p>&gt;</span>Latest Posts<span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>p</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;subsection&#34;</span> <span class=na>id</span><span class=o>=</span><span class=s>&#34;preview&#34;</span><span class=p>&gt;</span>This is where a preview for a post might go.<span class=p>&lt;/</span><span class=nt>p</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=p>.</span><span class=nc>subsection</span><span class=p>.</span><span class=nc>header</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>color</span><span class=p>:</span> <span class=kc>red</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nc>subsection</span><span class=p>#</span><span class=nn>preview</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>color</span><span class=p>:</span> <span class=kc>blue</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>combinator</p><ul><li><p>descendant combinator</p><p><code>.ancestor .child</code> 就是只會選在 class <code>ancestor</code> 裡 class 是 <code>child</code> 的，例如下面的話就是會選到 B 跟 C</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;ancestor&#34;</span><span class=p>&gt;</span> <span class=c>&lt;!-- A --&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;contents&#34;</span><span class=p>&gt;</span> <span class=c>&lt;!-- B --&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;contents&#34;</span><span class=p>&gt;</span> <span class=c>&lt;!-- C --&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>div</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>div</span> <span class=na>class</span><span class=o>=</span><span class=s>&#34;contents&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>div</span><span class=p>&gt;</span> <span class=c>&lt;!-- D --&gt;</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=p>.</span><span class=nc>ancestor</span> <span class=p>.</span><span class=nc>contents</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c>/* some declarations */</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul></li></ul><h2 id=properties>properties</h2><ul><li><p>color & background-color</p><p>賦值方法可以看<a href=https://www.w3schools.com/cssref/css_colors_legal.asp>這裡</a></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=nt>p</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c>/* hex example: */</span>
+</span></span><span class=line><span class=cl>    <span class=k>color</span><span class=p>:</span> <span class=mh>#1100ff</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=c>/* rgb example: */</span>
+</span></span><span class=line><span class=cl>    <span class=k>color</span><span class=p>:</span> <span class=nb>rgb</span><span class=p>(</span><span class=mi>100</span><span class=p>,</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>127</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=c>/* hsl example: */</span>
+</span></span><span class=line><span class=cl>    <span class=k>color</span><span class=p>:</span> <span class=nb>hsl</span><span class=p>(</span><span class=mi>15</span><span class=p>,</span> <span class=mi>82</span><span class=kt>%</span><span class=p>,</span> <span class=mi>56</span><span class=kt>%</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>font & text</p><ul><li><p>font-family</p><ul><li>font family name ex. &ldquo;Times New Roman&rdquo;</li><li>generic family name ex. sans-serif</li><li>可以給 list 讓瀏覽器從第一個去找可以用的 ex. <code>font-family: "Times New Roman", sans-serif;</code></li><li>web safe 的字體可以參考<a href=https://www.w3schools.com/cssref/css_websafe_fonts.asp>這裡</a></li><li>想用其他開源字體的話<a href=https://www.bitdegree.org/learn/font-family-css#how-to-use-a-downloaded-font>這裡</a></li></ul></li><li><p>font-size ex. <code>font-size: 22px</code></p></li><li><p>font-weight: 類似粗體的概念，給數值的話可以從 1~1000</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=nt>font-weight</span><span class=o>:</span> <span class=nt>bold</span> <span class=c>/*equivalent of font-weight: 700*/</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>text-align: 各種對齊方法可以看<a href=https://developer.mozilla.org/zh-CN/docs/Web/CSS/text-align>這裡</a></p></li></ul></li><li><p>image</p><p>下面的例子是假設原圖是 500(h)x1000(w)，這樣寫的話 height 就會變成 250px</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=nt>img</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>height</span><span class=p>:</span> <span class=kc>auto</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>width</span><span class=p>:</span> <span class=mi>500</span><span class=kt>px</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul><h2 id=cascade-of-css>cascade of CSS</h2><p>瀏覽器有可能會有 default style 就會導致自己寫了 css 但是出來跟預期的不一樣</p><ul><li><p>specificity<br>ID selector > class selector > type selector</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=c>/* rule 1 */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nc>subsection</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>color</span><span class=p>:</span> <span class=kc>blue</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>/* rule 2 */</span>
+</span></span><span class=line><span class=cl><span class=c>/* this will be chosen */</span>
+</span></span><span class=line><span class=cl><span class=p>.</span><span class=nc>main</span> <span class=p>.</span><span class=nc>list</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>color</span><span class=p>:</span> <span class=kc>red</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-css data-lang=css><span class=line><span class=cl><span class=c>/* rule 1 */</span>
+</span></span><span class=line><span class=cl><span class=p>#</span><span class=nn>subsection</span> <span class=p>.</span><span class=nc>list</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>background-color</span><span class=p>:</span> <span class=kc>yellow</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>color</span><span class=p>:</span> <span class=kc>blue</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c>/* rule 2 */</span>
+</span></span><span class=line><span class=cl><span class=c>/* this will be chosen */</span>
+</span></span><span class=line><span class=cl><span class=c>/* but background will be yellow since there is no conflict declaration for it*/</span>
+</span></span><span class=line><span class=cl><span class=p>#</span><span class=nn>subsection</span> <span class=p>.</span><span class=nc>main</span> <span class=p>.</span><span class=nc>list</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>color</span><span class=p>:</span> <span class=kc>red</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div></li><li><p>inheritance</p><p>沒講的東西就會繼承，但如果有 selector 單指且跟繼承有衝突的話以 selector 為優先</p></li><li><p>rule order</p><p>如果有好幾個 class 且優先度都一樣，會選在 css 裡面最後 defined 的那個</p></li></ul><h2 id=adding-css-into-html>adding CSS into HTML</h2><ul><li><p>external css: 寫個 <code>style.css</code> link 進 .html</p></li><li><p>internal css: 在 html 的 head 裡寫</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>head</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;</span><span class=nt>style</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl>        <span class=nt>div</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>color</span><span class=p>:</span> <span class=kc>white</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>background-color</span><span class=p>:</span> <span class=kc>black</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nt>p</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>color</span><span class=p>:</span> <span class=kc>red</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>&lt;/</span><span class=nt>style</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;/</span><span class=nt>head</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>body</span><span class=p>&gt;</span>...<span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span>
+</span></span></code></pre></td></tr></table></div></div></li></ul><h2 id=box-model>box model</h2><p>所有在 webpage 上的東西都是 rectangle box，然後可以透過 css 調整這個 box 的特性例如</p><ul><li>padding<ul><li>如果上下一樣 8px ，左右一樣 24px 的話可以寫 <code>padding: 8px 24px;</code></li></ul></li><li>margin<ul><li>想要 element 靠右可以寫 <code>margin-left: auto;</code></li><li>想要 element 置中可以寫 <code>margin: 0 auto;</code></li></ul></li><li>border</li></ul><p><img src=https://i.imgur.com/twaMAWQ.png alt=示意圖></p><h2 id=block-vs-inline>block v.s. inline</h2><ul><li>如果 element 是 block，那就會像一個一個 block 在網頁上按照順序排好，如果是 inline（ex. <code>&lt;a></code>、<code>&lt;button></code>），就會直接在放的位置旁邊的 element 的旁邊（繞口令 xD）</li><li>div & span<ul><li>div 是 block-level <a href=https://codepen.io/TheOdinProjectExamples/pen/KKXXbwR>例子</a></li><li>span 是 inline-level <a href=https://codepen.io/TheOdinProjectExamples/pen/abLLPor>例子</a></li></ul></li><li><a href=https://www.digitalocean.com/community/tutorials/css-display-inline-vs-inline-block>inline-block</a></li></ul></div></article><div id=footer-post-container><div id=footer-post><div id=nav-footer style=display:none><ul><li><a href=/>Home</a></li><li><a href=/about>About</a></li><li><a href=/posts>Posts</a></li><li><a href=/resources>Resources</a></li><li><a href=/search>Search</a></li><li><a href=/tags>Tags</a></li></ul></div><div id=toc-footer style=display:none><nav id=TableOfContents><ul><li><a href=#基礎架構>基礎架構</a></li><li><a href=#selector>selector</a></li><li><a href=#properties>properties</a></li><li><a href=#cascade-of-css>cascade of CSS</a></li><li><a href=#adding-css-into-html>adding CSS into HTML</a></li><li><a href=#box-model>box model</a></li><li><a href=#block-vs-inline>block v.s. inline</a></li></ul></nav></div><div id=share-footer style=display:none><ul><li><a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f" aria-label=Facebook><i class="fab fa-facebook fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://twitter.com/share?url=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&text=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css" aria-label=Twitter><i class="fab fa-twitter fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&title=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css" aria-label=Linkedin><i class="fab fa-linkedin fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&is_video=false&description=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css" aria-label=Pinterest><i class="fab fa-pinterest fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="mailto:?subject=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css&body=Check out this article: https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f" aria-label=Email><i class="fas fa-envelope fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://getpocket.com/save?url=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&title=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css" aria-label=Pocket><i class="fab fa-get-pocket fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://reddit.com/submit?url=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&title=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css" aria-label=reddit><i class="fab fa-reddit fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&name=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css&description=%3ch2%20id%3d%22%e5%9f%ba%e7%a4%8e%e6%9e%b6%e6%a7%8b%22%3e%e5%9f%ba%e7%a4%8e%e6%9e%b6%e6%a7%8b%3c%2fh2%3e%0a%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e2%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e3%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-css%22%20data-lang%3d%22css%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22o%22%3e%26lt%3b%3c%2fspan%3e%3cspan%20class%3d%22nt%22%3eselector%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e%26gt%3b%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20%3cspan%20class%3d%22err%22%3e%26lt%3bproperty%26gt%3b%3a%3c%2fspan%3e%20%3cspan%20class%3d%22err%22%3e%26lt%3bvalue%26gt%3b%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3ch2%20id%3d%22selector%22%3eselector%3c%2fh2%3e%0a%3cul%3e%0a%3cli%3e%0a%3cp%3euniversal%20selector%3c%2fp%3e%0a%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e2%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e3%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-css%22%20data-lang%3d%22css%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22o%22%3e%2a%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20%3cspan%20class%3d%22k%22%3ecolor%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3a%3c%2fspan%3e%20%3cspan%20class%3d%22kc%22%3epurple%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3c%2fli%3e%0a%3cli%3e%0a%3cp%3etype%20selector%3c%2fp%3e%0a%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e2%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e3%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-css%22%20data-lang%3d%22css%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22nt%22%3ediv%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20%3cspan%20class%3d%22k%22%3ecolor%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3a%3c%2fspan%3e%20%3cspan%20class%3d%22kc%22%3ewhite%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3c%2fli%3e%0a%3cli%3e%0a%3cp%3eclass%20selector%3c%2fp%3e%0a%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e2%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e3%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-html%22%20data-lang%3d%22html%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%26lt%3b%3c%2fspan%3e%3cspan%20class%3d%22nt%22%3ediv%3c%2fspan%3e%20%3cspan%20class%3d%22na%22%3eclass%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e%3d%3c%2fspan%3e%3cspan%20class%3d%22s%22%3e%26%2334%3balert-text%20severe-alert%26%2334%3b%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%26gt%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20Please%20agree%20to%20our%20terms%20of%20service.%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%26lt%3b%2f%3c%2fspan%3e%3cspan%20class%3d%22nt%22%3ediv%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%26gt%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e2%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e3%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-css%22%20data-lang%3d%22css%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e.%3c%2fspan%3e%3cspan%20class%3d%22nc%22%3ealert-text%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20%3cspan%20class%3d%22k%22%3ecolor%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3a%3c%2fspan%3e%20%3cspan%20class%3d%22kc%22%3ered%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3c%2fli%3e%0a%3cli%3e%0a%3cp%3eid%20selector%3c%2fp%3e%0a%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-html%22%20data-lang%3d%22html%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%26lt%3b%3c%2fspan%3e%3cspan%20class%3d%22nt%22%3ediv%3c%2fspan%3e%20%3cspan%20class%3d%22na%22%3eid%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e%3d%3c%2fspan%3e%3cspan%20class%3d%22s%22%3e%26%2334%3btitle%26%2334%3b%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%26gt%3b%3c%2fspan%3eMy%20Awesome%2090%26%2339%3bs%20Page%3cspan%20class%3d%22p%22%3e%26lt%3b%2f%3c%2fspan%3e%3cspan%20class%3d%22nt%22%3ediv%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%26gt%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e1%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e2%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e3%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-css%22%20data-lang%3d%22css%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%23%3c%2fspan%3e%3cspan%20class%3d%22nn%22%3etitle%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20%3cspan%20class%3d%22k%22%3ebackground-color%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3a%3c%2fspan%3e%20%3cspan%20class%3d%22kc%22%3ered%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3cul%3e%0a%3cli%3edifference%20between%20class%20%26amp%3b%20ID%0a%3cblockquote%3e%0a%3cp%3eThe%20major%20difference%20between%20classes%20and%20IDs%20is%20that%20an%20element%20can%20only%20have%20one%20ID.%20An%20ID%20cannot%20be%20repeated%20on%20a%20single%20page%2c%20and%20the%20ID%20attribute%20should%20not%20contain%20any%20whitespace%20at%20all.%3c%2fp%3e" aria-label=Tumblr><i class="fab fa-tumblr fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fyun-20459.github.io%2fposts%2ffrontend-%25E5%25AD%25B8%25E7%25BF%2592%25E7%25AD%2586%25E8%25A8%2598-css%2f&t=frontend%20%e5%ad%b8%e7%bf%92%e7%ad%86%e8%a8%98%20-%20css" aria-label="Hacker News"><i class="fab fa-hacker-news fa-lg" aria-hidden=true></i></a></li></ul></div><div id=actions-footer><a id=menu-toggle class=icon href=# onclick='return $("#nav-footer").toggle(),!1' aria-label=Menu><i class="fas fa-bars fa-lg" aria-hidden=true></i> Menu</a>
+<a id=toc-toggle class=icon href=# onclick='return $("#toc-footer").toggle(),!1' aria-label=TOC><i class="fas fa-list fa-lg" aria-hidden=true></i> TOC</a>
+<a id=share-toggle class=icon href=# onclick='return $("#share-footer").toggle(),!1' aria-label=Share><i class="fas fa-share-alt fa-lg" aria-hidden=true></i> share</a>
+<a id=top style=display:none class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg" aria-hidden=true></i> Top</a></div></div></div><footer id=footer><div class=footer-left>Copyright &copy; 2025 Erin Li</div><div class=footer-right><nav><ul><li><a href=/>Home</a></li><li><a href=/about>About</a></li><li><a href=/posts>Posts</a></li><li><a href=/resources>Resources</a></li><li><a href=/search>Search</a></li><li><a href=/tags>Tags</a></li></ul></nav></div></footer></div><link rel=stylesheet href=/lib/font-awesome/css/all.min.css><script src=/lib/jquery/jquery.min.js></script><script src=/js/main.js></script><script src=/js/code-copy.js></script><script>MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]]},svg:{fontCache:"global"}}</script><script type=text/javascript id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script><script src=/lib/clipboard/clipboard.min.js></script><script>$(function(){let e='<span class="btn-copy tooltipped tooltipped-sw" aria-label="Copy to clipboard!" style="z-index: 9999">';e+='<i class="far fa-clone"></i>',e+="</span>",$(".highlight table").before(e);const t=new ClipboardJS(".btn-copy",{text:function(e){const t='code[data-lang]:not([data-lang=""]) > span',n=Array.from(e.nextElementSibling.querySelectorAll(t)),s=n.map(e=>e.innerText).join("");return s}});t.on("success",function(e){e.trigger.setAttribute("aria-label","Copied!"),e.clearSelection()}),t.on("error",function(e){console.error("Action:",e.action),console.error("Trigger:",e.trigger)})})</script><script type=text/javascript src=/js/canvas-nest.js count=90 color=0,200,100 opacity=0.5></script></body></html>

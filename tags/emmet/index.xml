@@ -1,20 +1,38 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Emmet on 隨寫日誌</title>
-    <link>https://yun-20459.github.io/tags/emmet/</link>
-    <description>Recent content in Emmet on 隨寫日誌</description>
-    <generator>Hugo</generator>
-    <language>zh-tw</language>
-    <copyright>Erin Li</copyright>
-    <lastBuildDate>Fri, 01 Jul 2022 16:50:25 +0000</lastBuildDate>
-    <atom:link href="https://yun-20459.github.io/tags/emmet/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>frontend 學習筆記</title>
-      <link>https://yun-20459.github.io/posts/frontend-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/</link>
-      <pubDate>Fri, 01 Jul 2022 16:50:25 +0000</pubDate>
-      <guid>https://yun-20459.github.io/posts/frontend-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/</guid>
-      <description>&lt;h2 id=&#34;html&#34;&gt;html&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;tag 們可以參考 &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/HTML/Element&#34;&gt;這裡&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;table-tag&#34;&gt;table tag&lt;/h3&gt;&#xA;&lt;p&gt;簡單來說就是可以生成表格的 tag&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;&amp;lt;tr&amp;gt;&lt;/code&gt;: table row，包在這個裡面的會形成一個 row&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;&amp;lt;td&amp;gt;&lt;/code&gt;: table data，就是放格子中要填的 data&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;&amp;lt;th&amp;gt;&lt;/code&gt;: table header，就是在 table 中的 header&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;&amp;lt;colgroup&amp;gt;&lt;/code&gt;、&lt;code&gt;&amp;lt;col&amp;gt;&lt;/code&gt;: 前者是拿來放後者的，放幾個就產生幾個 column&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics&#34;&gt;例子&lt;/a&gt;，他的 &lt;a href=&#34;https://mdn.github.io/learning-area/html/tables/basic/timetable-fixed.html&#34;&gt;live demo&lt;/a&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;&amp;lt;caption&amp;gt;&lt;/code&gt;: 字面上意思，會出現在表格上面，可以簡短說明表格內容的文字&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;&amp;lt;thead&amp;gt;&lt;/code&gt;、&lt;code&gt;&amp;lt;tfoot&amp;gt;&lt;/code&gt;、&lt;code&gt;&amp;lt;tbody&amp;gt;&lt;/code&gt;: 讓整個 table 結構化&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/mdn/learning-area/blob/main/html/tables/advanced/spending-record-finished.html&#34;&gt;例子&lt;/a&gt;，他的 &lt;a href=&#34;https://mdn.github.io/learning-area/html/tables/advanced/spending-record-finished.html&#34;&gt;live demo&lt;/a&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;id&lt;/code&gt;、&lt;code&gt;header&lt;/code&gt;: 可以在 table header 上面加上 id，然後在他的子表格（？）透過這些 id 標明他的 header 有誰&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/mdn/learning-area/blob/main/html/tables/advanced/items-sold-headers.html&#34;&gt;例子&lt;/a&gt;，他的 &lt;a href=&#34;https://mdn.github.io/learning-area/html/tables/advanced/items-sold-headers.html&#34;&gt;live demo&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;css&#34;&gt;css&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://websitesetup.org/wp-content/uploads/2019/11/wsu-css-cheat-sheet-gdocs.pdf&#34;&gt;css cheat sheet&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;emmet&#34;&gt;emmet&lt;/h2&gt;&#xA;&lt;p&gt;應該算是一種輔助寫 html 的強大 plugin&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://docs.emmet.io/cheat-sheet/&#34;&gt;emmet cheet sheet&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;wrap-with-abbreviation&#34;&gt;Wrap with Abbreviation&lt;/h3&gt;&#xA;&lt;p&gt;在 vscode 裡的用法是&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;選起來要被包住的內容&lt;/li&gt;&#xA;&lt;li&gt;先 &lt;code&gt;Ctrl + Shift + P&lt;/code&gt; 叫出 command palette&lt;/li&gt;&#xA;&lt;li&gt;輸入 &lt;code&gt;Emmet: Wrap with Abbreviation&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;然後就可以打指令了&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;（或者也可以 &lt;code&gt;command+k&lt;/code&gt; &lt;code&gt;command+s&lt;/code&gt; 打開 keyboard shortcut 設定，如果懶得設定，可以直接去 extension 下載 emmet keybindings 用）&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Emmet on 隨寫日誌</title><link>https://yun-20459.github.io/tags/emmet/</link><description>Recent content in Emmet on 隨寫日誌</description><generator>Hugo</generator><language>zh-tw</language><copyright>Erin Li</copyright><lastBuildDate>Fri, 01 Jul 2022 16:50:25 +0000</lastBuildDate><atom:link href="https://yun-20459.github.io/tags/emmet/index.xml" rel="self" type="application/rss+xml"/><item><title>frontend 學習筆記</title><link>https://yun-20459.github.io/posts/frontend-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/</link><pubDate>Fri, 01 Jul 2022 16:50:25 +0000</pubDate><guid>https://yun-20459.github.io/posts/frontend-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/</guid><description>&lt;h2 id="html">html&lt;/h2>
+&lt;ul>
+&lt;li>tag 們可以參考 &lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">這裡&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="table-tag">table tag&lt;/h3>
+&lt;p>簡單來說就是可以生成表格的 tag&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>&amp;lt;tr&amp;gt;&lt;/code>: table row，包在這個裡面的會形成一個 row&lt;/li>
+&lt;li>&lt;code>&amp;lt;td&amp;gt;&lt;/code>: table data，就是放格子中要填的 data&lt;/li>
+&lt;li>&lt;code>&amp;lt;th&amp;gt;&lt;/code>: table header，就是在 table 中的 header&lt;/li>
+&lt;li>&lt;code>&amp;lt;colgroup&amp;gt;&lt;/code>、&lt;code>&amp;lt;col&amp;gt;&lt;/code>: 前者是拿來放後者的，放幾個就產生幾個 column&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics">例子&lt;/a>，他的 &lt;a href="https://mdn.github.io/learning-area/html/tables/basic/timetable-fixed.html">live demo&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>&amp;lt;caption&amp;gt;&lt;/code>: 字面上意思，會出現在表格上面，可以簡短說明表格內容的文字&lt;/li>
+&lt;li>&lt;code>&amp;lt;thead&amp;gt;&lt;/code>、&lt;code>&amp;lt;tfoot&amp;gt;&lt;/code>、&lt;code>&amp;lt;tbody&amp;gt;&lt;/code>: 讓整個 table 結構化&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://github.com/mdn/learning-area/blob/main/html/tables/advanced/spending-record-finished.html">例子&lt;/a>，他的 &lt;a href="https://mdn.github.io/learning-area/html/tables/advanced/spending-record-finished.html">live demo&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>id&lt;/code>、&lt;code>header&lt;/code>: 可以在 table header 上面加上 id，然後在他的子表格（？）透過這些 id 標明他的 header 有誰&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://github.com/mdn/learning-area/blob/main/html/tables/advanced/items-sold-headers.html">例子&lt;/a>，他的 &lt;a href="https://mdn.github.io/learning-area/html/tables/advanced/items-sold-headers.html">live demo&lt;/a>&lt;/p>
+&lt;h2 id="css">css&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://websitesetup.org/wp-content/uploads/2019/11/wsu-css-cheat-sheet-gdocs.pdf">css cheat sheet&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="emmet">emmet&lt;/h2>
+&lt;p>應該算是一種輔助寫 html 的強大 plugin&lt;/p>
+&lt;p>&lt;a href="https://docs.emmet.io/cheat-sheet/">emmet cheet sheet&lt;/a>&lt;/p>
+&lt;h3 id="wrap-with-abbreviation">Wrap with Abbreviation&lt;/h3>
+&lt;p>在 vscode 裡的用法是&lt;/p>
+&lt;ol>
+&lt;li>選起來要被包住的內容&lt;/li>
+&lt;li>先 &lt;code>Ctrl + Shift + P&lt;/code> 叫出 command palette&lt;/li>
+&lt;li>輸入 &lt;code>Emmet: Wrap with Abbreviation&lt;/code>&lt;/li>
+&lt;li>然後就可以打指令了&lt;/li>
+&lt;/ol>
+&lt;p>（或者也可以 &lt;code>command+k&lt;/code> &lt;code>command+s&lt;/code> 打開 keyboard shortcut 設定，如果懶得設定，可以直接去 extension 下載 emmet keybindings 用）&lt;/p></description></item></channel></rss>
