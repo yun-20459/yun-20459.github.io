@@ -22,7 +22,7 @@ jobs:
           extended: true
 
       - name: Build
-        run: cd cactus/exampleSite && hugo --minify --themesDir ../.. --baseURL https://www.takuzen.me/hugo-theme-cactus/
+        run: cd themes/cactus/exampleSite && hugo --minify --themesDir ../.. --baseURL https://www.takuzen.me/hugo-theme-cactus/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
