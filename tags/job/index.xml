@@ -1,8 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Job on 隨寫日誌</title><link>https://yun-20459.github.io/tags/job/</link><description>Recent content in Job on 隨寫日誌</description><generator>Hugo -- gohugo.io</generator><language>zh-tw</language><copyright>Erin Li</copyright><lastBuildDate>Wed, 24 Apr 2024 18:24:36 +0000</lastBuildDate><atom:link href="https://yun-20459.github.io/tags/job/index.xml" rel="self" type="application/rss+xml"/><item><title>2023/2024 軟體實習/正職面試心得</title><link>https://yun-20459.github.io/posts/%E5%AF%A6%E7%BF%92%E6%AD%A3%E8%81%B7%E9%9D%A2%E8%A9%A6%E5%BF%83%E5%BE%97/</link><pubDate>Wed, 24 Apr 2024 18:24:36 +0000</pubDate><guid>https://yun-20459.github.io/posts/%E5%AF%A6%E7%BF%92%E6%AD%A3%E8%81%B7%E9%9D%A2%E8%A9%A6%E5%BF%83%E5%BE%97/</guid><description>由於一些 quant 實習薪水可以跟正職比，所以也有投一些 quant 的實習，這篇文會有 Google、Kronos Research、WorldQuant、Quantrend、Tomofun、Nvidia 的心得。
-選公司沒什麼原則，一開始的想法是我愛錢錢，錢錢愛我，後來的想法比較偏向 WLB
-quant 類 Kronos Research 這家投的是實習。
-D: 官網投遞履歷
-D+18: 收到 coding test，有五題 coding 兩小時，我寫出 (3 + 0.5 + 0.5)，題型包含線段樹、dp、greedy、math、bitwise。
-D+46: 收到過 coding test 的通知要去團體面試
-D+56: 團體面試，超級有趣。分為個人遊戲、團體遊戲、問問題環節。遊戲部份下收。問問題環節可以問很多問題，我感覺自己有多深入了解 quant 產業一點，真的很感謝早上場的面試官(Trader/HR們)，如果有進 Group Interview 真的推推大家不管有沒有其他實習/正職了都來，收穫良多
-個人遊戲：每個人手上都有1、2、3 三種牌各三張（總共9張），玩法就是捉對手去裁判桌亮牌，數字大者勝（或者平手、敗），不可棄牌、偷竊搶劫其餘參賽者的牌，最後勝場最多者贏，若時間到手上還有牌者勝場計為零場 團體遊戲：link 問問題環節（節錄一些我還記得的） WQ/Kronos 差在哪：WQ 偏找 Alpha，Kronos 偏找 quant 演算法 Trader 的日常：有興趣的人就會一直工作 or 做相關的交易 演算法跟數學什麼重要：不好說，看 team，有些 team 只需要高中數學但演算法要強，有些 team 需要用到 PDE 等等但是演算法寫的比較簡單 撇除工作型態差異，覺得 Kronos 跟 Google 比的優點是什麼：公司比較小，可以容納/接受比較多創意想法 怎麼知道策略是運氣不好還是策略有誤：會認為運氣不好可能是沒有處理到 edge case -&amp;gt; 修策略 題外話，這次面試的場女生比例直接抽高好多，開心 xD （聽說下午場一個女生都沒有 xD</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Job on 隨寫日誌</title>
+    <link>https://yun-20459.github.io/tags/job/</link>
+    <description>Recent content in Job on 隨寫日誌</description>
+    <generator>Hugo</generator>
+    <language>zh-tw</language>
+    <copyright>Erin Li</copyright>
+    <lastBuildDate>Wed, 24 Apr 2024 18:24:36 +0000</lastBuildDate>
+    <atom:link href="https://yun-20459.github.io/tags/job/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2023/2024 軟體實習/正職面試心得</title>
+      <link>https://yun-20459.github.io/posts/%E5%AF%A6%E7%BF%92%E6%AD%A3%E8%81%B7%E9%9D%A2%E8%A9%A6%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Wed, 24 Apr 2024 18:24:36 +0000</pubDate>
+      <guid>https://yun-20459.github.io/posts/%E5%AF%A6%E7%BF%92%E6%AD%A3%E8%81%B7%E9%9D%A2%E8%A9%A6%E5%BF%83%E5%BE%97/</guid>
+      <description>&lt;p&gt;由於一些 quant 實習薪水可以跟正職比，所以也有投一些 quant 的實習，這篇文會有 Google、Kronos Research、WorldQuant、Quantrend、Tomofun、Nvidia 的心得。&lt;/p&gt;&#xA;&lt;p&gt;選公司沒什麼原則，一開始的想法是我愛錢錢，錢錢愛我，後來的想法比較偏向 WLB&lt;/p&gt;&#xA;&lt;h2 id=&#34;quant-類&#34;&gt;quant 類&lt;/h2&gt;&#xA;&lt;h3 id=&#34;kronos-research&#34;&gt;Kronos Research&lt;/h3&gt;&#xA;&lt;p&gt;這家投的是實習。&lt;/p&gt;&#xA;&lt;p&gt;D: 官網投遞履歷&lt;/p&gt;&#xA;&lt;p&gt;D+18: 收到 coding test，有五題 coding 兩小時，我寫出 (3 + 0.5 + 0.5)，題型包含線段樹、dp、greedy、math、bitwise。&lt;/p&gt;&#xA;&lt;p&gt;D+46: 收到過 coding test 的通知要去團體面試&lt;/p&gt;&#xA;&lt;p&gt;D+56: 團體面試，超級有趣。分為個人遊戲、團體遊戲、問問題環節。遊戲部份下收。問問題環節可以問很多問題，我感覺自己有多深入了解 quant 產業一點，真的很感謝早上場的面試官(Trader/HR們)，如果有進 Group Interview 真的推推大家不管有沒有其他實習/正職了都來，收穫良多&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;個人遊戲：每個人手上都有1、2、3 三種牌各三張（總共9張），玩法就是捉對手去裁判桌亮牌，數字大者勝（或者平手、敗），不可棄牌、偷竊搶劫其餘參賽者的牌，最後勝場最多者贏，若時間到手上還有牌者勝場計為零場&lt;/li&gt;&#xA;&lt;li&gt;團體遊戲：&lt;a href=&#34;https://www.slideshare.net/littlepppgg/ss-15600405&#34;&gt;link&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;問問題環節（節錄一些我還記得的）&#xA;&lt;ul&gt;&#xA;&lt;li&gt;WQ/Kronos 差在哪：WQ 偏找 Alpha，Kronos 偏找 quant 演算法&lt;/li&gt;&#xA;&lt;li&gt;Trader 的日常：有興趣的人就會一直工作 or 做相關的交易&lt;/li&gt;&#xA;&lt;li&gt;演算法跟數學什麼重要：不好說，看 team，有些 team 只需要高中數學但演算法要強，有些 team 需要用到 PDE 等等但是演算法寫的比較簡單&lt;/li&gt;&#xA;&lt;li&gt;撇除工作型態差異，覺得 Kronos 跟 Google 比的優點是什麼：公司比較小，可以容納/接受比較多創意想法&lt;/li&gt;&#xA;&lt;li&gt;怎麼知道策略是運氣不好還是策略有誤：會認為運氣不好可能是沒有處理到 edge case -&amp;gt; 修策略&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;題外話，這次面試的場女生比例直接抽高好多，開心 xD （聽說下午場一個女生都沒有 xD&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

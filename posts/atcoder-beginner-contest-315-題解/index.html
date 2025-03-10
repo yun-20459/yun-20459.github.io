@@ -1,568 +1,1046 @@
-<!doctype html><html lang=zh-tw><head><link rel=preload href=/lib/font-awesome/webfonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/lib/font-awesome/webfonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/lib/font-awesome/webfonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2 as=font type=font/woff2 crossorigin=anonymous><script type=text/javascript src=https://latest.cactus.chat/cactus.js></script><link rel=stylesheet href=https://latest.cactus.chat/style.css type=text/css><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><title>Atcoder Beginner Contest 315 題解 | 隨寫日誌</title>
-<link rel=canonical href=https://yun-20459.github.io/posts/atcoder-beginner-contest-315-%E9%A1%8C%E8%A7%A3/><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="all,follow"><meta name=googlebot content="index,follow,snippet,archive"><meta property="og:title" content="Atcoder Beginner Contest 315 題解"><meta property="og:description" content="A - tcdr 直接跳過 aeiou 輸出就好
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 #include <bits/stdc++.h> using namespace std; typedef long long ll; typedef pair<int, int> pii; typedef pair<ll, ll> pll; #define SZ(a) (int)(a).size() #define ALL(v) (v).begin(), (v).end() #define X first #define Y second #define dbg(x) cerr << #x << &#34; = &#34; << x << endl; void solve() { string s; cin >> s; for (int i = 0; s[i]; i++) { if (s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u') continue; else cout << s[i]; } cout << &#34;\n&#34;; } /* CheckList: 1."><meta property="og:type" content="article"><meta property="og:url" content="https://yun-20459.github.io/posts/atcoder-beginner-contest-315-%E9%A1%8C%E8%A7%A3/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-08-20T21:42:01+00:00"><meta property="article:modified_time" content="2023-08-20T21:42:01+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Atcoder Beginner Contest 315 題解"><meta name=twitter:description content="A - tcdr 直接跳過 aeiou 輸出就好
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 #include <bits/stdc++.h> using namespace std; typedef long long ll; typedef pair<int, int> pii; typedef pair<ll, ll> pll; #define SZ(a) (int)(a).size() #define ALL(v) (v).begin(), (v).end() #define X first #define Y second #define dbg(x) cerr << #x << &#34; = &#34; << x << endl; void solve() { string s; cin >> s; for (int i = 0; s[i]; i++) { if (s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u') continue; else cout << s[i]; } cout << &#34;\n&#34;; } /* CheckList: 1."><link rel=stylesheet href=https://yun-20459.github.io/css/styles.36c12a99052778131d28078b3171237fd0184ad9b87c778208912a8d08e2d0194867a030c64d9b02d6077de53a8a9979249331f971fb47c471a2d59676520a3a.css integrity="sha512-NsEqmQUneBMdKAeLMXEjf9AYStm4fHeCCJEqjQji0BlIZ6Awxk2bAtYHfeU6ipl5JJMx+XH7R8RxotWWdlIKOg=="><link rel=stylesheet href=https://yun-20459.github.io/css/highlight.css><link rel=stylesheet href=https://yun-20459.github.io/css/style-dark.css><link rel=stylesheet href=https://yun-20459.github.io/css/search.css><!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script><script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]--><link rel=icon type=image/png href=https://yun-20459.github.io/images/favicon.ico></head><body class="max-width mx-auto px3 ltr"><div class="content index py4"><div id=header-post><a id=menu-icon href=#><i class="fas fa-bars fa-lg"></i></a>
-<a id=menu-icon-tablet href=#><i class="fas fa-bars fa-lg"></i></a>
-<a id=top-icon-tablet href=# onclick='$("html, body").animate({scrollTop:0},"fast")' style=display:none aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
-<span id=menu><span id=nav><ul><li><a href=/>Home</a></li><li><a href=/about>About</a></li><li><a href=/posts>Posts</a></li><li><a href=/resources>Resources</a></li><li><a href=/search>Search</a></li><li><a href=/tags>Tags</a></li></ul></span><br><span id=actions><ul><li><a class=icon href=https://yun-20459.github.io/posts/atcoder-beginner-contest-312-%E9%A1%8C%E8%A7%A3/ aria-label=Previous><i class="fas fa-chevron-left" aria-hidden=true onmouseover='$("#i-prev").toggle()' onmouseout='$("#i-prev").toggle()'></i></a></li><li><a class=icon href=https://yun-20459.github.io/posts/%E6%B5%AE%E9%BB%9E%E6%95%B8%E4%BA%8C%E5%88%86%E6%90%9C%E6%8A%80%E5%B7%A7/ aria-label=Next><i class="fas fa-chevron-right" aria-hidden=true onmouseover='$("#i-next").toggle()' onmouseout='$("#i-next").toggle()'></i></a></li><li><a class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page"><i class="fas fa-chevron-up" aria-hidden=true onmouseover='$("#i-top").toggle()' onmouseout='$("#i-top").toggle()'></i></a></li><li><a class=icon href=# aria-label=Share><i class="fas fa-share-alt" aria-hidden=true onmouseover='$("#i-share").toggle()' onmouseout='$("#i-share").toggle()' onclick='return $("#share").toggle(),!1'></i></a></li></ul><span id=i-prev class=info style=display:none>Previous post</span>
-<span id=i-next class=info style=display:none>Next post</span>
-<span id=i-top class=info style=display:none>Back to top</span>
-<span id=i-share class=info style=display:none>Share post</span></span><br><div id=share style=display:none><ul><li><a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f" aria-label=Facebook><i class="fab fa-facebook" aria-hidden=true></i></a></li><li><a class=icon href="https://twitter.com/share?url=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&text=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3" aria-label=Twitter><i class="fab fa-twitter" aria-hidden=true></i></a></li><li><a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&title=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3" aria-label=Linkedin><i class="fab fa-linkedin" aria-hidden=true></i></a></li><li><a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&is_video=false&description=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3" aria-label=Pinterest><i class="fab fa-pinterest" aria-hidden=true></i></a></li><li><a class=icon href="mailto:?subject=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3&body=Check out this article: https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f" aria-label=Email><i class="fas fa-envelope" aria-hidden=true></i></a></li><li><a class=icon href="https://getpocket.com/save?url=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&title=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3" aria-label=Pocket><i class="fab fa-get-pocket" aria-hidden=true></i></a></li><li><a class=icon href="http://reddit.com/submit?url=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&title=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3" aria-label=reddit><i class="fab fa-reddit" aria-hidden=true></i></a></li><li><a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&name=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3&description=A%20-%20tcdr%20%e7%9b%b4%e6%8e%a5%e8%b7%b3%e9%81%8e%20aeiou%20%e8%bc%b8%e5%87%ba%e5%b0%b1%e5%a5%bd%0a1%202%203%204%205%206%207%208%209%2010%2011%2012%2013%2014%2015%2016%2017%2018%2019%2020%2021%2022%2023%2024%2025%2026%2027%2028%2029%2030%2031%2032%2033%2034%2035%2036%2037%2038%20%23include%20%26lt%3bbits%2fstdc%2b%2b.h%26gt%3b%20using%20namespace%20std%3b%20typedef%20long%20long%20ll%3b%20typedef%20pair%26lt%3bint%2c%20int%26gt%3b%20pii%3b%20typedef%20pair%26lt%3bll%2c%20ll%26gt%3b%20pll%3b%20%23define%20SZ%28a%29%20%28int%29%28a%29.size%28%29%20%23define%20ALL%28v%29%20%28v%29.begin%28%29%2c%20%28v%29.end%28%29%20%23define%20X%20first%20%23define%20Y%20second%20%23define%20dbg%28x%29%20cerr%20%26lt%3b%26lt%3b%20%23x%20%26lt%3b%26lt%3b%20%26%2334%3b%20%3d%20%26%2334%3b%20%26lt%3b%26lt%3b%20x%20%26lt%3b%26lt%3b%20endl%3b%20void%20solve%28%29%20%7b%20string%20s%3b%20cin%20%26gt%3b%26gt%3b%20s%3b%20for%20%28int%20i%20%3d%200%3b%20s%5bi%5d%3b%20i%2b%2b%29%20%7b%20if%20%28s%5bi%5d%20%3d%3d%20%26%2339%3ba%26%2339%3b%20%7c%7c%20s%5bi%5d%20%3d%3d%20%26%2339%3be%26%2339%3b%20%7c%7c%20s%5bi%5d%20%3d%3d%20%26%2339%3bi%26%2339%3b%20%7c%7c%20s%5bi%5d%20%3d%3d%20%26%2339%3bo%26%2339%3b%20%7c%7c%20s%5bi%5d%20%3d%3d%20%26%2339%3bu%26%2339%3b%29%20continue%3b%20else%20cout%20%26lt%3b%26lt%3b%20s%5bi%5d%3b%20%7d%20cout%20%26lt%3b%26lt%3b%20%26%2334%3b%5cn%26%2334%3b%3b%20%7d%20%2f%2a%20CheckList%3a%201." aria-label=Tumblr><i class="fab fa-tumblr" aria-hidden=true></i></a></li><li><a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&t=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3" aria-label="Hacker News"><i class="fab fa-hacker-news" aria-hidden=true></i></a></li></ul></div><div id=toc><nav id=TableOfContents><ul><li><a href=#a---tcdr>A - tcdr</a></li><li><a href=#b---the-middle-day>B - The Middle Day</a></li><li><a href=#c---flavors>C - Flavors</a></li><li><a href=#d---magical-cookies>D - Magical Cookies</a></li><li><a href=#e---prerequisites>E - Prerequisites</a></li><li><a href=#f---shortcuts>F - Shortcuts</a></li></ul></nav></div></span></div><article class=post itemscope itemtype=http://schema.org/BlogPosting><header><h1 class=posttitle itemprop="name headline">Atcoder Beginner Contest 315 題解</h1><div class=meta><span class=author itemprop=author itemscope itemtype=http://schema.org/Person><span itemprop=name></span></span><div class=postdate><time datetime="2023-08-20 21:42:01 +0000 UTC" itemprop=datePublished>2023-08-20</time></div><div class=article-read-time><i class="far fa-clock"></i>
-7 minute read</div><div class=article-tag><i class="fas fa-tag"></i>
-<a class=tag-link href=/tags/atcoder rel=tag>Atcoder</a></div></div></header><div class=content itemprop=articleBody><h2 id=a---tcdr>A - tcdr</h2><p>直接跳過 aeiou 輸出就好</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span><span class=lnt>36
-</span><span class=lnt>37
-</span><span class=lnt>38
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
-</span></span></span><span class=line><span class=cl><span class=cp></span>
-</span></span><span class=line><span class=cl><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>typedef</span> <span class=kt>long</span> <span class=kt>long</span> <span class=n>ll</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=k>typedef</span> <span class=n>pair</span><span class=o>&lt;</span><span class=kt>int</span><span class=p>,</span> <span class=kt>int</span><span class=o>&gt;</span> <span class=n>pii</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=k>typedef</span> <span class=n>pair</span><span class=o>&lt;</span><span class=n>ll</span><span class=p>,</span> <span class=n>ll</span><span class=o>&gt;</span> <span class=n>pll</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=cp>#define SZ(a) (int)(a).size()
-</span></span></span><span class=line><span class=cl><span class=cp>#define ALL(v) (v).begin(), (v).end()
-</span></span></span><span class=line><span class=cl><span class=cp>#define X first
-</span></span></span><span class=line><span class=cl><span class=cp>#define Y second
-</span></span></span><span class=line><span class=cl><span class=cp></span>
-</span></span><span class=line><span class=cl><span class=cp>#define dbg(x) cerr &lt;&lt; #x &lt;&lt; &#34; = &#34; &lt;&lt; x &lt;&lt; endl;
-</span></span></span><span class=line><span class=cl><span class=cp></span>
-</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>solve</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=n>string</span> <span class=n>s</span><span class=p>;</span> <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>s</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>s</span><span class=p>[</span><span class=n>i</span><span class=p>];</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=n>s</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>==</span> <span class=sc>&#39;a&#39;</span> <span class=o>||</span> <span class=n>s</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>==</span> <span class=sc>&#39;e&#39;</span> <span class=o>||</span> <span class=n>s</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>==</span> <span class=sc>&#39;i&#39;</span> <span class=o>||</span> <span class=n>s</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>==</span> <span class=sc>&#39;o&#39;</span> <span class=o>||</span> <span class=n>s</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>==</span> <span class=sc>&#39;u&#39;</span><span class=p>)</span> <span class=k>continue</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>      <span class=k>else</span> <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>s</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
-</span></span><span class=line><span class=cl>  <span class=p>}</span>
-</span></span><span class=line><span class=cl>  <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>;</span> 
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=cm>/*
-</span></span></span><span class=line><span class=cl><span class=cm>CheckList:
-</span></span></span><span class=line><span class=cl><span class=cm>1. long long
-</span></span></span><span class=line><span class=cl><span class=cm>2. mod
-</span></span></span><span class=line><span class=cl><span class=cm>3. template
-</span></span></span><span class=line><span class=cl><span class=cm>4. input/output format/content
-</span></span></span><span class=line><span class=cl><span class=cm>5. test sample input/output
-</span></span></span><span class=line><span class=cl><span class=cm>*/</span>
-</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=n>ios</span><span class=o>::</span><span class=n>sync_with_stdio</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span><span class=n>cin</span><span class=p>.</span><span class=n>tie</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>  <span class=kt>int</span> <span class=n>T</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=c1>// cin &gt;&gt; T;
-</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=k>while</span> <span class=p>(</span><span class=n>T</span><span class=o>--</span><span class=p>)</span> <span class=n>solve</span><span class=p>();</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></td></tr></table></div></div><h2 id=b---the-middle-day>B - The Middle Day</h2><p>算出總和之後 / 2，然後一個一個月慢慢算現在有沒有超過就好</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span><span class=lnt>36
-</span><span class=lnt>37
-</span><span class=lnt>38
-</span><span class=lnt>39
-</span><span class=lnt>40
-</span><span class=lnt>41
-</span><span class=lnt>42
-</span><span class=lnt>43
-</span><span class=lnt>44
-</span><span class=lnt>45
-</span><span class=lnt>46
-</span><span class=lnt>47
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
-</span></span></span><span class=line><span class=cl><span class=cp></span>
-</span></span><span class=line><span class=cl><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>typedef</span> <span class=kt>long</span> <span class=kt>long</span> <span class=n>ll</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=k>typedef</span> <span class=n>pair</span><span class=o>&lt;</span><span class=kt>int</span><span class=p>,</span> <span class=kt>int</span><span class=o>&gt;</span> <span class=n>pii</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=k>typedef</span> <span class=n>pair</span><span class=o>&lt;</span><span class=n>ll</span><span class=p>,</span> <span class=n>ll</span><span class=o>&gt;</span> <span class=n>pll</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=cp>#define SZ(a) (int)(a).size()
-</span></span></span><span class=line><span class=cl><span class=cp>#define ALL(v) (v).begin(), (v).end()
-</span></span></span><span class=line><span class=cl><span class=cp>#define X first
-</span></span></span><span class=line><span class=cl><span class=cp>#define Y second
-</span></span></span><span class=line><span class=cl><span class=cp></span>
-</span></span><span class=line><span class=cl><span class=cp>#define dbg(x) cerr &lt;&lt; #x &lt;&lt; &#34; = &#34; &lt;&lt; x &lt;&lt; endl;
-</span></span></span><span class=line><span class=cl><span class=cp></span>
-</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>solve</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kt>int</span> <span class=n>m</span><span class=p>;</span> <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>m</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>d</span><span class=p>(</span><span class=n>m</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>  <span class=kt>int</span> <span class=n>sum</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=o>&amp;</span><span class=nl>x</span> <span class=p>:</span> <span class=n>d</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>x</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>    <span class=n>sum</span> <span class=o>+=</span> <span class=n>x</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=p>}</span>
-</span></span><span class=line><span class=cl>  <span class=n>sum</span> <span class=o>/=</span> <span class=mi>2</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>m</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=n>sum</span> <span class=o>&gt;=</span> <span class=n>d</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=n>sum</span> <span class=o>-=</span> <span class=n>d</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
-</span></span><span class=line><span class=cl>    <span class=k>else</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>      <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>i</span> <span class=o>+</span> <span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=s>&#34; &#34;</span> <span class=o>&lt;&lt;</span> <span class=n>sum</span> <span class=o>+</span> <span class=mi>1</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>      <span class=k>return</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl>  <span class=p>}</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=cm>/*
-</span></span></span><span class=line><span class=cl><span class=cm>CheckList:
-</span></span></span><span class=line><span class=cl><span class=cm>1. long long
-</span></span></span><span class=line><span class=cl><span class=cm>2. mod
-</span></span></span><span class=line><span class=cl><span class=cm>3. template
-</span></span></span><span class=line><span class=cl><span class=cm>4. input/output format/content
-</span></span></span><span class=line><span class=cl><span class=cm>5. test sample input/output
-</span></span></span><span class=line><span class=cl><span class=cm>*/</span>
-</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=n>ios</span><span class=o>::</span><span class=n>sync_with_stdio</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span><span class=n>cin</span><span class=p>.</span><span class=n>tie</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>  <span class=kt>int</span> <span class=n>T</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=c1>// cin &gt;&gt; T;
-</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=k>while</span> <span class=p>(</span><span class=n>T</span><span class=o>--</span><span class=p>)</span> <span class=n>solve</span><span class=p>();</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></td></tr></table></div></div><h2 id=c---flavors>C - Flavors</h2><p>直接分兩個 case 算，如果最大的兩個不同 flavor 的話，那答案一定是他們相加，不然就去把所有 flavor 的最大拿出來，然後拿兩個最大的相加就好。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span><span class=lnt>36
-</span><span class=lnt>37
-</span><span class=lnt>38
-</span><span class=lnt>39
-</span><span class=lnt>40
-</span><span class=lnt>41
-</span><span class=lnt>42
-</span><span class=lnt>43
-</span><span class=lnt>44
-</span><span class=lnt>45
-</span><span class=lnt>46
-</span><span class=lnt>47
-</span><span class=lnt>48
-</span><span class=lnt>49
-</span><span class=lnt>50
-</span><span class=lnt>51
-</span><span class=lnt>52
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
-</span></span></span><span class=line><span class=cl><span class=cp></span>
-</span></span><span class=line><span class=cl><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>typedef</span> <span class=kt>long</span> <span class=kt>long</span> <span class=n>ll</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=k>typedef</span> <span class=n>pair</span><span class=o>&lt;</span><span class=kt>int</span><span class=p>,</span> <span class=kt>int</span><span class=o>&gt;</span> <span class=n>pii</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=k>typedef</span> <span class=n>pair</span><span class=o>&lt;</span><span class=n>ll</span><span class=p>,</span> <span class=n>ll</span><span class=o>&gt;</span> <span class=n>pll</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=cp>#define SZ(a) (int)(a).size()
-</span></span></span><span class=line><span class=cl><span class=cp>#define ALL(v) (v).begin(), (v).end()
-</span></span></span><span class=line><span class=cl><span class=cp>#define X first
-</span></span></span><span class=line><span class=cl><span class=cp>#define Y second
-</span></span></span><span class=line><span class=cl><span class=cp></span>
-</span></span><span class=line><span class=cl><span class=cp>#define dbg(x) cerr &lt;&lt; #x &lt;&lt; &#34; = &#34; &lt;&lt; x &lt;&lt; endl;
-</span></span></span><span class=line><span class=cl><span class=cp></span>
-</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>solve</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kt>int</span> <span class=n>n</span><span class=p>;</span> <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>n</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=n>vector</span><span class=o>&lt;</span><span class=n>pii</span><span class=o>&gt;</span> <span class=n>v</span><span class=p>(</span><span class=n>n</span><span class=p>);</span>  
-</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=k>auto</span> <span class=o>&amp;</span><span class=nl>p</span> <span class=p>:</span> <span class=n>v</span><span class=p>)</span> <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>p</span><span class=p>.</span><span class=n>Y</span> <span class=o>&gt;&gt;</span> <span class=n>p</span><span class=p>.</span><span class=n>X</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=n>sort</span><span class=p>(</span><span class=n>ALL</span><span class=p>(</span><span class=n>v</span><span class=p>));</span>
-</span></span><span class=line><span class=cl>  <span class=n>ll</span> <span class=n>res</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=p>(</span><span class=n>v</span><span class=p>[</span><span class=n>n</span> <span class=o>-</span> <span class=mi>1</span><span class=p>].</span><span class=n>Y</span> <span class=o>==</span> <span class=n>v</span><span class=p>[</span><span class=n>n</span> <span class=o>-</span> <span class=mi>2</span><span class=p>].</span><span class=n>Y</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=n>res</span> <span class=o>=</span> <span class=n>v</span><span class=p>[</span><span class=n>n</span> <span class=o>-</span> <span class=mi>1</span><span class=p>].</span><span class=n>X</span> <span class=o>+</span> <span class=n>v</span><span class=p>[</span><span class=n>n</span> <span class=o>-</span> <span class=mi>2</span><span class=p>].</span><span class=n>X</span> <span class=o>/</span> <span class=mi>2</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>    <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>mxf</span><span class=p>(</span><span class=n>n</span> <span class=o>+</span> <span class=mi>1</span><span class=p>,</span> <span class=o>-</span><span class=mi>1</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>n</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>      <span class=n>mxf</span><span class=p>[</span><span class=n>v</span><span class=p>[</span><span class=n>i</span><span class=p>].</span><span class=n>Y</span><span class=p>]</span> <span class=o>=</span> <span class=n>max</span><span class=p>(</span><span class=n>mxf</span><span class=p>[</span><span class=n>v</span><span class=p>[</span><span class=n>i</span><span class=p>].</span><span class=n>Y</span><span class=p>],</span> <span class=n>v</span><span class=p>[</span><span class=n>i</span><span class=p>].</span><span class=n>X</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl>    <span class=n>ll</span> <span class=n>mx</span> <span class=o>=</span> <span class=n>v</span><span class=p>[</span><span class=n>n</span> <span class=o>-</span> <span class=mi>1</span><span class=p>].</span><span class=n>X</span><span class=p>,</span> <span class=n>second_mx</span> <span class=o>=</span> <span class=o>-</span><span class=mi>1</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;=</span> <span class=n>n</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>      <span class=k>if</span> <span class=p>(</span><span class=n>mxf</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>&gt;</span> <span class=n>second_mx</span> <span class=o>&amp;&amp;</span> <span class=n>mxf</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>&lt;</span> <span class=n>mx</span><span class=p>)</span> <span class=n>second_mx</span> <span class=o>=</span> <span class=n>mxf</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl>    <span class=n>res</span> <span class=o>=</span> <span class=n>max</span><span class=p>(</span><span class=n>res</span><span class=p>,</span> <span class=n>second_mx</span> <span class=o>+</span> <span class=n>mx</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>  <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=n>res</span> <span class=o>=</span> <span class=n>v</span><span class=p>[</span><span class=n>n</span> <span class=o>-</span> <span class=mi>1</span><span class=p>].</span><span class=n>X</span> <span class=o>+</span> <span class=n>v</span><span class=p>[</span><span class=n>n</span> <span class=o>-</span> <span class=mi>2</span><span class=p>].</span><span class=n>X</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=p>}</span>
-</span></span><span class=line><span class=cl>  <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>res</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=cm>/*
-</span></span></span><span class=line><span class=cl><span class=cm>CheckList:
-</span></span></span><span class=line><span class=cl><span class=cm>1. long long
-</span></span></span><span class=line><span class=cl><span class=cm>2. mod
-</span></span></span><span class=line><span class=cl><span class=cm>3. template
-</span></span></span><span class=line><span class=cl><span class=cm>4. input/output format/content
-</span></span></span><span class=line><span class=cl><span class=cm>5. test sample input/output
-</span></span></span><span class=line><span class=cl><span class=cm>*/</span>
-</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=n>ios</span><span class=o>::</span><span class=n>sync_with_stdio</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span><span class=n>cin</span><span class=p>.</span><span class=n>tie</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>  <span class=kt>int</span> <span class=n>T</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=c1>// cin &gt;&gt; T;
-</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=k>while</span> <span class=p>(</span><span class=n>T</span><span class=o>--</span><span class=p>)</span> <span class=n>solve</span><span class=p>();</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></td></tr></table></div></div><h2 id=d---magical-cookies>D - Magical Cookies</h2><p>死亡實作 @@，可以想像像題目那樣枚舉的話會是 $O(H^2W)$ 會 TLE，所以可以利用字元集很少這個特性來做，簡單來說就是先算好每行/列的每個字元有多少，然後每次就去看現在還沒被刪掉的有沒有字元是會整行/列都一樣的，就把他移掉，然後這個過程因為只有 $H + W$ 行+列，所以只會做到 $H + W$ 次。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span><span class=lnt>36
-</span><span class=lnt>37
-</span><span class=lnt>38
-</span><span class=lnt>39
-</span><span class=lnt>40
-</span><span class=lnt>41
-</span><span class=lnt>42
-</span><span class=lnt>43
-</span><span class=lnt>44
-</span><span class=lnt>45
-</span><span class=lnt>46
-</span><span class=lnt>47
-</span><span class=lnt>48
-</span><span class=lnt>49
-</span><span class=lnt>50
-</span><span class=lnt>51
-</span><span class=lnt>52
-</span><span class=lnt>53
-</span><span class=lnt>54
-</span><span class=lnt>55
-</span><span class=lnt>56
-</span><span class=lnt>57
-</span><span class=lnt>58
-</span><span class=lnt>59
-</span><span class=lnt>60
-</span><span class=lnt>61
-</span><span class=lnt>62
-</span><span class=lnt>63
-</span><span class=lnt>64
-</span><span class=lnt>65
-</span><span class=lnt>66
-</span><span class=lnt>67
-</span><span class=lnt>68
-</span><span class=lnt>69
-</span><span class=lnt>70
-</span><span class=lnt>71
-</span><span class=lnt>72
-</span><span class=lnt>73
-</span><span class=lnt>74
-</span><span class=lnt>75
-</span><span class=lnt>76
-</span><span class=lnt>77
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
-</span></span></span><span class=line><span class=cl><span class=cp></span>
-</span></span><span class=line><span class=cl><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>typedef</span> <span class=kt>long</span> <span class=kt>long</span> <span class=n>ll</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=k>typedef</span> <span class=n>pair</span><span class=o>&lt;</span><span class=kt>int</span><span class=p>,</span> <span class=kt>int</span><span class=o>&gt;</span> <span class=n>pii</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=k>typedef</span> <span class=n>pair</span><span class=o>&lt;</span><span class=n>ll</span><span class=p>,</span> <span class=n>ll</span><span class=o>&gt;</span> <span class=n>pll</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=cp>#define SZ(a) (int)(a).size()
-</span></span></span><span class=line><span class=cl><span class=cp>#define ALL(v) (v).begin(), (v).end()
-</span></span></span><span class=line><span class=cl><span class=cp>#define X first
-</span></span></span><span class=line><span class=cl><span class=cp>#define Y second
-</span></span></span><span class=line><span class=cl><span class=cp></span>
-</span></span><span class=line><span class=cl><span class=cp>#define dbg(x) cerr &lt;&lt; #x &lt;&lt; &#34; = &#34; &lt;&lt; x &lt;&lt; endl;
-</span></span></span><span class=line><span class=cl><span class=cp></span>
-</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>solve</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kt>int</span> <span class=n>h</span><span class=p>,</span> <span class=n>w</span><span class=p>;</span> <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>h</span> <span class=o>&gt;&gt;</span> <span class=n>w</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=n>vector</span><span class=o>&lt;</span><span class=n>string</span><span class=o>&gt;</span> <span class=n>v</span><span class=p>(</span><span class=n>h</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=k>auto</span> <span class=o>&amp;</span><span class=nl>s</span> <span class=p>:</span> <span class=n>v</span><span class=p>)</span> <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>s</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=n>vector</span><span class=o>&lt;</span><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;&gt;</span> <span class=n>cnth</span><span class=p>(</span><span class=mi>26</span><span class=p>,</span> <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span><span class=p>(</span><span class=n>h</span><span class=p>,</span> <span class=mi>0</span><span class=p>)),</span> <span class=n>cntw</span><span class=p>(</span><span class=mi>26</span><span class=p>,</span> <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span><span class=p>(</span><span class=n>w</span><span class=p>,</span> <span class=mi>0</span><span class=p>));</span>
-</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>h</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>j</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>j</span> <span class=o>&lt;</span> <span class=n>w</span><span class=p>;</span> <span class=n>j</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>      <span class=kt>int</span> <span class=n>ind</span> <span class=o>=</span> <span class=n>v</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>]</span> <span class=o>-</span> <span class=sc>&#39;a&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>      <span class=n>cnth</span><span class=p>[</span><span class=n>ind</span><span class=p>][</span><span class=n>i</span><span class=p>]</span><span class=o>++</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>      <span class=n>cntw</span><span class=p>[</span><span class=n>ind</span><span class=p>][</span><span class=n>j</span><span class=p>]</span><span class=o>++</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl>  <span class=p>}</span>
-</span></span><span class=line><span class=cl>  <span class=kt>int</span> <span class=n>resh</span> <span class=o>=</span> <span class=n>h</span><span class=p>,</span> <span class=n>resw</span> <span class=o>=</span> <span class=n>w</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=n>vector</span><span class=o>&lt;</span><span class=kt>bool</span><span class=o>&gt;</span> <span class=n>skiph</span><span class=p>(</span><span class=n>h</span><span class=p>,</span> <span class=nb>false</span><span class=p>),</span> <span class=n>skipw</span><span class=p>(</span><span class=n>w</span><span class=p>,</span> <span class=nb>false</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>_</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>_</span> <span class=o>&lt;</span> <span class=n>h</span> <span class=o>+</span> <span class=n>w</span><span class=p>;</span> <span class=n>_</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=n>vector</span><span class=o>&lt;</span><span class=n>pii</span><span class=o>&gt;</span> <span class=n>ch</span><span class=p>,</span> <span class=n>cw</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>h</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>      <span class=k>if</span> <span class=p>(</span><span class=n>skiph</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=k>continue</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>      <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>j</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>j</span> <span class=o>&lt;</span> <span class=mi>26</span><span class=p>;</span> <span class=n>j</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=n>cnth</span><span class=p>[</span><span class=n>j</span><span class=p>][</span><span class=n>i</span><span class=p>]</span> <span class=o>==</span> <span class=n>resw</span> <span class=o>&amp;&amp;</span> <span class=n>resw</span> <span class=o>&gt;=</span> <span class=mi>2</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>          <span class=n>ch</span><span class=p>.</span><span class=n>push_back</span><span class=p>({</span><span class=n>i</span><span class=p>,</span> <span class=n>j</span><span class=p>});</span>
-</span></span><span class=line><span class=cl>        <span class=p>}</span>
-</span></span><span class=line><span class=cl>      <span class=p>}</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>w</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>      <span class=k>if</span> <span class=p>(</span><span class=n>skipw</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=k>continue</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>      <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>j</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>j</span> <span class=o>&lt;</span> <span class=mi>26</span><span class=p>;</span> <span class=n>j</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=n>cntw</span><span class=p>[</span><span class=n>j</span><span class=p>][</span><span class=n>i</span><span class=p>]</span> <span class=o>==</span> <span class=n>resh</span> <span class=o>&amp;&amp;</span> <span class=n>resh</span> <span class=o>&gt;=</span> <span class=mi>2</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>          <span class=n>cw</span><span class=p>.</span><span class=n>push_back</span><span class=p>({</span><span class=n>i</span><span class=p>,</span> <span class=n>j</span><span class=p>});</span>
-</span></span><span class=line><span class=cl>        <span class=p>}</span>
-</span></span><span class=line><span class=cl>      <span class=p>}</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=k>auto</span> <span class=nl>p</span> <span class=p>:</span> <span class=n>ch</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>      <span class=n>skiph</span><span class=p>[</span><span class=n>p</span><span class=p>.</span><span class=n>X</span><span class=p>]</span> <span class=o>=</span> <span class=nb>true</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>      <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>w</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=n>cntw</span><span class=p>[</span><span class=n>p</span><span class=p>.</span><span class=n>Y</span><span class=p>][</span><span class=n>i</span><span class=p>]</span><span class=o>--</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>      <span class=n>resh</span><span class=o>--</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=k>auto</span> <span class=nl>p</span> <span class=p>:</span> <span class=n>cw</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>      <span class=n>skipw</span><span class=p>[</span><span class=n>p</span><span class=p>.</span><span class=n>X</span><span class=p>]</span> <span class=o>=</span> <span class=nb>true</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>      <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>h</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=n>cnth</span><span class=p>[</span><span class=n>p</span><span class=p>.</span><span class=n>Y</span><span class=p>][</span><span class=n>i</span><span class=p>]</span><span class=o>--</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>      <span class=n>resw</span><span class=o>--</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>  <span class=p>}</span>
-</span></span><span class=line><span class=cl>  <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>resh</span> <span class=o>*</span> <span class=n>resw</span> <span class=o>&lt;&lt;</span> <span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=cm>/*
-</span></span></span><span class=line><span class=cl><span class=cm>CheckList:
-</span></span></span><span class=line><span class=cl><span class=cm>1. long long
-</span></span></span><span class=line><span class=cl><span class=cm>2. mod
-</span></span></span><span class=line><span class=cl><span class=cm>3. template
-</span></span></span><span class=line><span class=cl><span class=cm>4. input/output format/content
-</span></span></span><span class=line><span class=cl><span class=cm>5. test sample input/output
-</span></span></span><span class=line><span class=cl><span class=cm>*/</span>
-</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=n>ios</span><span class=o>::</span><span class=n>sync_with_stdio</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span><span class=n>cin</span><span class=p>.</span><span class=n>tie</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>  <span class=kt>int</span> <span class=n>T</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=c1>// cin &gt;&gt; T;
-</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=k>while</span> <span class=p>(</span><span class=n>T</span><span class=o>--</span><span class=p>)</span> <span class=n>solve</span><span class=p>();</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></td></tr></table></div></div><h2 id=e---prerequisites>E - Prerequisites</h2><p>乍看之下是簡單的拓墣排序，但是注意到他要求最小數量，所以有些根本不會在 DAG 裡的孤點我們就不管它，這時候就可以利用題目要求的是 read book 1，用一個 priority_queue 來代替平常拓墣排序用的 queue，這樣編號比較大的孤點在處理到有關 1 之前的 DAG 之前就會被先 pop 掉。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
-</span><span class=lnt> 2
-</span><span class=lnt> 3
-</span><span class=lnt> 4
-</span><span class=lnt> 5
-</span><span class=lnt> 6
-</span><span class=lnt> 7
-</span><span class=lnt> 8
-</span><span class=lnt> 9
-</span><span class=lnt>10
-</span><span class=lnt>11
-</span><span class=lnt>12
-</span><span class=lnt>13
-</span><span class=lnt>14
-</span><span class=lnt>15
-</span><span class=lnt>16
-</span><span class=lnt>17
-</span><span class=lnt>18
-</span><span class=lnt>19
-</span><span class=lnt>20
-</span><span class=lnt>21
-</span><span class=lnt>22
-</span><span class=lnt>23
-</span><span class=lnt>24
-</span><span class=lnt>25
-</span><span class=lnt>26
-</span><span class=lnt>27
-</span><span class=lnt>28
-</span><span class=lnt>29
-</span><span class=lnt>30
-</span><span class=lnt>31
-</span><span class=lnt>32
-</span><span class=lnt>33
-</span><span class=lnt>34
-</span><span class=lnt>35
-</span><span class=lnt>36
-</span><span class=lnt>37
-</span><span class=lnt>38
-</span><span class=lnt>39
-</span><span class=lnt>40
-</span><span class=lnt>41
-</span><span class=lnt>42
-</span><span class=lnt>43
-</span><span class=lnt>44
-</span><span class=lnt>45
-</span><span class=lnt>46
-</span><span class=lnt>47
-</span><span class=lnt>48
-</span><span class=lnt>49
-</span><span class=lnt>50
-</span><span class=lnt>51
-</span><span class=lnt>52
-</span><span class=lnt>53
-</span><span class=lnt>54
-</span><span class=lnt>55
-</span><span class=lnt>56
-</span><span class=lnt>57
-</span><span class=lnt>58
-</span><span class=lnt>59
-</span><span class=lnt>60
-</span><span class=lnt>61
-</span><span class=lnt>62
-</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;bits/stdc++.h&gt;</span><span class=cp>
-</span></span></span><span class=line><span class=cl><span class=cp></span>
-</span></span><span class=line><span class=cl><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=k>typedef</span> <span class=kt>long</span> <span class=kt>long</span> <span class=n>ll</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=k>typedef</span> <span class=n>pair</span><span class=o>&lt;</span><span class=kt>int</span><span class=p>,</span> <span class=kt>int</span><span class=o>&gt;</span> <span class=n>pii</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=k>typedef</span> <span class=n>pair</span><span class=o>&lt;</span><span class=n>ll</span><span class=p>,</span> <span class=n>ll</span><span class=o>&gt;</span> <span class=n>pll</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=cp>#define SZ(a) (int)(a).size()
-</span></span></span><span class=line><span class=cl><span class=cp>#define ALL(v) (v).begin(), (v).end()
-</span></span></span><span class=line><span class=cl><span class=cp>#define X first
-</span></span></span><span class=line><span class=cl><span class=cp>#define Y second
-</span></span></span><span class=line><span class=cl><span class=cp></span>
-</span></span><span class=line><span class=cl><span class=cp>#define dbg(x) cerr &lt;&lt; #x &lt;&lt; &#34; = &#34; &lt;&lt; x &lt;&lt; endl;
-</span></span></span><span class=line><span class=cl><span class=cp></span>
-</span></span><span class=line><span class=cl><span class=k>const</span> <span class=kt>int</span> <span class=n>N</span> <span class=o>=</span> <span class=mf>2e5</span> <span class=o>+</span> <span class=mi>5</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>g</span><span class=p>[</span><span class=n>N</span><span class=p>];</span>
-</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=n>deg</span><span class=p>[</span><span class=n>N</span><span class=p>];</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>solve</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=kt>int</span> <span class=n>n</span><span class=p>;</span> <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>n</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;=</span> <span class=n>n</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>c</span><span class=p>;</span> <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>c</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>j</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>j</span> <span class=o>&lt;</span> <span class=n>c</span><span class=p>;</span> <span class=n>j</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>      <span class=kt>int</span> <span class=n>x</span><span class=p>;</span> <span class=n>cin</span> <span class=o>&gt;&gt;</span> <span class=n>x</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>      <span class=n>g</span><span class=p>[</span><span class=n>i</span><span class=p>].</span><span class=n>push_back</span><span class=p>(</span><span class=n>x</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>      <span class=n>deg</span><span class=p>[</span><span class=n>x</span><span class=p>]</span><span class=o>++</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl>  <span class=p>}</span>
-</span></span><span class=line><span class=cl>  <span class=n>priority_queue</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>q</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;=</span> <span class=n>n</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=n>deg</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=n>q</span><span class=p>.</span><span class=n>push</span><span class=p>(</span><span class=n>i</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>  <span class=p>}</span>
-</span></span><span class=line><span class=cl>  <span class=n>vector</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span> <span class=n>res</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=k>while</span> <span class=p>(</span><span class=o>!</span><span class=n>q</span><span class=p>.</span><span class=n>empty</span><span class=p>())</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>u</span> <span class=o>=</span> <span class=n>q</span><span class=p>.</span><span class=n>top</span><span class=p>();</span> <span class=n>q</span><span class=p>.</span><span class=n>pop</span><span class=p>();</span>
-</span></span><span class=line><span class=cl>    <span class=n>res</span><span class=p>.</span><span class=n>push_back</span><span class=p>(</span><span class=n>u</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=nl>v</span> <span class=p>:</span> <span class=n>g</span><span class=p>[</span><span class=n>u</span><span class=p>])</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>      <span class=o>--</span><span class=n>deg</span><span class=p>[</span><span class=n>v</span><span class=p>];</span>
-</span></span><span class=line><span class=cl>      <span class=k>if</span> <span class=p>(</span><span class=n>deg</span><span class=p>[</span><span class=n>v</span><span class=p>]</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=n>q</span><span class=p>.</span><span class=n>push</span><span class=p>(</span><span class=n>v</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl>  <span class=p>}</span>
-</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=n>SZ</span><span class=p>(</span><span class=n>res</span><span class=p>)</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span> <span class=n>i</span> <span class=o>&gt;=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span><span class=o>--</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=n>res</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>==</span> <span class=mi>1</span><span class=p>)</span> <span class=k>break</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>    <span class=k>else</span> <span class=n>cout</span> <span class=o>&lt;&lt;</span> <span class=n>res</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>&lt;&lt;</span> <span class=s>&#34; &#34;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=p>}</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=cm>/*
-</span></span></span><span class=line><span class=cl><span class=cm>CheckList:
-</span></span></span><span class=line><span class=cl><span class=cm>1. long long
-</span></span></span><span class=line><span class=cl><span class=cm>2. mod
-</span></span></span><span class=line><span class=cl><span class=cm>3. template
-</span></span></span><span class=line><span class=cl><span class=cm>4. input/output format/content
-</span></span></span><span class=line><span class=cl><span class=cm>5. test sample input/output
-</span></span></span><span class=line><span class=cl><span class=cm>*/</span>
-</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>  <span class=n>ios</span><span class=o>::</span><span class=n>sync_with_stdio</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span><span class=n>cin</span><span class=p>.</span><span class=n>tie</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>  <span class=kt>int</span> <span class=n>T</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>  <span class=c1>// cin &gt;&gt; T;
-</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=k>while</span> <span class=p>(</span><span class=n>T</span><span class=o>--</span><span class=p>)</span> <span class=n>solve</span><span class=p>();</span>
-</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></td></tr></table></div></div><h2 id=f---shortcuts>F - Shortcuts</h2><p>待補。</p></div></article><div id=footer-post-container><div id=footer-post><div id=nav-footer style=display:none><ul><li><a href=/>Home</a></li><li><a href=/about>About</a></li><li><a href=/posts>Posts</a></li><li><a href=/resources>Resources</a></li><li><a href=/search>Search</a></li><li><a href=/tags>Tags</a></li></ul></div><div id=toc-footer style=display:none><nav id=TableOfContents><ul><li><a href=#a---tcdr>A - tcdr</a></li><li><a href=#b---the-middle-day>B - The Middle Day</a></li><li><a href=#c---flavors>C - Flavors</a></li><li><a href=#d---magical-cookies>D - Magical Cookies</a></li><li><a href=#e---prerequisites>E - Prerequisites</a></li><li><a href=#f---shortcuts>F - Shortcuts</a></li></ul></nav></div><div id=share-footer style=display:none><ul><li><a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f" aria-label=Facebook><i class="fab fa-facebook fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://twitter.com/share?url=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&text=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3" aria-label=Twitter><i class="fab fa-twitter fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&title=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3" aria-label=Linkedin><i class="fab fa-linkedin fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&is_video=false&description=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3" aria-label=Pinterest><i class="fab fa-pinterest fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="mailto:?subject=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3&body=Check out this article: https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f" aria-label=Email><i class="fas fa-envelope fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://getpocket.com/save?url=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&title=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3" aria-label=Pocket><i class="fab fa-get-pocket fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://reddit.com/submit?url=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&title=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3" aria-label=reddit><i class="fab fa-reddit fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&name=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3&description=A%20-%20tcdr%20%e7%9b%b4%e6%8e%a5%e8%b7%b3%e9%81%8e%20aeiou%20%e8%bc%b8%e5%87%ba%e5%b0%b1%e5%a5%bd%0a1%202%203%204%205%206%207%208%209%2010%2011%2012%2013%2014%2015%2016%2017%2018%2019%2020%2021%2022%2023%2024%2025%2026%2027%2028%2029%2030%2031%2032%2033%2034%2035%2036%2037%2038%20%23include%20%26lt%3bbits%2fstdc%2b%2b.h%26gt%3b%20using%20namespace%20std%3b%20typedef%20long%20long%20ll%3b%20typedef%20pair%26lt%3bint%2c%20int%26gt%3b%20pii%3b%20typedef%20pair%26lt%3bll%2c%20ll%26gt%3b%20pll%3b%20%23define%20SZ%28a%29%20%28int%29%28a%29.size%28%29%20%23define%20ALL%28v%29%20%28v%29.begin%28%29%2c%20%28v%29.end%28%29%20%23define%20X%20first%20%23define%20Y%20second%20%23define%20dbg%28x%29%20cerr%20%26lt%3b%26lt%3b%20%23x%20%26lt%3b%26lt%3b%20%26%2334%3b%20%3d%20%26%2334%3b%20%26lt%3b%26lt%3b%20x%20%26lt%3b%26lt%3b%20endl%3b%20void%20solve%28%29%20%7b%20string%20s%3b%20cin%20%26gt%3b%26gt%3b%20s%3b%20for%20%28int%20i%20%3d%200%3b%20s%5bi%5d%3b%20i%2b%2b%29%20%7b%20if%20%28s%5bi%5d%20%3d%3d%20%26%2339%3ba%26%2339%3b%20%7c%7c%20s%5bi%5d%20%3d%3d%20%26%2339%3be%26%2339%3b%20%7c%7c%20s%5bi%5d%20%3d%3d%20%26%2339%3bi%26%2339%3b%20%7c%7c%20s%5bi%5d%20%3d%3d%20%26%2339%3bo%26%2339%3b%20%7c%7c%20s%5bi%5d%20%3d%3d%20%26%2339%3bu%26%2339%3b%29%20continue%3b%20else%20cout%20%26lt%3b%26lt%3b%20s%5bi%5d%3b%20%7d%20cout%20%26lt%3b%26lt%3b%20%26%2334%3b%5cn%26%2334%3b%3b%20%7d%20%2f%2a%20CheckList%3a%201." aria-label=Tumblr><i class="fab fa-tumblr fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&t=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3" aria-label="Hacker News"><i class="fab fa-hacker-news fa-lg" aria-hidden=true></i></a></li></ul></div><div id=actions-footer><a id=menu-toggle class=icon href=# onclick='return $("#nav-footer").toggle(),!1' aria-label=Menu><i class="fas fa-bars fa-lg" aria-hidden=true></i> Menu</a>
-<a id=toc-toggle class=icon href=# onclick='return $("#toc-footer").toggle(),!1' aria-label=TOC><i class="fas fa-list fa-lg" aria-hidden=true></i> TOC</a>
-<a id=share-toggle class=icon href=# onclick='return $("#share-footer").toggle(),!1' aria-label=Share><i class="fas fa-share-alt fa-lg" aria-hidden=true></i> share</a>
-<a id=top style=display:none class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg" aria-hidden=true></i> Top</a></div></div></div><footer id=footer><div class=footer-left>Copyright &copy; 2025 Erin Li</div><div class=footer-right><nav><ul><li><a href=/>Home</a></li><li><a href=/about>About</a></li><li><a href=/posts>Posts</a></li><li><a href=/resources>Resources</a></li><li><a href=/search>Search</a></li><li><a href=/tags>Tags</a></li></ul></nav></div></footer></div><link rel=stylesheet href=/lib/font-awesome/css/all.min.css><script src=/lib/jquery/jquery.min.js></script><script src=/js/main.js></script><script src=/js/code-copy.js></script><script>MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]]},svg:{fontCache:"global"}}</script><script type=text/javascript id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script><script src=/lib/clipboard/clipboard.min.js></script><script>$(function(){var t,e='<span class="btn-copy tooltipped tooltipped-sw" aria-label="Copy to clipboard!">';e+='<i class="far fa-clone"></i>',e+="</span>",$(".highlight table").before(e),t=new ClipboardJS(".btn-copy",{text:function(e){var t='code[data-lang]:not([data-lang=""])',n=Array.from(e.nextElementSibling.querySelectorAll(t)).reduce((e,t)=>e+t.innerText+`
-`,"");return n}}),t.on("success",function(e){e.trigger.setAttribute("aria-label","Copied!"),e.clearSelection()}),t.on("error",function(e){console.error("Action:",e.action),console.error("Trigger:",e.trigger)})})</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
+  <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Atcoder Beginner Contest 315 題解 | 隨寫日誌</title>
+  <link rel = 'canonical' href = 'https://yun-20459.github.io/posts/atcoder-beginner-contest-315-%E9%A1%8C%E8%A7%A3/'>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:url" content="https://yun-20459.github.io/posts/atcoder-beginner-contest-315-%E9%A1%8C%E8%A7%A3/">
+  <meta property="og:site_name" content="隨寫日誌">
+  <meta property="og:title" content="Atcoder Beginner Contest 315 題解">
+  <meta property="og:description" content="A - tcdr 直接跳過 aeiou 輸出就好
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 #include &lt;bits/stdc&#43;&#43;.h&gt; using namespace std; typedef long long ll; typedef pair&lt;int, int&gt; pii; typedef pair&lt;ll, ll&gt; pll; #define SZ(a) (int)(a).size() #define ALL(v) (v).begin(), (v).end() #define X first #define Y second #define dbg(x) cerr &lt;&lt; #x &lt;&lt; &#34; = &#34; &lt;&lt; x &lt;&lt; endl; void solve() { string s; cin &gt;&gt; s; for (int i = 0; s[i]; i&#43;&#43;) { if (s[i] == &#39;a&#39; || s[i] == &#39;e&#39; || s[i] == &#39;i&#39; || s[i] == &#39;o&#39; || s[i] == &#39;u&#39;) continue; else cout &lt;&lt; s[i]; } cout &lt;&lt; &#34;\n&#34;; } /* CheckList: 1. long long 2. mod 3. template 4. input/output format/content 5. test sample input/output */ int main() { ios::sync_with_stdio(0);cin.tie(0); int T = 1; // cin &gt;&gt; T; while (T--) solve(); return 0; } B - The Middle Day 算出總和之後 / 2，然後一個一個月慢慢算現在有沒有超過就好">
+  <meta property="og:locale" content="zh_tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-08-20T21:42:01+00:00">
+    <meta property="article:modified_time" content="2023-08-20T21:42:01+00:00">
+    <meta property="article:tag" content="Atcoder">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Atcoder Beginner Contest 315 題解">
+  <meta name="twitter:description" content="A - tcdr 直接跳過 aeiou 輸出就好
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 #include &lt;bits/stdc&#43;&#43;.h&gt; using namespace std; typedef long long ll; typedef pair&lt;int, int&gt; pii; typedef pair&lt;ll, ll&gt; pll; #define SZ(a) (int)(a).size() #define ALL(v) (v).begin(), (v).end() #define X first #define Y second #define dbg(x) cerr &lt;&lt; #x &lt;&lt; &#34; = &#34; &lt;&lt; x &lt;&lt; endl; void solve() { string s; cin &gt;&gt; s; for (int i = 0; s[i]; i&#43;&#43;) { if (s[i] == &#39;a&#39; || s[i] == &#39;e&#39; || s[i] == &#39;i&#39; || s[i] == &#39;o&#39; || s[i] == &#39;u&#39;) continue; else cout &lt;&lt; s[i]; } cout &lt;&lt; &#34;\n&#34;; } /* CheckList: 1. long long 2. mod 3. template 4. input/output format/content 5. test sample input/output */ int main() { ios::sync_with_stdio(0);cin.tie(0); int T = 1; // cin &gt;&gt; T; while (T--) solve(); return 0; } B - The Middle Day 算出總和之後 / 2，然後一個一個月慢慢算現在有沒有超過就好">
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://yun-20459.github.io/css/styles.36c12a99052778131d28078b3171237fd0184ad9b87c778208912a8d08e2d0194867a030c64d9b02d6077de53a8a9979249331f971fb47c471a2d59676520a3a.css" integrity="sha512-NsEqmQUneBMdKAeLMXEjf9AYStm4fHeCCJEqjQji0BlIZ6Awxk2bAtYHfeU6ipl5JJMx&#43;XH7R8RxotWWdlIKOg=="> 
+
+  
+   <link rel="stylesheet" href="https://yun-20459.github.io/css/highlight.css">  <link rel="stylesheet" href="https://yun-20459.github.io/css/style-dark.css">  <link rel="stylesheet" href="https://yun-20459.github.io/css/search.css"> 
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://yun-20459.github.io/images/favicon.ico" />
+
+
+  
+
+  
+
+  
+
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/about">About</a></li>
+         
+        <li><a href="/posts">Posts</a></li>
+         
+        <li><a href="/resources">Resources</a></li>
+         
+        <li><a href="/search">Search</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://yun-20459.github.io/posts/atcoder-beginner-contest-312-%E9%A1%8C%E8%A7%A3/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="https://yun-20459.github.io/posts/%E6%B5%AE%E9%BB%9E%E6%95%B8%E4%BA%8C%E5%88%86%E6%90%9C%E6%8A%80%E5%B7%A7/" aria-label="Next">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&text=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&title=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&is_video=false&description=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3&body=Check out this article: https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&title=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&title=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&name=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3&description=%3ch2%20id%3d%22a---tcdr%22%3eA%20-%20tcdr%3c%2fh2%3e%0a%3cp%3e%e7%9b%b4%e6%8e%a5%e8%b7%b3%e9%81%8e%20aeiou%20%e8%bc%b8%e5%87%ba%e5%b0%b1%e5%a5%bd%3c%2fp%3e%0a%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e%201%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e%202%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e%203%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e%204%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e%205%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e%206%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e%207%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e%208%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e%209%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e10%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e11%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e12%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e13%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e14%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e15%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e16%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e17%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e18%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e19%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e20%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e21%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e22%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e23%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e24%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e25%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e26%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e27%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e28%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e29%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e30%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e31%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e32%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e33%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e34%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e35%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e36%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e37%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e38%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-cpp%22%20data-lang%3d%22cpp%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cp%22%3e%23include%3c%2fspan%3e%20%3cspan%20class%3d%22cpf%22%3e%26lt%3bbits%2fstdc%2b%2b.h%26gt%3b%3c%2fspan%3e%3cspan%20class%3d%22cp%22%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cp%22%3e%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22k%22%3eusing%3c%2fspan%3e%20%3cspan%20class%3d%22k%22%3enamespace%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3estd%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22k%22%3etypedef%3c%2fspan%3e%20%3cspan%20class%3d%22kt%22%3elong%3c%2fspan%3e%20%3cspan%20class%3d%22kt%22%3elong%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3ell%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22k%22%3etypedef%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3epair%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e%26lt%3b%3c%2fspan%3e%3cspan%20class%3d%22kt%22%3eint%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%2c%3c%2fspan%3e%20%3cspan%20class%3d%22kt%22%3eint%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e%26gt%3b%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3epii%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22k%22%3etypedef%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3epair%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e%26lt%3b%3c%2fspan%3e%3cspan%20class%3d%22n%22%3ell%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%2c%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3ell%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e%26gt%3b%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3epll%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cp%22%3e%23define%20SZ%28a%29%20%28int%29%28a%29.size%28%29%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cp%22%3e%23define%20ALL%28v%29%20%28v%29.begin%28%29%2c%20%28v%29.end%28%29%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cp%22%3e%23define%20X%20first%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cp%22%3e%23define%20Y%20second%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cp%22%3e%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cp%22%3e%23define%20dbg%28x%29%20cerr%20%26lt%3b%26lt%3b%20%23x%20%26lt%3b%26lt%3b%20%26%2334%3b%20%3d%20%26%2334%3b%20%26lt%3b%26lt%3b%20x%20%26lt%3b%26lt%3b%20endl%3b%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cp%22%3e%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22kt%22%3evoid%3c%2fspan%3e%20%3cspan%20class%3d%22nf%22%3esolve%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%28%29%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%3cspan%20class%3d%22n%22%3estring%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3es%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3ecin%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%26gt%3b%26gt%3b%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3es%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%3cspan%20class%3d%22k%22%3efor%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%28%3c%2fspan%3e%3cspan%20class%3d%22kt%22%3eint%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3ei%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%3d%3c%2fspan%3e%20%3cspan%20class%3d%22mi%22%3e0%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3es%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5b%3c%2fspan%3e%3cspan%20class%3d%22n%22%3ei%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5d%3b%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3ei%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e%2b%2b%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%29%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20%3cspan%20class%3d%22k%22%3eif%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%28%3c%2fspan%3e%3cspan%20class%3d%22n%22%3es%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5b%3c%2fspan%3e%3cspan%20class%3d%22n%22%3ei%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5d%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%3d%3d%3c%2fspan%3e%20%3cspan%20class%3d%22sc%22%3e%26%2339%3ba%26%2339%3b%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%7c%7c%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3es%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5b%3c%2fspan%3e%3cspan%20class%3d%22n%22%3ei%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5d%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%3d%3d%3c%2fspan%3e%20%3cspan%20class%3d%22sc%22%3e%26%2339%3be%26%2339%3b%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%7c%7c%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3es%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5b%3c%2fspan%3e%3cspan%20class%3d%22n%22%3ei%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5d%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%3d%3d%3c%2fspan%3e%20%3cspan%20class%3d%22sc%22%3e%26%2339%3bi%26%2339%3b%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%7c%7c%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3es%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5b%3c%2fspan%3e%3cspan%20class%3d%22n%22%3ei%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5d%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%3d%3d%3c%2fspan%3e%20%3cspan%20class%3d%22sc%22%3e%26%2339%3bo%26%2339%3b%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%7c%7c%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3es%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5b%3c%2fspan%3e%3cspan%20class%3d%22n%22%3ei%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5d%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%3d%3d%3c%2fspan%3e%20%3cspan%20class%3d%22sc%22%3e%26%2339%3bu%26%2339%3b%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%29%3c%2fspan%3e%20%3cspan%20class%3d%22k%22%3econtinue%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20%20%20%3cspan%20class%3d%22k%22%3eelse%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3ecout%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%26lt%3b%26lt%3b%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3es%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5b%3c%2fspan%3e%3cspan%20class%3d%22n%22%3ei%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5d%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%3cspan%20class%3d%22n%22%3ecout%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%26lt%3b%26lt%3b%3c%2fspan%3e%20%3cspan%20class%3d%22s%22%3e%26%2334%3b%3c%2fspan%3e%3cspan%20class%3d%22se%22%3e%5cn%3c%2fspan%3e%3cspan%20class%3d%22s%22%3e%26%2334%3b%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%20%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cm%22%3e%2f%2a%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cm%22%3eCheckList%3a%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cm%22%3e1.%20long%20long%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cm%22%3e2.%20mod%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cm%22%3e3.%20template%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cm%22%3e4.%20input%2foutput%20format%2fcontent%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cm%22%3e5.%20test%20sample%20input%2foutput%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cm%22%3e%2a%2f%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22kt%22%3eint%3c%2fspan%3e%20%3cspan%20class%3d%22nf%22%3emain%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%28%29%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%3cspan%20class%3d%22n%22%3eios%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e%3a%3a%3c%2fspan%3e%3cspan%20class%3d%22n%22%3esync_with_stdio%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%28%3c%2fspan%3e%3cspan%20class%3d%22mi%22%3e0%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%29%3b%3c%2fspan%3e%3cspan%20class%3d%22n%22%3ecin%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e.%3c%2fspan%3e%3cspan%20class%3d%22n%22%3etie%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%28%3c%2fspan%3e%3cspan%20class%3d%22mi%22%3e0%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%29%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%3cspan%20class%3d%22kt%22%3eint%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3eT%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%3d%3c%2fspan%3e%20%3cspan%20class%3d%22mi%22%3e1%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%3cspan%20class%3d%22c1%22%3e%2f%2f%20cin%20%26gt%3b%26gt%3b%20T%3b%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22c1%22%3e%3c%2fspan%3e%20%20%3cspan%20class%3d%22k%22%3ewhile%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%28%3c%2fspan%3e%3cspan%20class%3d%22n%22%3eT%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e--%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%29%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3esolve%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%28%29%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%3cspan%20class%3d%22k%22%3ereturn%3c%2fspan%3e%20%3cspan%20class%3d%22mi%22%3e0%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3ch2%20id%3d%22b---the-middle-day%22%3eB%20-%20The%20Middle%20Day%3c%2fh2%3e%0a%3cp%3e%e7%ae%97%e5%87%ba%e7%b8%bd%e5%92%8c%e4%b9%8b%e5%be%8c%20%2f%202%ef%bc%8c%e7%84%b6%e5%be%8c%e4%b8%80%e5%80%8b%e4%b8%80%e5%80%8b%e6%9c%88%e6%85%a2%e6%85%a2%e7%ae%97%e7%8f%be%e5%9c%a8%e6%9c%89%e6%b2%92%e6%9c%89%e8%b6%85%e9%81%8e%e5%b0%b1%e5%a5%bd%3c%2fp%3e" aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&t=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#a---tcdr">A - tcdr</a></li>
+    <li><a href="#b---the-middle-day">B - The Middle Day</a></li>
+    <li><a href="#c---flavors">C - Flavors</a></li>
+    <li><a href="#d---magical-cookies">D - Magical Cookies</a></li>
+    <li><a href="#e---prerequisites">E - Prerequisites</a></li>
+    <li><a href="#f---shortcuts">F - Shortcuts</a></li>
+  </ul>
+</nav>
+    </div>
+    
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Atcoder Beginner Contest 315 題解
+      </h1>
+      <div class="meta">
+        <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">
+            
+              
+            
+          </span>
+        </span>
+        <div class="postdate">
+          
+          <time datetime="2023-08-20 21:42:01 &#43;0000 UTC" itemprop="datePublished">2023-08-20</time>
+          
+        </div>
+        
+        
+        <div class="article-read-time">
+          <i class="far fa-clock"></i>
+          
+          7 minute read
+        </div>
+        
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/tags/atcoder/" rel="tag">Atcoder</a>
+            
+        </div>
+        
+      </div>
+    </header>
+
+  
+    
+    <div class="content" itemprop="articleBody">
+      <h2 id="a---tcdr">A - tcdr</h2>
+<p>直接跳過 aeiou 輸出就好</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">pii</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="n">pair</span><span class="o">&lt;</span><span class="n">ll</span><span class="p">,</span> <span class="n">ll</span><span class="o">&gt;</span> <span class="n">pll</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define SZ(a) (int)(a).size()
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define ALL(v) (v).begin(), (v).end()
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define X first
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define Y second
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define dbg(x) cerr &lt;&lt; #x &lt;&lt; &#34; = &#34; &lt;&lt; x &lt;&lt; endl;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">solve</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">string</span> <span class="n">s</span><span class="p">;</span> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="sc">&#39;a&#39;</span> <span class="o">||</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="sc">&#39;e&#39;</span> <span class="o">||</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="sc">&#39;i&#39;</span> <span class="o">||</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="sc">&#39;o&#39;</span> <span class="o">||</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="sc">&#39;u&#39;</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">CheckList:
+</span></span></span><span class="line"><span class="cl"><span class="cm">1. long long
+</span></span></span><span class="line"><span class="cl"><span class="cm">2. mod
+</span></span></span><span class="line"><span class="cl"><span class="cm">3. template
+</span></span></span><span class="line"><span class="cl"><span class="cm">4. input/output format/content
+</span></span></span><span class="line"><span class="cl"><span class="cm">5. test sample input/output
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">T</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// cin &gt;&gt; T;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">while</span> <span class="p">(</span><span class="n">T</span><span class="o">--</span><span class="p">)</span> <span class="n">solve</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="b---the-middle-day">B - The Middle Day</h2>
+<p>算出總和之後 / 2，然後一個一個月慢慢算現在有沒有超過就好</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">pii</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="n">pair</span><span class="o">&lt;</span><span class="n">ll</span><span class="p">,</span> <span class="n">ll</span><span class="o">&gt;</span> <span class="n">pll</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define SZ(a) (int)(a).size()
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define ALL(v) (v).begin(), (v).end()
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define X first
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define Y second
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define dbg(x) cerr &lt;&lt; #x &lt;&lt; &#34; = &#34; &lt;&lt; x &lt;&lt; endl;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">solve</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">m</span><span class="p">;</span> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">m</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">d</span><span class="p">(</span><span class="n">m</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="o">&amp;</span><span class="nl">x</span> <span class="p">:</span> <span class="n">d</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sum</span> <span class="o">+=</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="n">sum</span> <span class="o">/=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">sum</span> <span class="o">&gt;=</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="n">sum</span> <span class="o">-=</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">CheckList:
+</span></span></span><span class="line"><span class="cl"><span class="cm">1. long long
+</span></span></span><span class="line"><span class="cl"><span class="cm">2. mod
+</span></span></span><span class="line"><span class="cl"><span class="cm">3. template
+</span></span></span><span class="line"><span class="cl"><span class="cm">4. input/output format/content
+</span></span></span><span class="line"><span class="cl"><span class="cm">5. test sample input/output
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">T</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// cin &gt;&gt; T;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">while</span> <span class="p">(</span><span class="n">T</span><span class="o">--</span><span class="p">)</span> <span class="n">solve</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="c---flavors">C - Flavors</h2>
+<p>直接分兩個 case 算，如果最大的兩個不同 flavor 的話，那答案一定是他們相加，不然就去把所有 flavor 的最大拿出來，然後拿兩個最大的相加就好。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">pii</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="n">pair</span><span class="o">&lt;</span><span class="n">ll</span><span class="p">,</span> <span class="n">ll</span><span class="o">&gt;</span> <span class="n">pll</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define SZ(a) (int)(a).size()
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define ALL(v) (v).begin(), (v).end()
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define X first
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define Y second
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define dbg(x) cerr &lt;&lt; #x &lt;&lt; &#34; = &#34; &lt;&lt; x &lt;&lt; endl;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">solve</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">n</span><span class="p">;</span> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">vector</span><span class="o">&lt;</span><span class="n">pii</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="o">&amp;</span><span class="nl">p</span> <span class="p">:</span> <span class="n">v</span><span class="p">)</span> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">p</span><span class="p">.</span><span class="n">Y</span> <span class="o">&gt;&gt;</span> <span class="n">p</span><span class="p">.</span><span class="n">X</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">sort</span><span class="p">(</span><span class="n">ALL</span><span class="p">(</span><span class="n">v</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ll</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="n">Y</span> <span class="o">==</span> <span class="n">v</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">].</span><span class="n">Y</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">res</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="n">X</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">].</span><span class="n">X</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">mxf</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">mxf</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Y</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">mxf</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Y</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">X</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ll</span> <span class="n">mx</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="n">X</span><span class="p">,</span> <span class="n">second_mx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">mxf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">second_mx</span> <span class="o">&amp;&amp;</span> <span class="n">mxf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">mx</span><span class="p">)</span> <span class="n">second_mx</span> <span class="o">=</span> <span class="n">mxf</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">res</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">second_mx</span> <span class="o">+</span> <span class="n">mx</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">res</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="n">X</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">].</span><span class="n">X</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">res</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">CheckList:
+</span></span></span><span class="line"><span class="cl"><span class="cm">1. long long
+</span></span></span><span class="line"><span class="cl"><span class="cm">2. mod
+</span></span></span><span class="line"><span class="cl"><span class="cm">3. template
+</span></span></span><span class="line"><span class="cl"><span class="cm">4. input/output format/content
+</span></span></span><span class="line"><span class="cl"><span class="cm">5. test sample input/output
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">T</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// cin &gt;&gt; T;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">while</span> <span class="p">(</span><span class="n">T</span><span class="o">--</span><span class="p">)</span> <span class="n">solve</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="d---magical-cookies">D - Magical Cookies</h2>
+<p>死亡實作 @@，可以想像像題目那樣枚舉的話會是 $O(H^2W)$ 會 TLE，所以可以利用字元集很少這個特性來做，簡單來說就是先算好每行/列的每個字元有多少，然後每次就去看現在還沒被刪掉的有沒有字元是會整行/列都一樣的，就把他移掉，然後這個過程因為只有 $H + W$ 行+列，所以只會做到 $H + W$ 次。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">pii</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="n">pair</span><span class="o">&lt;</span><span class="n">ll</span><span class="p">,</span> <span class="n">ll</span><span class="o">&gt;</span> <span class="n">pll</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define SZ(a) (int)(a).size()
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define ALL(v) (v).begin(), (v).end()
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define X first
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define Y second
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define dbg(x) cerr &lt;&lt; #x &lt;&lt; &#34; = &#34; &lt;&lt; x &lt;&lt; endl;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">solve</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">;</span> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">h</span> <span class="o">&gt;&gt;</span> <span class="n">w</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">(</span><span class="n">h</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="o">&amp;</span><span class="nl">s</span> <span class="p">:</span> <span class="n">v</span><span class="p">)</span> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">cnth</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span> <span class="n">cntw</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">h</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">w</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">ind</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="sc">&#39;a&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cnth</span><span class="p">[</span><span class="n">ind</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cntw</span><span class="p">[</span><span class="n">ind</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">resh</span> <span class="o">=</span> <span class="n">h</span><span class="p">,</span> <span class="n">resw</span> <span class="o">=</span> <span class="n">w</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">vector</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">skiph</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="nb">false</span><span class="p">),</span> <span class="n">skipw</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">_</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">_</span> <span class="o">&lt;</span> <span class="n">h</span> <span class="o">+</span> <span class="n">w</span><span class="p">;</span> <span class="n">_</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vector</span><span class="o">&lt;</span><span class="n">pii</span><span class="o">&gt;</span> <span class="n">ch</span><span class="p">,</span> <span class="n">cw</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">h</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">skiph</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">26</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">cnth</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">resw</span> <span class="o">&amp;&amp;</span> <span class="n">resw</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">ch</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">w</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">skipw</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">26</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">cntw</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">resh</span> <span class="o">&amp;&amp;</span> <span class="n">resh</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">cw</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">p</span> <span class="p">:</span> <span class="n">ch</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">skiph</span><span class="p">[</span><span class="n">p</span><span class="p">.</span><span class="n">X</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">w</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">cntw</span><span class="p">[</span><span class="n">p</span><span class="p">.</span><span class="n">Y</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">resh</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">p</span> <span class="p">:</span> <span class="n">cw</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">skipw</span><span class="p">[</span><span class="n">p</span><span class="p">.</span><span class="n">X</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">h</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="n">cnth</span><span class="p">[</span><span class="n">p</span><span class="p">.</span><span class="n">Y</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">resw</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">resh</span> <span class="o">*</span> <span class="n">resw</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">CheckList:
+</span></span></span><span class="line"><span class="cl"><span class="cm">1. long long
+</span></span></span><span class="line"><span class="cl"><span class="cm">2. mod
+</span></span></span><span class="line"><span class="cl"><span class="cm">3. template
+</span></span></span><span class="line"><span class="cl"><span class="cm">4. input/output format/content
+</span></span></span><span class="line"><span class="cl"><span class="cm">5. test sample input/output
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">T</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// cin &gt;&gt; T;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">while</span> <span class="p">(</span><span class="n">T</span><span class="o">--</span><span class="p">)</span> <span class="n">solve</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="e---prerequisites">E - Prerequisites</h2>
+<p>乍看之下是簡單的拓墣排序，但是注意到他要求最小數量，所以有些根本不會在 DAG 裡的孤點我們就不管它，這時候就可以利用題目要求的是 read book 1，用一個 priority_queue 來代替平常拓墣排序用的 queue，這樣編號比較大的孤點在處理到有關 1 之前的 DAG 之前就會被先 pop 掉。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">ll</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">pii</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">typedef</span> <span class="n">pair</span><span class="o">&lt;</span><span class="n">ll</span><span class="p">,</span> <span class="n">ll</span><span class="o">&gt;</span> <span class="n">pll</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define SZ(a) (int)(a).size()
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define ALL(v) (v).begin(), (v).end()
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define X first
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define Y second
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#define dbg(x) cerr &lt;&lt; #x &lt;&lt; &#34; = &#34; &lt;&lt; x &lt;&lt; endl;
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="kt">int</span> <span class="n">N</span> <span class="o">=</span> <span class="mf">2e5</span> <span class="o">+</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">g</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">deg</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">solve</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">n</span><span class="p">;</span> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">c</span><span class="p">;</span> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">int</span> <span class="n">x</span><span class="p">;</span> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">g</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="n">deg</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="n">priority_queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">q</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">deg</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">res</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">u</span> <span class="o">=</span> <span class="n">q</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">res</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">u</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">v</span> <span class="p">:</span> <span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="o">--</span><span class="n">deg</span><span class="p">[</span><span class="n">v</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">deg</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">q</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">SZ</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">&#34; &#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">CheckList:
+</span></span></span><span class="line"><span class="cl"><span class="cm">1. long long
+</span></span></span><span class="line"><span class="cl"><span class="cm">2. mod
+</span></span></span><span class="line"><span class="cl"><span class="cm">3. template
+</span></span></span><span class="line"><span class="cl"><span class="cm">4. input/output format/content
+</span></span></span><span class="line"><span class="cl"><span class="cm">5. test sample input/output
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">T</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// cin &gt;&gt; T;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">while</span> <span class="p">(</span><span class="n">T</span><span class="o">--</span><span class="p">)</span> <span class="n">solve</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="f---shortcuts">F - Shortcuts</h2>
+<p>待補。</p>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about">About</a></li>
+         
+          <li><a href="/posts">Posts</a></li>
+         
+          <li><a href="/resources">Resources</a></li>
+         
+          <li><a href="/search">Search</a></li>
+         
+          <li><a href="/tags">Tags</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#a---tcdr">A - tcdr</a></li>
+    <li><a href="#b---the-middle-day">B - The Middle Day</a></li>
+    <li><a href="#c---flavors">C - Flavors</a></li>
+    <li><a href="#d---magical-cookies">D - Magical Cookies</a></li>
+    <li><a href="#e---prerequisites">E - Prerequisites</a></li>
+    <li><a href="#f---shortcuts">F - Shortcuts</a></li>
+  </ul>
+</nav>
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&text=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&title=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&is_video=false&description=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3&body=Check out this article: https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&title=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&title=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&name=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3&description=%3ch2%20id%3d%22a---tcdr%22%3eA%20-%20tcdr%3c%2fh2%3e%0a%3cp%3e%e7%9b%b4%e6%8e%a5%e8%b7%b3%e9%81%8e%20aeiou%20%e8%bc%b8%e5%87%ba%e5%b0%b1%e5%a5%bd%3c%2fp%3e%0a%3cdiv%20class%3d%22highlight%22%3e%3cdiv%20class%3d%22chroma%22%3e%0a%3ctable%20class%3d%22lntable%22%3e%3ctr%3e%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%3e%3cspan%20class%3d%22lnt%22%3e%201%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e%202%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e%203%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e%204%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e%205%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e%206%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e%207%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e%208%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e%209%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e10%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e11%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e12%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e13%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e14%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e15%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e16%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e17%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e18%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e19%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e20%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e21%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e22%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e23%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e24%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e25%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e26%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e27%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e28%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e29%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e30%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e31%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e32%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e33%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e34%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e35%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e36%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e37%0a%3c%2fspan%3e%3cspan%20class%3d%22lnt%22%3e38%0a%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%0a%3ctd%20class%3d%22lntd%22%3e%0a%3cpre%20tabindex%3d%220%22%20class%3d%22chroma%22%3e%3ccode%20class%3d%22language-cpp%22%20data-lang%3d%22cpp%22%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cp%22%3e%23include%3c%2fspan%3e%20%3cspan%20class%3d%22cpf%22%3e%26lt%3bbits%2fstdc%2b%2b.h%26gt%3b%3c%2fspan%3e%3cspan%20class%3d%22cp%22%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cp%22%3e%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22k%22%3eusing%3c%2fspan%3e%20%3cspan%20class%3d%22k%22%3enamespace%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3estd%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22k%22%3etypedef%3c%2fspan%3e%20%3cspan%20class%3d%22kt%22%3elong%3c%2fspan%3e%20%3cspan%20class%3d%22kt%22%3elong%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3ell%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22k%22%3etypedef%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3epair%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e%26lt%3b%3c%2fspan%3e%3cspan%20class%3d%22kt%22%3eint%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%2c%3c%2fspan%3e%20%3cspan%20class%3d%22kt%22%3eint%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e%26gt%3b%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3epii%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22k%22%3etypedef%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3epair%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e%26lt%3b%3c%2fspan%3e%3cspan%20class%3d%22n%22%3ell%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%2c%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3ell%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e%26gt%3b%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3epll%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cp%22%3e%23define%20SZ%28a%29%20%28int%29%28a%29.size%28%29%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cp%22%3e%23define%20ALL%28v%29%20%28v%29.begin%28%29%2c%20%28v%29.end%28%29%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cp%22%3e%23define%20X%20first%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cp%22%3e%23define%20Y%20second%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cp%22%3e%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cp%22%3e%23define%20dbg%28x%29%20cerr%20%26lt%3b%26lt%3b%20%23x%20%26lt%3b%26lt%3b%20%26%2334%3b%20%3d%20%26%2334%3b%20%26lt%3b%26lt%3b%20x%20%26lt%3b%26lt%3b%20endl%3b%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cp%22%3e%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22kt%22%3evoid%3c%2fspan%3e%20%3cspan%20class%3d%22nf%22%3esolve%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%28%29%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%3cspan%20class%3d%22n%22%3estring%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3es%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3ecin%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%26gt%3b%26gt%3b%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3es%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%3cspan%20class%3d%22k%22%3efor%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%28%3c%2fspan%3e%3cspan%20class%3d%22kt%22%3eint%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3ei%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%3d%3c%2fspan%3e%20%3cspan%20class%3d%22mi%22%3e0%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3es%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5b%3c%2fspan%3e%3cspan%20class%3d%22n%22%3ei%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5d%3b%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3ei%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e%2b%2b%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%29%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20%3cspan%20class%3d%22k%22%3eif%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%28%3c%2fspan%3e%3cspan%20class%3d%22n%22%3es%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5b%3c%2fspan%3e%3cspan%20class%3d%22n%22%3ei%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5d%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%3d%3d%3c%2fspan%3e%20%3cspan%20class%3d%22sc%22%3e%26%2339%3ba%26%2339%3b%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%7c%7c%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3es%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5b%3c%2fspan%3e%3cspan%20class%3d%22n%22%3ei%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5d%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%3d%3d%3c%2fspan%3e%20%3cspan%20class%3d%22sc%22%3e%26%2339%3be%26%2339%3b%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%7c%7c%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3es%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5b%3c%2fspan%3e%3cspan%20class%3d%22n%22%3ei%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5d%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%3d%3d%3c%2fspan%3e%20%3cspan%20class%3d%22sc%22%3e%26%2339%3bi%26%2339%3b%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%7c%7c%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3es%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5b%3c%2fspan%3e%3cspan%20class%3d%22n%22%3ei%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5d%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%3d%3d%3c%2fspan%3e%20%3cspan%20class%3d%22sc%22%3e%26%2339%3bo%26%2339%3b%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%7c%7c%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3es%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5b%3c%2fspan%3e%3cspan%20class%3d%22n%22%3ei%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5d%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%3d%3d%3c%2fspan%3e%20%3cspan%20class%3d%22sc%22%3e%26%2339%3bu%26%2339%3b%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%29%3c%2fspan%3e%20%3cspan%20class%3d%22k%22%3econtinue%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%20%20%20%20%3cspan%20class%3d%22k%22%3eelse%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3ecout%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%26lt%3b%26lt%3b%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3es%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5b%3c%2fspan%3e%3cspan%20class%3d%22n%22%3ei%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%5d%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%3cspan%20class%3d%22n%22%3ecout%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%26lt%3b%26lt%3b%3c%2fspan%3e%20%3cspan%20class%3d%22s%22%3e%26%2334%3b%3c%2fspan%3e%3cspan%20class%3d%22se%22%3e%5cn%3c%2fspan%3e%3cspan%20class%3d%22s%22%3e%26%2334%3b%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%20%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cm%22%3e%2f%2a%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cm%22%3eCheckList%3a%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cm%22%3e1.%20long%20long%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cm%22%3e2.%20mod%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cm%22%3e3.%20template%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cm%22%3e4.%20input%2foutput%20format%2fcontent%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cm%22%3e5.%20test%20sample%20input%2foutput%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22cm%22%3e%2a%2f%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22kt%22%3eint%3c%2fspan%3e%20%3cspan%20class%3d%22nf%22%3emain%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%28%29%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%7b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%3cspan%20class%3d%22n%22%3eios%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e%3a%3a%3c%2fspan%3e%3cspan%20class%3d%22n%22%3esync_with_stdio%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%28%3c%2fspan%3e%3cspan%20class%3d%22mi%22%3e0%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%29%3b%3c%2fspan%3e%3cspan%20class%3d%22n%22%3ecin%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e.%3c%2fspan%3e%3cspan%20class%3d%22n%22%3etie%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%28%3c%2fspan%3e%3cspan%20class%3d%22mi%22%3e0%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%29%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%3cspan%20class%3d%22kt%22%3eint%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3eT%3c%2fspan%3e%20%3cspan%20class%3d%22o%22%3e%3d%3c%2fspan%3e%20%3cspan%20class%3d%22mi%22%3e1%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%3cspan%20class%3d%22c1%22%3e%2f%2f%20cin%20%26gt%3b%26gt%3b%20T%3b%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22c1%22%3e%3c%2fspan%3e%20%20%3cspan%20class%3d%22k%22%3ewhile%3c%2fspan%3e%20%3cspan%20class%3d%22p%22%3e%28%3c%2fspan%3e%3cspan%20class%3d%22n%22%3eT%3c%2fspan%3e%3cspan%20class%3d%22o%22%3e--%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%29%3c%2fspan%3e%20%3cspan%20class%3d%22n%22%3esolve%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%28%29%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%20%20%3cspan%20class%3d%22k%22%3ereturn%3c%2fspan%3e%20%3cspan%20class%3d%22mi%22%3e0%3c%2fspan%3e%3cspan%20class%3d%22p%22%3e%3b%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3cspan%20class%3d%22line%22%3e%3cspan%20class%3d%22cl%22%3e%3cspan%20class%3d%22p%22%3e%7d%3c%2fspan%3e%0a%3c%2fspan%3e%3c%2fspan%3e%3c%2fcode%3e%3c%2fpre%3e%3c%2ftd%3e%3c%2ftr%3e%3c%2ftable%3e%0a%3c%2fdiv%3e%0a%3c%2fdiv%3e%3ch2%20id%3d%22b---the-middle-day%22%3eB%20-%20The%20Middle%20Day%3c%2fh2%3e%0a%3cp%3e%e7%ae%97%e5%87%ba%e7%b8%bd%e5%92%8c%e4%b9%8b%e5%be%8c%20%2f%202%ef%bc%8c%e7%84%b6%e5%be%8c%e4%b8%80%e5%80%8b%e4%b8%80%e5%80%8b%e6%9c%88%e6%85%a2%e6%85%a2%e7%ae%97%e7%8f%be%e5%9c%a8%e6%9c%89%e6%b2%92%e6%9c%89%e8%b6%85%e9%81%8e%e5%b0%b1%e5%a5%bd%3c%2fp%3e" aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fyun-20459.github.io%2fposts%2fatcoder-beginner-contest-315-%25E9%25A1%258C%25E8%25A7%25A3%2f&t=Atcoder%20Beginner%20Contest%20315%20%e9%a1%8c%e8%a7%a3" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2025  Erin Li 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/about">About</a></li>
+         
+        <li><a href="/posts">Posts</a></li>
+         
+        <li><a href="/resources">Resources</a></li>
+         
+        <li><a href="/search">Search</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+<script src=/js/code-copy.js></script>
+
+
+
+  
+
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+</script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+
+
+<script src=/lib/clipboard/clipboard.min.js></script>
+<script>
+  $(function () {
+    
+    let btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\" style=\"z-index: 9999\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    
+    $(".highlight table").before(btn);
+    const clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+          const selector = 'code[data-lang]:not([data-lang=""]) > span';
+          const elements = Array.from(trigger.nextElementSibling.querySelectorAll(selector));
+          const code = elements.map(e => e.innerText).join('');
+          return code;
+      }
+    });
+    clip.on("success", function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    });
+    clip.on("error", function(e) {
+      console.error("Action:", e.action);
+      console.error("Trigger:", e.trigger);
+    });
+  });
+</script>
+
+<script type="text/javascript" src=/js/canvas-nest.js
+  count=90
+  color="0,200,100"
+  opacity=0.5
+>
+</script>
+</body>
+</html>
